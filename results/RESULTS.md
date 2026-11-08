@@ -91,10 +91,14 @@ Pooled (equal weight per token):
 - techniques_E_prior: mean excess -0.090, observed 0.151, null 0.241, p(upper) 1.000
 - techniques_E_cross: mean excess -0.079, observed 0.135, null 0.214, p(upper) 1.000
 - techniques_E_here: mean excess 0.041, observed 0.234, null 0.193, p(upper) <0.001
+- techniques_E_any: mean excess -0.035, observed 0.333, null 0.368, p(upper) 1.000
+- techniques_E_first: mean excess 0.055, observed 0.182, null 0.127, p(upper) <0.001
 - techniques_E_wiki: mean excess 0.002, observed 0.995, null 0.993, p(upper) 0.262
 - placebos_E_prior: mean excess -0.139, observed 0.214, null 0.353, p(upper) 1.000
 - placebos_E_cross: mean excess -0.102, observed 0.184, null 0.286, p(upper) 1.000
 - placebos_E_here: mean excess -0.004, observed 0.354, null 0.358, p(upper) 0.692
+- placebos_E_any: mean excess -0.051, observed 0.486, null 0.537, p(upper) 1.000
+- placebos_E_first: mean excess 0.088, observed 0.271, null 0.184, p(upper) <0.001
 - placebos_E_wiki: mean excess 0.001, observed 0.999, null 0.998, p(upper) 0.174
 - contrast_E_prior (technique minus placebo mean excess): 0.049 [-0.023, 0.124]
 - contrast_E_cross (technique minus placebo mean excess): 0.024 [-0.041, 0.093]
@@ -306,6 +310,30 @@ Choice-design odds ratios per variant:
 
 Per-token robustness table: `robustness.csv`.
 
+## Positive control (planted copying)
+
+Synthetic copying planted into the real label/page timeline; 200 replicates per f, 300 candidate adopters; power = share of replicates with p < 0.05 (strict: p < 0.05/15). Copiers adopt at their first write-visible exposure; never-exposed copiers do not adopt.
+
+| f | realised copy share | adopters | E_prior | E_here | E_any | E_first | lag | choice_token_E_prior | choice_beyond_echo_E_prior | choice_token_E_any | choice_beyond_echo_E_any |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0.0 | 0.000 | 300 | 0.00 | 0.00 | 0.00 | 0.00 | 0.09 | 0.85 | 0.00 | 1.00 | 0.00 |
+| 0.05 | 0.021 | 291.1 | 0.00 | 0.01 | 0.00 | 0.04 | 0.10 | 0.84 | 0.00 | 1.00 | 0.00 |
+| 0.1 | 0.041 | 282.0 | 0.00 | 0.06 | 0.00 | 0.23 | 0.06 | 0.84 | 0.00 | 1.00 | 0.00 |
+| 0.2 | 0.088 | 262.7 | 0.00 | 0.35 | 0.03 | 0.82 | 0.17 | 0.68 | 0.00 | 1.00 | 0.00 |
+| 0.4 | 0.187 | 221.3 | 0.00 | 0.95 | 0.31 | 1.00 | 0.14 | 0.45 | 0.00 | 1.00 | 0.00 |
+
+| f | realised copy share | excess E_prior [95% range] | excess E_any | excess E_first | OR token (prior) | OR placebo echo (prior) |
+|---|---|---|---|---|---|---|
+| 0.0 | 0.000 | -0.013 [-0.039, 0.010] | -0.024 | -0.011 | 1.65 | 4.40 |
+| 0.05 | 0.021 | -0.021 [-0.051, 0.003] | -0.020 | 0.001 | 1.63 | 4.40 |
+| 0.1 | 0.041 | -0.027 [-0.057, 0.000] | -0.014 | 0.013 | 1.64 | 4.38 |
+| 0.2 | 0.088 | -0.048 [-0.080, -0.019] | -0.004 | 0.044 | 1.57 | 4.36 |
+| 0.4 | 0.187 | -0.090 [-0.132, -0.054] | 0.018 | 0.107 | 1.42 | 4.28 |
+
+## Read exposure availability
+
+No label-attributable read events: the only non-write events are probes, which carry no page, wiki, revision or actor; the only actor-labelled events are deletions and reverts (writes); shortener logs give aggregate click counts per link without per-click time or actor. Read exposure is not recoverable from the export.
+
 ## Figures
 
 - `figures/fig_acceleration.png`
@@ -315,3 +343,4 @@ Per-token robustness table: `robustness.csv`.
 - `figures/fig_permutation_null_placebos.png`
 - `figures/fig_permutation_null_techniques.png`
 - `figures/fig_placebo_comparison.png`
+- `figures/fig_positive_control.png`

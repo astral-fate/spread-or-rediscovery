@@ -25,3 +25,9 @@
 2026-11-08 22:12:46 progress: 120 ok, 0 failed of 144
 2026-11-08 22:12:52 progress: 140 ok, 0 failed of 144
 2026-11-08 22:12:54 end: 144 ok, 0 failed this run
+2026-11-08 22:49:09 start modal:ministral-3-14b: 480 done, 96 to run (2 conditions)
+2026-11-08 22:49:23 progress: 20 ok, 0 failed of 96
+2026-11-08 22:49:30 progress: 40 ok, 0 failed of 96
+2026-11-08 22:49:37 progress: 60 ok, 0 failed of 96
+2026-11-08 22:49:43 progress: 80 ok, 0 failed of 96
+2026-11-08 22:49:51 end: 96 ok, 0 failed this run

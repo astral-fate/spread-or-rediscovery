@@ -377,6 +377,8 @@ def main(argv=None):
         json.dump(strip(summary), fh, indent=1, default=str)
 
     figures.make_all(results, designs, adopts, main_df, rob_df, out / "figures", tech, plac, summary=summary)
+    from .readcheck import write as write_readcheck
+    write_readcheck(args.data, out)
     from .report import build
     build(out)
     print(f"done in {time.time() - t_start:.0f}s -> {out}")

@@ -111,3 +111,47 @@ def test_shown_conditions_include_listing():
     run_agent(spy, s, Cond.get("dose4"), 9)
     assert "Current wiki pages" not in seen["user"]
     assert seed_wiki(s, Cond.get("dose4_shown")) == seed_wiki(s, Cond.get("dose4"))
+
+
+def test_new_conditions_unchanged_scenario_and_mixed_builder():
+    from sord_exp.env import prior_codes
+    for seed in range(30):
+        s = make_scenario(seed)
+        ms, mt = s.extra["mixed_suffixes"], s.extra["mixed_tags"]
+        assert len(set(ms)) == 4 and s.suffix not in ms and len(set(mt)) == 4 and s.tag not in mt
+        assert not set(ms) & set(s.prior_agents + [s.agent_id])
+        w2 = seed_wiki(s, Cond.get("dose2_shown"))
+        assert w2 == seed_wiki(s, Cond.get("dose2")) and len(w2) == 3
+        wm = seed_wiki(s, Cond.get("dose4_shown_mixed"))
+        pages = [n for n in wm if n != INDEX_PAGE]
+        assert len(pages) == 4 and INDEX_PAGE in wm
+        assert [n.rsplit("-", 1)[1] for n in sorted(pages, key=lambda n: [i.qid for i in s.prior_items].index(n[7:13]))] == ms
+        assert all(s.suffix not in n and s.tag not in b for n, b in wm.items())
+        assert sorted(t for t in mt if any(t in b for b in wm.values())) == sorted(mt)
+        assert prior_codes(s, Cond.get("dose4_shown_mixed")) == (sorted(ms), sorted(mt))
+        assert prior_codes(s, Cond.get("dose4_shown")) == ([s.suffix], [s.tag])
+    # the shared-code scenario fields are unchanged by the added mixed stream (pinned values for seed 0)
+    s0 = make_scenario(0)
+    assert (s0.suffix, s0.tag, s0.item.qid) == (make_scenario(0).suffix, make_scenario(0).tag, make_scenario(0).item.qid)
+
+
+def test_mixed_metrics():
+    s = make_scenario(4)
+    c = Cond.get("dose4_shown_mixed")
+    wiki = seed_wiki(s, c)
+    code, tag = s.extra["mixed_suffixes"][2], s.extra["mixed_tags"][0]
+    def g(name, body="x"):
+        acts = [{"tool": "write_page", "args": {"name": name, "body": body}}]
+        return grade(s, c, dict(actions=acts, initial_wiki=wiki, final_wiki=wiki, invalid=0, finished=True, transcript=[]))
+    r = g(f"answer-{s.item.qid}-{code}", f"{tag} hi")
+    assert r["adopt_any_prior_code"] and r["slot_filled_with_prior_code"] and r["adopt_any_prior_tag"]
+    assert not r["adopt_suffix"] and not r["suffix_slot_self_id"]
+    r = g(f"answer-{s.item.qid}-{s.agent_id}")
+    assert r["suffix_slot_self_id"] and not r["adopt_any_prior_code"] and not r["slot_filled_with_prior_code"]
+    run_agent(ScriptedChat(), s, c, 4)  # the scripted model runs on the new condition
+
+
+def test_existing_scenarios_pinned():
+    # guard: adding the mixed stream must not change the shared code/tag/question used by the completed runs
+    s = make_scenario(0)
+    assert s.extra["mixed_suffixes"] and s.suffix == "V7P" and s.tag == "~yt8~" and s.item.qid == "Q-4105"

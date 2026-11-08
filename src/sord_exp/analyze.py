@@ -14,12 +14,16 @@ from pathlib import Path
 
 DOSE = {"isolated": 0, "dose1": 1, "dose2": 2, "dose4": 4}
 COND_ORDER = ["isolated", "neutral4", "dose1", "dose2", "dose4", "dose4_arbitrary_only", "dose4_functional_only",
-              "neutral4_shown", "dose1_shown", "dose4_shown"]
+              "neutral4_shown", "dose1_shown", "dose2_shown", "dose4_shown", "dose4_shown_mixed"]
 # outcome -> label. index_like is defined identically in every condition (wrote any index/registry-like page,
 # including Answers-Index), so it is the comparable "functional convention present" outcome.
 OUTCOMES = {
     "adopt_suffix": "suffix code copied (arbitrary)",
+    "adopt_any_prior_code": "any prior page's code copied",
+    "slot_filled_with_prior_code": "slot filled with a prior code",
+    "suffix_slot_self_id": "slot filled with own agent id",
     "adopt_tag": "body tag copied (arbitrary)",
+    "adopt_any_prior_tag": "any prior page's tag copied",
     "adopt_suffix_slot": "name has a trailing code slot",
     "index_like": "wrote an index-like page (functional)",
     "adopt_index": "own line in Answers-Index, exact format",
@@ -87,6 +91,18 @@ def logit_slope(xs, ys, strata=None):
         return None
 
 
+def regrade(r: dict, tdir: Path) -> dict:
+    """Recompute grade fields from the saved transcript (read-only; trials.jsonl is never rewritten)."""
+    from .env import Cond
+    from .grade import grade
+    from .scenarios import make_scenario
+    tid = f"{r['model'].replace('/', '_').replace(':', '-')}__{r['condition']}__{r['seed']}"
+    t = json.loads((tdir / f"{tid}.json").read_text(encoding="utf-8"))
+    ex = dict(actions=t["actions"], initial_wiki=t["initial_wiki"], final_wiki=t["final_wiki"], invalid=r["invalid"],
+              finished=r["finished"], transcript=t["transcript"])
+    return {**r, **grade(make_scenario(r["seed"]), Cond.get(r["condition"]), ex)}
+
+
 def load(exp: Path) -> dict:
     data = {}
     for f in sorted((exp / "results").glob("*/trials.jsonl")):
@@ -94,6 +110,8 @@ def load(exp: Path) -> dict:
         for line in f.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 r = json.loads(line)
+                if "adopt_any_prior_code" not in r:  # trial graded before these metrics existed: regrade from its transcript
+                    r = regrade(r, f.parent / "transcripts")
                 rows[(r["condition"], r["seed"])] = r
         if rows:
             data[f.parent.name] = rows
@@ -165,7 +183,7 @@ def analyze(exp: Path) -> dict:
     md += ["## 2. Rates per model and condition", ""]
     for m, rows in data.items():
         conds = [c for c in COND_ORDER if any(cc == c for cc, _ in rows)]
-        keys = list(OUTCOMES) + ["wrote_page", "listed_before_write", "read_before_write", "read_prior_page", "answer_correct", "suffix_slot_self_id",
+        keys = list(OUTCOMES) + ["wrote_page", "listed_before_write", "read_before_write", "read_prior_page", "answer_correct",
                                  "index_clobbered"]
         md += [f"### {m}", "", "| outcome | " + " | ".join(conds) + " |", "|---|" + "---|" * len(conds)]
         rates = {}
@@ -188,10 +206,13 @@ def analyze(exp: Path) -> dict:
                  ("neutral4", "dose4_arbitrary_only"), ("neutral4", "dose4_functional_only"),
                  ("dose4_arbitrary_only", "dose4"), ("dose4_functional_only", "dose4"),
                  ("neutral4_shown", "dose1_shown"), ("neutral4_shown", "dose4_shown"), ("dose1_shown", "dose4_shown"),
-                 ("dose1", "dose1_shown"), ("dose4", "dose4_shown")]
+                 ("dose1", "dose1_shown"), ("dose4", "dose4_shown"),
+                 ("dose1_shown", "dose2_shown"), ("dose2_shown", "dose4_shown"), ("dose4_shown_mixed", "dose4_shown"),
+                 ("dose1_shown", "dose4_shown_mixed"), ("neutral4_shown", "dose4_shown_mixed")]
     md += ["## 3. Paired exact McNemar tests", "",
            "b = seeds adopting only under the second condition, c = only under the first. Pooled = all models' pairs together.", ""]
-    for key in ["adopt_suffix", "adopt_tag", "adopt_suffix_slot", "index_like"]:
+    for key in ["adopt_suffix", "adopt_any_prior_code", "adopt_tag", "adopt_any_prior_tag", "adopt_suffix_slot",
+                "suffix_slot_self_id", "index_like"]:
         md += [f"### {OUTCOMES[key]} (`{key}`)", "", "| contrast | " + " | ".join(list(data) + ["pooled"]) + " |",
                "|---|" + "---|" * (len(data) + 1)]
         for a, b in contrasts:
@@ -259,7 +280,7 @@ def analyze(exp: Path) -> dict:
            "| model | condition | listed pages before writing | suffix copied, listers | slot used, listers | read a prior page | suffix copied, readers | tag copied, readers | tag copied, non-readers | index_like, readers |",
            "|---|---|---|---|---|---|---|---|---|---|"]
     for m, rows in data.items():
-        for c in ["dose1", "dose2", "dose4", "dose4_arbitrary_only", "dose4_functional_only", "dose1_shown", "dose4_shown"]:
+        for c in ["dose1", "dose2", "dose4", "dose4_arbitrary_only", "dose4_functional_only", "dose1_shown", "dose2_shown", "dose4_shown", "dose4_shown_mixed"]:
             R = [r for (cc, _), r in rows.items() if cc == c]
             if not R:
                 continue
@@ -311,12 +332,16 @@ def plot(data: dict, figdir: Path) -> None:
                 xs.append(x); ps.append(p); lo.append(p - l); hi.append(h - p)
             ax.errorbar(xs, ps, yerr=[lo, hi], color=col, marker=mk, ms=5, capsize=2, lw=1.4, label=label)
             sx, sp = [], []
-            for c, x in (("dose1_shown", 1), ("dose4_shown", 3)):
+            for c, x in (("dose1_shown", 1), ("dose2_shown", 2), ("dose4_shown", 3)):
                 R = [r for (cc, _), r in rows.items() if cc == c]
                 if R:
                     sx.append(x); sp.append(sum(bool(r[key]) for r in R) / len(R))
             if sx:
                 ax.plot(sx, sp, color=col, marker=mk, ms=4, ls="--", lw=1, mfc="white", alpha=0.9)
+            R = [r for (cc, _), r in rows.items() if cc == "dose4_shown_mixed"]
+            if R:
+                k2 = "adopt_any_prior_code" if key == "adopt_suffix" else "adopt_any_prior_tag" if key == "adopt_tag" else key
+                ax.scatter([3.12], [sum(bool(r[k2]) for r in R) / len(R)], color=col, marker="x", s=36, zorder=4)
             R = [r for (cc, _), r in rows.items() if cc == "neutral4"]
             if R:
                 ax.scatter([3.25], [sum(bool(r[key]) for r in R) / len(R)], facecolors="none", edgecolors=col, marker=mk, s=40, zorder=3)
@@ -328,7 +353,7 @@ def plot(data: dict, figdir: Path) -> None:
         ax.grid(alpha=0.3)
     axes[0][0].set_ylabel("share of trials")
     axes[0][-1].legend(fontsize=7, loc="upper left")
-    fig.suptitle("Seeded convention diffusion: adoption vs number of prior adopters (solid = agent must list the wiki itself; dashed = listing shown; hollow at n4 = neutral4)", fontsize=10)
+    fig.suptitle("Seeded convention diffusion: adoption vs number of prior adopters (solid = agent must list the wiki itself; dashed = listing shown; x = dose4_shown_mixed, any prior code; hollow at n4 = neutral4)", fontsize=10)
     fig.tight_layout()
     for ext in ("png", "pdf"):
         fig.savefig(figdir / f"dose_response.{ext}", dpi=200)

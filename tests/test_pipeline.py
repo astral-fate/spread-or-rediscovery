@@ -101,7 +101,7 @@ def _synthetic_design(rng, n_adopters=60, n_rev=12, effect=False):
         ts = np.sort(rng.uniform(0, 1e5, n_rev))
         ep = np.arange(n_rev) >= k
         df = pd.DataFrame({"E_prior": ep, "E_cross": ep, "E_here": rng.random(n_rev) < .2,
-                           "E_wiki": np.ones(n_rev, bool), "ts": ts,
+                           "E_wiki": np.ones(n_rev, bool), "E_any": ep, "E_first": np.zeros(n_rev, bool), "ts": ts,
                            "first_exp_ts": np.where(ep, ts[k - 1], np.nan)})
         pos = int(k) if effect else int(rng.integers(0, n_rev))
         elig[f"L{i}"] = (df, pos)
@@ -179,3 +179,23 @@ def test_conditional_logit_recovers_effect_and_null():
     nul = conditional_logit_exposure(_choice_df(rng, False), n_boot=40)
     assert eff["or_ci"][0] > 2.0
     assert nul["or_ci"][0] < 1.0 < nul["or_ci"][1]
+
+
+def test_positive_control_planter_copiers_only_adopt_after_exposure():
+    from sord.poscontrol import Planter
+    rows = []
+    for m in range(60):  # 6 labels x 10 revisions over 3 pages
+        rows.append((f"P{m % 3}", f"L{m % 6}", m, f"text {m}"))
+    r = make_revs(rows)
+    pop = {f"L{k}" for k in range(6)}
+    pl = Planter(r, pop, t_start=float(r.ts.min()))
+    pl.founder_pool = pl.founder_pool[:1]
+    rng = np.random.default_rng(0)
+    flags, truth = pl.plant(rng, f=1.0, n_adopt=5)
+    a = adoption_table(r, flags, pop)
+    e = exposure_table(r, flags, pop).set_index("order")
+    nonf = a[~a.founder]
+    assert truth["n_copied"] == len(nonf)
+    assert e.loc[nonf["order"], "E_any"].all()
+    flags0, truth0 = pl.plant(rng, f=0.0, n_adopt=5)
+    assert truth0["n_copied"] == 0 and truth0["n_adopters"] == 5

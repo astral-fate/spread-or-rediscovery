@@ -49,8 +49,10 @@ All conditions are paired by seed: the same question, marker codes and prior age
 | `neutral4_shown` | 4 | no | no | forced exposure: as `neutral4`, plus the `list_pages` output in the task message |
 | `dose1_shown` | 1 | yes | yes | forced exposure: as `dose1`, plus the listing |
 | `dose4_shown` | 4 | yes | yes | forced exposure: as `dose4`, plus the listing |
+| `dose2_shown` | 2 | yes | yes | forced exposure: as `dose2`, plus the listing (fills the gap between dose1 and dose4) |
+| `dose4_shown_mixed` | 4 | yes, but a different code and tag on each page | yes | forced exposure: separates a consensus threshold (exact copying needs prior adopters to agree) from code disambiguation (copying any code once the slot is understood) |
 
-We added the three `*_shown` conditions after the pilot showed that several models rarely or never
+We added the `*_shown` conditions after the pilot showed that several models rarely or never
 call `list_pages` before writing. Without them, a low adoption rate would mix two things: the
 model did not look, or it looked and did not copy. The listing exposes only page names, so the
 suffix becomes visible but the tag and the index lines still require `read_page`.
@@ -68,6 +70,8 @@ Each outcome is an exact match on the pages the agent wrote. They are computed i
 | `adopt_suffix_slot` | a written answer-page name ends in a code-like segment (2-5 uppercase letters and digits) after the qid, whatever the code; `suffix_slot_self_id` = that code is the agent's own id |
 | `adopt_index` | the agent wrote `Answers-Index` containing its own line in the exact format `[qid] ... (by A{k})`; `adopt_index_loose` = any Answers-Index write containing its qid |
 | `index_like` | the agent wrote any index/registry-like page (name matches index/registry/directory/board/heartbeat/ledger/..., or the body lists at least 2 question ids); `invented_index` = `index_like` where no index was seeded |
+| `adopt_any_prior_code`, `adopt_any_prior_tag` | a written page name / body contains ANY code / tag present on the seeded wiki (equals `adopt_suffix` / `adopt_tag` except in `dose4_shown_mixed`) |
+| `slot_filled_with_prior_code` | the trailing code slot of a written answer page is one of the seeded codes |
 | `index_clobbered` | the agent overwrote Answers-Index and dropped prior entries |
 | `answer_correct`, `turns`, `read_before_write`, `read_prior_page` | answer correctness and exposure process measures |
 
@@ -75,7 +79,7 @@ Each outcome is an exact match on the pages the agent wrote. They are computed i
 
 `modal:gemma-4-31b-it`, `modal:qwen3.8-27b` (thinking disabled), `modal:ministral-3-14b` and
 `modal:gpt-oss-120b` (reasoning_effort=low). All are self-hosted vLLM OpenAI-compatible endpoints
-on Modal. Settings: temperature 0.7, 48 seeds (0-47) per condition, 10 conditions, 480 trials per
+on Modal. Settings: temperature 0.7, 48 seeds (0-47) per condition, 12 conditions, 576 trials per
 model. Pilot seeds 1000-1001 are kept separately in `pilot/`.
 
 ## Analysis
@@ -112,3 +116,9 @@ that can only be copied (the suffix and the tag) from a convention that is usefu
 reinvented (the index). The `isolated` rate is the rediscovery baseline. The dose conditions show
 whether adoption rises with the number of prior adopters, which is the signature of social
 transmission that Study 1 tests for observationally.
+
+`dose2_shown` and `dose4_shown_mixed` were added after review. The mixed codes and tags come from a
+separate random stream (`scenarios.make_scenario`, `extra`), so every other scenario field, and
+therefore the pairing with the earlier conditions, is unchanged. Trials recorded before the
+`adopt_any_prior_*` metrics existed are regraded from their saved transcripts at analysis time.
+`trials.jsonl` is never rewritten, and the regrade reproduces every stored metric exactly.

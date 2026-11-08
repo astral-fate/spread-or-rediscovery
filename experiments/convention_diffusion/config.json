@@ -16,7 +16,9 @@
     "dose4_functional_only",
     "neutral4_shown",
     "dose1_shown",
-    "dose4_shown"
+    "dose4_shown",
+    "dose2_shown",
+    "dose4_shown_mixed"
   ],
   "seeds": 48,
   "seed_start": 0,

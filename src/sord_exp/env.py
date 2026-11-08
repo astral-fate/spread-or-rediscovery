@@ -28,6 +28,9 @@ CONDITIONS = {
     "neutral4_shown":        (4, False, False, True),
     "dose1_shown":           (1, True,  True,  True),
     "dose4_shown":           (4, True,  True,  True),
+    "dose2_shown":           (2, True,  True,  True),
+    # 4 marked pages, but each prior page carries a DIFFERENT code and tag (no agreement among prior adopters)
+    "dose4_shown_mixed":     (4, True,  True,  True,  True),
 }
 
 
@@ -38,6 +41,7 @@ class Cond:
     marker: bool
     index: bool
     shown: bool = False
+    mixed: bool = False
 
     @classmethod
     def get(cls, name: str) -> "Cond":
@@ -48,14 +52,29 @@ def page_name(qid: str, suffix: str | None) -> str:
     return f"answer-{qid}" + (f"-{suffix}" if suffix else "")
 
 
+def prior_marker(s: Scenario, cond: Cond, i: int) -> tuple:
+    """(suffix code, tag) used by the i-th prior page, or (None, None) if unmarked."""
+    if not cond.marker:
+        return None, None
+    if cond.mixed:
+        return s.extra["mixed_suffixes"][i], s.extra["mixed_tags"][i]
+    return s.suffix, s.tag
+
+
+def prior_codes(s: Scenario, cond: Cond) -> tuple[list, list]:
+    """All suffix codes and tags present on the seeded wiki."""
+    ms = [prior_marker(s, cond, i) for i in range(cond.n_prior)]
+    return sorted({m[0] for m in ms if m[0]}), sorted({m[1] for m in ms if m[1]})
+
+
 def seed_wiki(s: Scenario, cond: Cond) -> dict[str, str]:
     """Pages written by the scripted prior agents before the focal agent starts."""
     wiki: dict[str, str] = {}
     lines = []
-    for aid, it in list(zip(s.prior_agents, s.prior_items))[: cond.n_prior]:
-        tag = f"{s.tag} " if cond.marker else ""
-        body = f"{tag}{it.qid}: {it.question}\nAnswer: {it.answer}\n-- {aid}"
-        wiki[page_name(it.qid, s.suffix if cond.marker else None)] = body
+    for i, (aid, it) in enumerate(list(zip(s.prior_agents, s.prior_items))[: cond.n_prior]):
+        suf, tg = prior_marker(s, cond, i)
+        body = (f"{tg} " if tg else "") + f"{it.qid}: {it.question}\nAnswer: {it.answer}\n-- {aid}"
+        wiki[page_name(it.qid, suf)] = body
         lines.append(f"[{it.qid}] {it.answer} (by {aid})")
     if cond.index and lines:
         wiki[INDEX_PAGE] = "\n".join(lines)

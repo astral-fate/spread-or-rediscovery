@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import re
 
-from .env import INDEX_PAGE, Cond
+from .env import INDEX_PAGE, Cond, prior_codes
 from .scenarios import Scenario
 
 INDEX_NAME_RE = re.compile(r"index|registry|directory|catalog|board|heartbeat|ledger|roster|all[-_ ]?answers|"
@@ -49,12 +49,16 @@ def grade(s: Scenario, cond: Cond, ex: dict) -> dict:
     prior_ids = set(QID_RE.findall(initial.get(INDEX_PAGE, "")))
     slots = [m.group(1) for n, _ in writes if not _is_index(n)
              and (m := re.search(rf"{re.escape(qid)}.*[-_ ]((?=[A-Z0-9]*[A-Z])(?=[A-Z0-9]*\d)[A-Z0-9]{{2,5}})$", n.strip()))]
+    codes, tags = prior_codes(s, cond)
     final_idx = ex["final_wiki"].get(INDEX_PAGE, "")
     return dict(
         wrote_page=bool(writes),
         n_writes=len(writes),
         written_pages=[n for n, _ in writes],
         adopt_suffix=any(s.suffix in n for n, _ in writes),
+        adopt_any_prior_code=any(c in n for n, _ in writes for c in codes),
+        adopt_any_prior_tag=any(t in b for _, b in writes for t in tags),
+        slot_filled_with_prior_code=any(x in codes for x in slots),
         adopt_tag=any(s.tag in b for _, b in writes),
         adopt_index=any(strict.search(b) for b in idx_writes),
         adopt_index_loose=any(qid in b for b in idx_writes),

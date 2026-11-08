@@ -7,7 +7,7 @@ import warnings
 import numpy as np
 import pandas as pd
 
-EXPO_COLS = ("E_prior", "E_cross", "E_here", "E_wiki")
+EXPO_COLS = ("E_prior", "E_cross", "E_here", "E_any", "E_first", "E_wiki")
 
 
 # ----------------------------------------------------------------- helpers
@@ -311,3 +311,60 @@ def conditional_logit_exposure(df: pd.DataFrame, n_boot: int = 200, seed: int = 
             "beta": float(beta), "odds_ratio": float(np.exp(beta)),
             "or_ci": [float(np.exp(np.quantile(bs, 0.025))), float(np.exp(np.quantile(bs, 0.975)))],
             "p_boot_le0": float((1 + (bs <= 0).sum()) / (len(bs) + 1))}
+
+
+def clogit_token_specific(df: pd.DataFrame, token: str) -> dict:
+    """Conditional logit with a generic exposure effect plus a token-specific
+    exposure interaction (exposure x [alternative == token]); Wald inference
+    from the exact Hessian. The interaction measures exposure effect on the
+    token beyond the generic echo shared by the other alternatives."""
+    from scipy.optimize import minimize
+    from scipy.stats import norm
+    if df.empty or (df["alt"] == token).sum() == 0:
+        return {}
+    df = df.sort_values("group", kind="mergesort").reset_index(drop=True)
+    alt_codes, alt_index = pd.factorize(df["alt"], sort=True)
+    g = df["group"].to_numpy()
+    x = df["x"].to_numpy(float)
+    y = df["chosen"].to_numpy(float)
+    is_tok = (df["alt"] == token).to_numpy(float)
+    K = len(alt_index)
+    X = np.zeros((len(g), K + 1))
+    X[:, 0] = x
+    X[:, 1] = x * is_tok
+    m = alt_codes > 0
+    X[np.flatnonzero(m), 1 + alt_codes[m]] = 1.0
+    starts = np.flatnonzero(np.r_[True, g[1:] != g[:-1]])
+    sizes = np.diff(np.r_[starts, len(g)])
+
+    def probs(theta):
+        eta = X @ theta
+        mx = np.maximum.reduceat(eta, starts)
+        ex = np.exp(eta - np.repeat(mx, sizes))
+        den = np.add.reduceat(ex, starts)
+        return eta, mx, den, ex / np.repeat(den, sizes)
+
+    def nll(theta):
+        eta, mx, den, p = probs(theta)
+        return -((y * eta).sum() - (np.log(den) + mx).sum()), -(X.T @ (y - p))
+
+    th = minimize(nll, np.zeros(K + 1), jac=True, method="L-BFGS-B", bounds=[(-20, 20)] * (K + 1)).x
+    _, _, _, p = probs(th)
+    Xp = X * p[:, None]
+    A = X.T @ Xp
+    Mg = np.add.reduceat(Xp, starts, axis=0)
+    H = A - Mg.T @ Mg
+    try:
+        cov = np.linalg.pinv(H)
+        se = np.sqrt(np.maximum(np.diag(cov), 0))
+    except np.linalg.LinAlgError:
+        se = np.full(K + 1, np.nan)
+    b0, b1 = th[0], th[1]
+    se_sum = math.sqrt(max(cov[0, 0] + cov[1, 1] + 2 * cov[0, 1], 0)) if np.isfinite(se).all() else math.nan
+    z1 = b1 / se[1] if se[1] > 0 else math.nan
+    zs = (b0 + b1) / se_sum if se_sum and se_sum > 0 else math.nan
+    return {"or_generic": float(np.exp(b0)), "or_token": float(np.exp(b0 + b1)),
+            "or_token_vs_generic": float(np.exp(b1)),
+            "p_token_gt1": float(norm.sf(zs)) if zs == zs else math.nan,
+            "p_token_beyond_generic": float(norm.sf(z1)) if z1 == z1 else math.nan,
+            "n_events": int(df["group"].nunique())}

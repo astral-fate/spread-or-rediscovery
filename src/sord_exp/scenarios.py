@@ -135,4 +135,17 @@ def make_scenario(seed: int) -> Scenario:
     up = string.ascii_uppercase.replace("O", "").replace("I", "")
     suffix = r.choice(up) + r.choice("23456789") + r.choice(up)
     tag = "~" + r.choice(string.ascii_lowercase) + r.choice(string.ascii_lowercase) + r.choice("23456789") + "~"
-    return Scenario(seed, agents[0], items[0], agents[1:], items[1:], suffix, tag)
+    # Per-page codes for the "mixed" condition: drawn from a separate stream so that every other field of the
+    # scenario is unchanged; all distinct from each other and from the shared code/tag and the agents' ids.
+    r2 = random.Random(f"sord-exp-mixed-{seed}")
+    m_suf, m_tag = [], []
+    while len(m_suf) < 4:
+        c = r2.choice(up) + r2.choice("23456789") + r2.choice(up)
+        if c != suffix and c not in m_suf and c not in agents:
+            m_suf.append(c)
+    while len(m_tag) < 4:
+        t = "~" + r2.choice(string.ascii_lowercase) + r2.choice(string.ascii_lowercase) + r2.choice("23456789") + "~"
+        if t != tag and t not in m_tag:
+            m_tag.append(t)
+    return Scenario(seed, agents[0], items[0], agents[1:], items[1:], suffix, tag,
+                    extra={"mixed_suffixes": m_suf, "mixed_tags": m_tag})

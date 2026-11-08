@@ -140,6 +140,59 @@ def build(out: Path):
     tm = main[main.kind == "technique"]
     M["NAccelBelowNullMedian"] = int((tm["accel_rho_obs"] < tm["accel_rho_null"]).sum())
     M["NPageNovelMajority"] = int((tech["page_novel_adoptions"] > tech["adopters"] / 2).sum())
+    # Holm across techniques for the page-local and first-encounter re-timing tests; placebo contrasts
+    from .stats import holm as _holm
+    for col in ("E_here", "E_first", "E_any"):
+        if f"{col}_p" not in main:
+            continue
+        tm_ = main[main.kind == "technique"]
+        adj = _holm(dict(zip(tm_["token"], tm_[f"{col}_p"])))
+        M[macro_key("n sig holm", col)] = int(sum(v < 0.05 for v in adj.values()))
+        for tok, v in adj.items():
+            M[macro_key(tok, "holm", col)] = v
+        pe_ = main.loc[main.kind == "placebo", f"{col}_excess"].to_numpy()
+        te_ = tm_[f"{col}_excess"].to_numpy()
+        rng_ = np.random.default_rng(20261109)
+        bs_ = [rng_.choice(te_, len(te_)).mean() - rng_.choice(pe_, len(pe_)).mean() for _ in range(5000)]
+        M[macro_key("contrast", col)] = float(te_.mean() - pe_.mean())
+        M[macro_key("contrast", col, "lo")] = float(np.quantile(bs_, 0.025))
+        M[macro_key("contrast", col, "hi")] = float(np.quantile(bs_, 0.975))
+        for kind in ("techniques", "placebos"):
+            v = S["pooled"].get(f"{kind}_{col}", {})
+            if v:
+                M[macro_key("pooled", kind, col, "excess")] = v["mean_excess"]
+                M[macro_key("pooled", kind, col, "observed")] = v["mean_observed"]
+                M[macro_key("pooled", kind, col, "null")] = v["mean_null"]
+                M[macro_key("pooled", kind, col, "p")] = v["p_upper"]
+    # write-visible exposure bounds (pooled over techniques, equal weight): share of non-founder
+    # adopters exposed before/at adoption under each definition
+    for col, name in (("E_prior", "Prior"), ("E_here", "Here"), ("E_any", "Any"), ("E_cross", "Cross")):
+        v = S["pooled"].get(f"techniques_{col}", {})
+        if v:
+            M[f"BoundWriteVisible{name}"] = v["mean_observed"]
+        if f"{col}_obs" in main:
+            t = main.loc[main.kind == "technique", f"{col}_obs"]
+            M[f"BoundWriteVisible{name}Min"] = float(t.min())
+            M[f"BoundWriteVisible{name}Max"] = float(t.max())
+    # positive control
+    pcp = out / "positive_control.json"
+    if pcp.exists():
+        pc = json.load(open(pcp, encoding="utf-8"))
+        M["PosCtlReps"] = pc["meta"]["reps_per_f"]
+        M["PosCtlCandidates"] = pc["meta"]["n_adopt_candidates"]
+        for srow in pc["by_f"]:
+            tag = "F" + str(int(round(srow["f"] * 100))).zfill(2)
+            for k, v in srow.items():
+                if isinstance(v, (int, float)) and k != "f":
+                    M[macro_key("pos ctl", tag, k)] = v
+                elif isinstance(v, list) and len(v) == 2:
+                    M[macro_key("pos ctl", tag, k, "lo")], M[macro_key("pos ctl", tag, k, "hi")] = v
+    rc = out / "read_exposure_check.json"
+    if rc.exists():
+        rj = json.load(open(rc, encoding="utf-8"))
+        M["ReadCheckProbeEvents"] = rj.get("probe_events")
+        M["ReadCheckEventsWithActor"] = rj.get("events_with_actor_label")
+        M["ReadCheckShortenerLinks"] = rj.get("shortener_links")
     M = {k: (None if isinstance(v, float) and not math.isfinite(v) else v) for k, v in M.items()}
     with open(out / "macros.json", "w", encoding="utf-8") as fh:
         json.dump(M, fh, indent=1, sort_keys=True)
@@ -286,6 +339,31 @@ def build(out: Path):
                              f" (events {v['n_events']}, informative {v['n_informative']})")
         L.append("")
         L.append("Per-token robustness table: `robustness.csv`.\n")
+    if pcp.exists():
+        L.append("## Positive control (planted copying)\n")
+        L.append(f"Synthetic copying planted into the real label/page timeline; {pc['meta']['reps_per_f']} replicates per f, "
+                 f"{pc['meta']['n_adopt_candidates']} candidate adopters; power = share of replicates with p < 0.05 "
+                 "(strict: p < 0.05/15). Copiers adopt at their first write-visible exposure; never-exposed copiers do not adopt.\n")
+        keys = ["power_E_prior", "power_E_here", "power_E_any", "power_E_first", "power_lag",
+                "power_choice_token_E_prior", "power_choice_beyond_echo_E_prior",
+                "power_choice_token_E_any", "power_choice_beyond_echo_E_any"]
+        L.append("| f | realised copy share | adopters | " + " | ".join(k.replace("power_", "") for k in keys) + " |")
+        L.append("|---" * (3 + len(keys)) + "|")
+        for srow in pc["by_f"]:
+            L.append(f"| {srow['f']} | {f(srow['true_copy_share_mean'])} | {f(srow['adopters_mean'], 1)} | " +
+                     " | ".join(f(srow.get(k), 2) for k in keys) + " |")
+        L.append("")
+        L.append("| f | realised copy share | excess E_prior [95% range] | excess E_any | excess E_first | OR token (prior) | OR placebo echo (prior) |")
+        L.append("|---|---|---|---|---|---|---|")
+        for srow in pc["by_f"]:
+            L.append(f"| {srow['f']} | {f(srow['true_copy_share_mean'])} | {f(srow['excess_E_prior_mean'])} "
+                     f"[{f(srow['excess_E_prior_q'][0])}, {f(srow['excess_E_prior_q'][1])}] | "
+                     f"{f(srow['excess_E_any_mean'])} | {f(srow['excess_E_first_mean'])} | "
+                     f"{f(srow['or_token_E_prior_median'], 2)} | {f(srow['or_generic_E_prior_median'], 2)} |")
+        L.append("")
+    if rc.exists():
+        L.append("## Read exposure availability\n")
+        L.append(rj["conclusion"] + "\n")
     L.append("## Figures\n")
     for p in sorted((out / "figures").glob("*.png")):
         L.append(f"- `figures/{p.name}`")

@@ -1,0 +1,37 @@
+{
+ "event_types": {
+  "save": 14591,
+  "delete": 5217,
+  "probe": 101,
+  "revert": 4
+ },
+ "probe_events": 101,
+ "probe_fields_non_null": {
+  "wiki": 0,
+  "page": 0,
+  "actor_label": 0,
+  "revision_ref": 0,
+  "ip16": 101
+ },
+ "probe_request_actions": 9,
+ "probe_time_range": [
+  "2026-05-17T05:46:45Z",
+  "2026-06-30T12:10:38Z"
+ ],
+ "events_with_actor_label": 5221,
+ "actor_labelled_events_by_type": {
+  "delete": 5217,
+  "revert": 4
+ },
+ "shortener_links": 499,
+ "shortener_link_fields": [
+  "clicks",
+  "ip16",
+  "keyword",
+  "time",
+  "title",
+  "url"
+ ],
+ "shortener_has_per_click_records": false,
+ "conclusion": "No label-attributable read events: the only non-write events are probes, which carry no page, wiki, revision or actor; the only actor-labelled events are deletions and reverts (writes); shortener logs give aggregate click counts per link without per-click time or actor. Read exposure is not recoverable from the export."
+}

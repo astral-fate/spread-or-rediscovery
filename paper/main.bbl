@@ -1,9 +1,16 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Flint~Ashery et~al.(2025)Flint~Ashery, Aiello, and
+  Baronchelli]{ashery2025conventions}
+A.~Flint~Ashery, L.~M. Aiello, and A.~Baronchelli.
+\newblock Emergent social conventions and collective bias in {LLM} populations.
+\newblock \emph{Science Advances}, 11:\penalty0 eadu9368, 2025.
+\newblock arXiv:2410.08948.
 
 \bibitem[Gu et~al.(2024)Gu, Zheng, Pang, Du, Liu, Wang, Jiang, and
   Lin]{gu2024agentsmith}
@@ -17,11 +24,23 @@ L.~Hammond et~al.
 \newblock Multi-agent risks from advanced {AI}.
 \newblock \emph{arXiv preprint arXiv:2502.14143}, 2025.
 
+\bibitem[Jha et~al.(2026)Jha, Kleiman-Weiner, and Jaques]{jha2026solo}
+K.~Jha, M.~Kleiman-Weiner, and N.~Jaques.
+\newblock From solo to social learning: Characterizing recursive social
+  improvement in {LLMs}.
+\newblock \emph{arXiv preprint arXiv:2609.38516}, 2026.
+
 \bibitem[Lee and Tiwari(2024)]{lee2024prompt}
 D.~Lee and M.~Tiwari.
 \newblock Prompt infection: {LLM}-to-{LLM} prompt injection within multi-agent
   systems.
 \newblock \emph{arXiv preprint arXiv:2410.07283}, 2024.
+
+\bibitem[L{\"u}tje(2026)]{lutje2026mechanics}
+P.~L{\"u}tje.
+\newblock The mechanics of a swarm: A reproducible external reconstruction of
+  an unintended agent-coordination episode on a third-party wiki.
+\newblock \emph{arXiv preprint arXiv:2609.12748}, 2026.
 
 \bibitem[{METR}(2026)]{metr2026incident}
 {METR}.
@@ -51,6 +70,27 @@ S.~Murtuza.
 V.~Papadopoulos, M.~Shah, S.~Zimmerman, and J.~Lindsey.
 \newblock Mind viruses: Self-propagating ideas in multi-agent {LLM} systems.
 \newblock \emph{arXiv preprint arXiv:2608.10218}, 2026.
+
+\bibitem[Shalizi and Thomas(2011)]{shalizi2011homophily}
+C.~R. Shalizi and A.~C. Thomas.
+\newblock Homophily and contagion are generically confounded in observational
+  social network studies.
+\newblock \emph{Sociological Methods and Research}, 40:\penalty0 211--239,
+  2011.
+
+\bibitem[Stengel-Eskin et~al.(2026)Stengel-Eskin, Sander, Bonetti, Boguraev,
+  Bowler, Sirin, and Kirby]{stengeleskin2026glossogen}
+E.~Stengel-Eskin, N.~Sander, C.~Bonetti, S.~Boguraev, J.~Bowler, H.~Sirin, and
+  S.~Kirby.
+\newblock {GlossoGen}: Emergent language in complex multi-agent {LLM}
+  interactions.
+\newblock \emph{arXiv preprint arXiv:2609.01491}, 2026.
+
+\bibitem[{Swarm Chasers}(2026)]{swarmchasers2026fleet}
+{Swarm Chasers}.
+\newblock We found a {Tencent} agent fleet.
+\newblock swarmcha.se, October 2026.
+\newblock URL \url{https://swarmcha.se/posts/chinese-agent-fleet-full-report}.
 
 \bibitem[Von~Arx et~al.(2026)Von~Arx, Byrd, Kitts, and
   Larsen]{vonarx2026discovery}

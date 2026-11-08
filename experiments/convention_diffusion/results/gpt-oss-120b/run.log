@@ -38,3 +38,9 @@
 2026-11-08 22:14:22 progress: 120 ok, 0 failed of 144
 2026-11-08 22:14:30 progress: 140 ok, 0 failed of 144
 2026-11-08 22:14:34 end: 144 ok, 0 failed this run
+2026-11-08 22:49:09 start modal:gpt-oss-120b: 480 done, 96 to run (2 conditions)
+2026-11-08 22:49:33 progress: 20 ok, 0 failed of 96
+2026-11-08 22:49:45 progress: 40 ok, 0 failed of 96
+2026-11-08 22:49:55 progress: 60 ok, 0 failed of 96
+2026-11-08 22:50:05 progress: 80 ok, 0 failed of 96
+2026-11-08 22:50:13 end: 96 ok, 0 failed this run

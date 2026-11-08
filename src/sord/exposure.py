@@ -9,6 +9,9 @@ E_prior  (strict, page-level): some earlier revision of L was saved on top of
 E_cross  (strict, cross-page): as E_prior, restricted to pages other than the
          page of r. Excludes simple continuation of a page that uses the token.
 E_here   the base version of r itself contains the token (same-page context).
+E_any    E_prior or E_here (any write-visible exposure, incl. the page being edited).
+E_first  E_here and not E_prior: r is the label's first write-visible encounter with
+         the token (copy-on-encounter).
 E_wiki   (loose, wiki-level): the token had already appeared anywhere on the
          wiki of r before r was saved.
 """
@@ -65,6 +68,8 @@ def exposure_table(r: pd.DataFrame, flags: pd.DataFrame, population: set[str]) -
     out["E_cross"] = e_cross[in_pop]
     out["E_here"] = base_has[in_pop]
     out["E_wiki"] = e_wiki[in_pop]
+    out["E_any"] = out["E_prior"] | out["E_here"]
+    out["E_first"] = out["E_here"] & ~out["E_prior"]
     out["first_exp_ts"] = first_exp[in_pop]
     return out.reset_index(drop=True)
 

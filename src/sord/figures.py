@@ -188,3 +188,41 @@ def make_all(results, designs, adopts, main_df, rob_df, outdir, tech, plac, summ
     acceleration(main_df, results, tech, outdir / "fig_acceleration.png")
     if summary is not None:
         choice_odds(summary, outdir / "fig_choice_odds.png")
+
+
+def positive_control_figure(summ, path):
+    """Left: detection power vs planted copying fraction. Right: estimated excess vs planted truth."""
+    f = np.array([s["f"] for s in summ])
+    tests = [("power_E_prior", "re-timing, prior exposure", TECH, "-"),
+             ("power_E_any", "re-timing, prior or same-page", "#1baf7a", "-"),
+             ("power_E_here", "re-timing, same-page (page-local)", "#6250d6", "-"),
+             ("power_E_first", "re-timing, adopt at first encounter", "#eda100", "-"),
+             ("power_lag", "re-timing, shorter lag", "#e87ba4", "-"),
+             ("power_choice_token_E_prior", "choice: token OR > 1 (prior)", PLAC, "--"),
+             ("power_choice_beyond_echo_E_prior", "choice: beyond placebo echo (prior)", "#e34948", "--")]
+    fig, axes = plt.subplots(1, 2, figsize=(9, 4.6))
+    ax = axes[0]
+    for k, lab, c, ls in tests:
+        ax.plot(f, [s[k] for s in summ], ls, marker="o", color=c, lw=1.6, ms=4, label=lab)
+    ax.axhline(0.05, color=INK2, lw=0.8, ls=":")
+    ax.set_xlabel("planted copier fraction f")
+    ax.set_ylabel("detection power (p < 0.05)")
+    ax.set_ylim(-0.02, 1.02)
+    ax.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
+    ax = axes[1]
+    truth = np.array([s["true_copy_share_mean"] for s in summ])
+    for col, lab, c in (("E_prior", "prior", TECH), ("E_any", "prior or same-page", "#1baf7a"),
+                        ("E_first", "first encounter", "#eda100")):
+        m = np.array([s[f"excess_{col}_mean"] for s in summ])
+        q = np.array([s[f"excess_{col}_q"] for s in summ])
+        ax.errorbar(truth, m, yerr=[m - q[:, 0], q[:, 1] - m], fmt="o-", color=c, ms=4, lw=1.4,
+                    capsize=2, label=f"estimated excess ({lab})")
+    lim = max(0.05, truth.max() * 1.1)
+    ax.plot([0, lim], [0, lim], color=INK2, lw=0.8, ls="--", label="estimate = planted truth")
+    ax.axhline(0, color=INK2, lw=0.5)
+    ax.set_xlabel("realised copying share among adopters (planted truth)")
+    ax.set_ylabel("observed - null exposed fraction")
+    ax.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
+    fig.tight_layout()
+    fig.savefig(path, dpi=DPI)
+    plt.close(fig)
