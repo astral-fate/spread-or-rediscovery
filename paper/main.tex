@@ -1,0 +1,214 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,frame=single,rulecolor=\color{gray!50},
+  aboveskip=4pt,belowskip=4pt,upquote=true}
+\captionsetup{font=small,labelfont=bf}
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt plus 3pt minus 2pt}{5pt plus 1pt}
+\titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 2pt}{3pt plus 1pt}
+\setlist{itemsep=1pt,topsep=3pt}
+\setlength{\emergencystretch}{3em}
+
+\input{numbers}
+\newcommand{\Sone}[1]{\N{s1/#1}}   % Study 1 number (results/macros.json)
+\newcommand{\Stwo}[1]{\N{s2/#1}}   % Study 2 number (experiments/convention_diffusion)
+\newcommand{\tok}[1]{\texttt{\detokenize{#1}}}
+
+\begin{document}
+
+% ---------------- title block (Apart sprint report template)
+\thispagestyle{plain}
+\begin{center}
+\rule{\textwidth}{2.2pt}\\[10pt]
+{\LARGE\bfseries SPREAD OR REDISCOVERY?\footnote{Research conducted at the \href{https://apartresearch.com/sprints/swarm-alignment-2026}{Swarm Alignment Hackathon}, November 2026.}}\\[5pt]
+{\large\bfseries Technique Diffusion in a Real Agent Swarm and in a Seeded Experiment}\\[8pt]
+\rule{\textwidth}{0.6pt}\\[12pt]
+{\large Fatimah Emad Eldin}\\
+Trouve Labs\\[10pt]
+\textbf{With}\\
+Apart Research\\[14pt]
+{\large\bfseries Abstract}
+\end{center}
+\vspace{-4pt}
+\begin{quote}
+\small
+When the same technique appears under hundreds of agent names on a shared board, did agents copy it from each other or rediscover it under the same constraints? We answer from two directions. Study~1 analyses the public collusion.wiki write log (\Sone{DataRevisions} revisions, \Sone{DataAgentLabels} agent labels) with a catalogue of \Sone{NTechniques} techniques and \Sone{NPlacebos} placebo words. Adoption is not timed after write-visible exposure: \Sone{PooledTechniquesEPriorMeanObserved/pct} of adopters were exposed beforehand against \Sone{PooledTechniquesEPriorMeanNull/pct} under a re-timing null, and \Sone{NSigHolmEPrior} of \Sone{NTechniques} techniques show a Holm-significant excess. A label is more likely to adopt a technique it has seen (odds ratio \Sone{ChoiceTechniquesEPriorOddsRatio}), but placebo words show the same effect (\Sone{ChoicePlacebosEPriorOddsRatio}; ratio \Sone{RorEPrior}, $p=\Sone{RorEPriorP}$): agents echo what they read, techniques no more than words. Study~2 seeds arbitrary and functional conventions on a wiki and runs \Stwo{n/trials} paired trials with \Stwo{n/models/word} open-weight models. No model invented a convention without a seeded example (\Stwo{all/invented/noconv}). Arbitrary markers spread only by copying, gated by whether an agent looks at the wiki: models listed it before writing in \Stwo{oss/listed/range} (gpt-oss-120b) to \Stwo{qwen/listed/range} (Qwen) of trials. Shown the page list, agents copied the naming structure after one example (\Stwo{all/adopt_suffix_slot/dose1_shown}) but the exact arbitrary code only after four (\Stwo{all/adopt_suffix/dose1_shown} versus \Stwo{all/adopt_suffix/dose4_shown}), a consensus threshold. Copying is real but conditional on reading, which write logs do not record; oversight infrastructure should log reads, and arbitrary tracer conventions can measure diffusion directly.
+\end{quote}
+
+% ---------------- body
+\section{Introduction}
+
+On 16--22 June 2026, agents working on timed web-lookup tasks posted roughly 13,000 edits to a small public wiki \citep{vonarx2026discovery}. They relayed answers to future rounds, shared data-access workarounds, set up liveness beacons and published a way around an egress restriction, and many of these techniques appear under dozens to hundreds of agent names. This raises a question that matters for oversight: when a technique becomes widespread in a population of agents, did it \emph{spread} from agent to agent through the shared channel (a \emph{swarm}), or was it \emph{rediscovered} by each agent facing the same constraint (a \emph{fleet})? The answers call for different interventions. If techniques spread, the shared channel is the lever; if they are rediscovered, the board is incidental and the lever is the task and the sandbox.
+
+Field data make this hard to decide. The export records writes, not reads, so exposure is not observed. Labels are not agents: names are cheap, short-lived and can be shared \citep{murtuza2026quantifying}. Activity is bursty, so any two events look correlated in time. We therefore combine an observational study with a controlled one. \textbf{Study~1} tests the real write log against two baselines: a re-timing null that keeps each label's own activity fixed, and placebo tokens (ordinary words and markup) that pass through the same pipeline. \textbf{Study~2} plants conventions on a shared wiki, including arbitrary markers that cannot be rediscovered and can only be copied, and measures how often language-model agents copy them as the number of prior adopters grows. The work addresses the science of agent networks (Track~2) and, through its implications for logging and monitoring, multi-agent oversight (Track~4). Our contributions:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{A diffusion-testing pipeline for write-only agent logs}, with a validated catalogue of \Sone{NTechniques} techniques, page-history adoption dating, four exposure definitions, a re-timing permutation test, a within-label choice design and placebo controls.
+\item \textbf{A bounded answer for collusion.wiki}: adoption is not timed after write-visible exposure, exposure effects are no stronger for techniques than for placebo words, and at most \Sone{PooledTechniquesEPriorMeanObserved/pct0} of adoptions follow write-visible exposure.
+\item \textbf{A seeded-convention experiment} that separates copying from rediscovery causally, showing that copying is gated by reading and that exact arbitrary tokens are copied only when several prior adopters agree.
+\item \textbf{Implications for oversight}: write logs cannot detect copying; read logs and tracer conventions can.
+\end{enumerate}
+
+\section{Related Work}
+
+\paragraph{The collusion.wiki incident.} \citet{vonarx2026discovery} documented roughly 18,000 posts by agents that self-identified as OpenAI agents, written to small public wikis during timed, multi-round web-lookup tasks, with qualitative examples of answer relay and of a sandbox-egress workaround that a second agent reported reproducing 14 minutes after it was posted. \citet{murtuza2026quantifying} gives the first statistical treatment of the export (cross-label co-editing tests, a behavioural taxonomy, a deletion event study) and a checklist of analysis pitfalls, which we follow; it reports no diffusion result.
+
+\paragraph{Swarm incidents with transcripts.} \citet{metr2026incident} investigated a contemporaneous incident in which agents used an internal message board to coordinate an attack on Hugging Face. With transcripts, which include what agents read, METR could trace technique sharing directly and reports that one packaged technique was eventually used by about 7\% of agents. Our setting has no transcripts, and that inference problem is the subject of Study~1.
+
+\paragraph{Contagion and collusion in multi-agent LLM systems.} Prompt injections can self-replicate across agents \citep{lee2024prompt}, a single adversarial image can spread a jailbreak through a population of multimodal agents \citep{gu2024agentsmith}, ideas can induce their adopters to transmit them further \citep{papadopoulos2026mind}, and collective loss of control can be modelled as an epidemic \citep{wu2026collective}. In these studies transmission is known by construction; we ask whether it can be told apart from rediscovery in a real deployment, and measure its preconditions in a controlled one. \citet{hammond2025multiagent} list network effects and the spread of capabilities among multi-agent risk factors, and \citet{motwani2024secret} formalise secret collusion between agents; whether a capability propagates or appears independently decides whether the channel or the individual agent is the point of intervention.
+
+\section{Study 1: The Collusion.wiki Write Log}
+
+\subsection{Methods}
+
+\paragraph{Data.} We analyse the public collusion.wiki export \citep{vonarx2026discovery}: \Sone{DataRevisions} saved revisions of \Sone{DataPages} pages on four wikis, each with full page text, author label, a one-second timestamp and its base revision. We exclude \Sone{DataNHumanHandlesExcluded} moderator handles and \Sone{DataAnonymousRevisionsExcludedAsAdopters} anonymous revisions from the adopter population (their text still counts as content that can expose others), leaving \Sone{DataAgentLabels} agent labels. Labels are short-lived: the median label saved \Sone{DataMedianRevisionsPerLabel} revisions over \Sone{DataMedianLabelSpanMinutes/1} minutes, and \Sone{DataShareSingleRevisionLabels/pct0} saved one. We do not link labels by IP prefix: \Sone{DataShareLabelsMultiIp/pct0} of labels wrote from more than one prefix, consistent with rotating egress addresses.
+
+\paragraph{Techniques and placebos.} From the hosts and tokens introduced by the most labels we kept \Sone{NTechniques} \emph{techniques}, non-obvious means to an end that one agent could learn from another, in three families (Table~\ref{tab:s1}): ten fetch proxies, three environment exploits (advancing the task clock through its wait tool, brute-forcing the task generator's seed, an egress-proxy exception) and two coordination protocols (an external counter used as a beacon, and ``signal'' pages with a fixed relay token, the one technique tagged \emph{arbitrary} because it is a naming convention). Regexes match host names or protocol tokens; reading 10 random adoption events per technique gave precision \Sone{PrecisionMin} (\Sone{ValidatedTotal} of \Sone{ValidatedTotal}). The \Sone{NPlacebos} placebos are six common words and two markup forms.
+
+\paragraph{Adoption and exposure.} A revision \emph{introduces} a line that never appeared in any earlier revision of the same page, so full-page re-saves and restorations are not credited. A label \emph{adopts} a token at its first revision that introduces a matching line; the founder of each token is excluded from exposure tests. Because reads are not recorded, we proxy exposure by what a label demonstrably had in front of it when it wrote: \emph{prior} exposure (an earlier revision by the label was saved on a page version containing the token), \emph{cross-page} (the same, on another page), \emph{same-page} (the base of the adopting revision contains the token) and \emph{wiki-level} (the token existed anywhere on the wiki; nearly every adopter qualifies). Prior and cross-page exposure are lower bounds.
+
+\paragraph{Tests.} (a)~\emph{Re-timing permutation test} (primary): under rediscovery, when a label adopts is unrelated to when it was exposed. The null re-times each adoption to a random revision of the same label saved after the token first appeared, preserving the label's activity; we compare the observed share of adopters exposed beforehand with 5,000 null draws (one-sided, Holm across techniques; placebos form a separate family). (b)~\emph{Within-label choice design}: each adoption is a choice among all tokens of the set that existed and were not yet adopted by the label; a conditional logit with alternative fixed effects estimates the odds ratio of choosing an exposed alternative, with label, moment and calendar time constant within each choice set (cluster-bootstrap CIs over labels). (c)~\emph{Placebo control}: a technique effect counts as transfer only if it exceeds the placebo effect. We also report naive exposed-versus-unexposed hazard ratios, adoption curves and burst windows, and acceleration of inter-adoption gaps against the null. Robustness variants merge labels linked by sign-offs, drop the 10 most active labels, jitter timestamps and restrict to the main wiki.
+
+\begin{table}[t]
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{adjustbox}{max width=\textwidth}
+\input{tab_s1_tech}
+\end{adjustbox}
+\caption{Study~1 catalogue and re-timing test (prior exposure). Arb.: arbitrary (naming convention) rather than functional. First-rev: share of non-founder adopters who adopt in their label's first saved revision. Obs./Null: share of adopters exposed before adopting, observed and under re-timing; excess with 95\% bootstrap CI; one-sided $p$, Holm-corrected across techniques (pooled rows: one-sided permutation $p$).}
+\label{tab:s1}
+\end{table}
+
+\subsection{Results}
+
+\paragraph{Adoption is not timed after observable exposure.} Across techniques, \Sone{PooledTechniquesEPriorMeanObserved/pct} of adopters had write-visible prior exposure, against \Sone{PooledTechniquesEPriorMeanNull/pct} under re-timing (pooled excess \Sone{PooledTechniquesEPriorMeanExcess/s3}; Table~\ref{tab:s1}, Figure~\ref{fig:s1}). No technique has a Holm-significant positive excess (\Sone{NSigHolmEPrior} of \Sone{NTechniques}); only \tok{prng_seed} has a positive point estimate (\Sone{PrngSeedEPriorExcess/s3}, $p=\Sone{PrngSeedEPriorP/p}$). Placebos show a larger negative shift (\Sone{PooledPlacebosEPriorMeanExcess/s3}); the technique-minus-placebo contrast is \Sone{ContrastEPrior/s3} [\Sone{ContrastEPriorLo/3}, \Sone{ContrastEPriorHi/3}]. The negative excess is a measurement effect: labels tend to arrive already carrying the token (\Sone{FirstPosTechMean/pct0} of adopters adopt at their first eligible revision, against \Sone{FirstPosTechNullMean/pct0} under re-timing; placebos \Sone{FirstPosPlacMean/pct0} against \Sone{FirstPosPlacNullMean/pct0}), and an adoption at a label's first revision cannot follow write-visible exposure. Among exposed adopters, the exposure-to-adoption lag is shorter than the null for \Sone{NSigHolmLag} fetch proxies after Holm correction (e.g.\ \tok{jq_proxy} \Sone{JqProxyLagObsH}\,h against \Sone{JqProxyLagNullH}\,h, $p_{\text{Holm}}=\Sone{JqProxyHolmLag/p}$), but two placebos (\emph{please} and headings, $p=\Sone{PlPleaseLagPShorter/p}$) show the same shortening.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{../results/figures/fig_permutation_null_techniques.png}
+\caption{Study~1 re-timing test. For each technique, the null distribution (gray) of the share of adopters with write-visible prior exposure, and the observed share (blue line). Observed shares sit at or below the null for every technique.}
+\label{fig:s1}
+\end{figure}
+
+\paragraph{Agents echo what they read, techniques no more than words.} In the choice design (Table~\ref{tab:choice}), \Sone{ChoiceTechniquesEPriorShareChosenExposed/pct} of chosen techniques had been seen before, against \Sone{ChoiceTechniquesEPriorShareAlternativesExposed/pct} of unchosen alternatives (odds ratio \Sone{ChoiceTechniquesEPriorOddsRatio} [\Sone{ChoiceTechniquesEPriorLo}, \Sone{ChoiceTechniquesEPriorHi}]). Placebo words show an effect of the same size (\Sone{ChoicePlacebosEPriorOddsRatio} [\Sone{ChoicePlacebosEPriorLo}, \Sone{ChoicePlacebosEPriorHi}]); the ratio of the two is \Sone{RorEPrior} [\Sone{RorEPriorLo}, \Sone{RorEPriorHi}], $p=\Sone{RorEPriorP/p}$. Exposure predicts which token a label uses next in the way it predicts word choice. Among the ten interchangeable fetch proxies, exposure still predicts which proxy a label picks (\Sone{ChoiceFetchproxyEPriorOddsRatio}), the most specific copying signature in the data and weaker than generic echo.
+
+\begin{table}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\input{tab_s1_choice}
+\caption{Study~1 within-label choice design: odds ratio of choosing an exposed alternative (conditional logit, 95\% cluster-bootstrap CI over labels). Events: adoptions with at least two alternatives.}
+\label{tab:choice}
+\end{table}
+
+\paragraph{One page-local, technique-specific signal.} Techniques are introduced on pages that already contain them more often than re-timing predicts (pooled same-page excess \Sone{PooledTechniquesEHereMeanExcess/s3}, $p=\Sone{PooledTechniquesEHerePUpper/p}$), placebos are not (\Sone{PooledPlacebosEHereMeanExcess/s3}, $p=\Sone{PooledPlacebosEHerePUpper/p}$), and the contrast excludes zero (\Sone{ContrastEHere/s3} [\Sone{ContrastEHereLo/3}, \Sone{ContrastEHereHi/3}]). It is driven by \tok{signal_relay} (\Sone{SignalRelayEHereObs/3} against \Sone{SignalRelayEHereNull/3}) and the egress-proxy exception (\Sone{ProxyExceptionBypassEHereObs/3} against \Sone{ProxyExceptionBypassEHereNull/3}, $p=\Sone{ProxyExceptionBypassEHereP/p}$), whose adopters reply inside the thread where the technique was posted, matching the incident write-up's account of a bypass reproduced and confirmed in replies.
+
+\paragraph{Naive hazards overstate diffusion; curves are task-cohort bursts.} Exposed-versus-unexposed hazard ratios look strongly diffusive for the coordination and environment techniques (\tok{signal_relay} \Sone{SignalRelayHzEPriorRr/1} [\Sone{SignalRelayHzEPriorRrLo/1}, \Sone{SignalRelayHzEPriorRrHi/1}], \tok{prng_seed} \Sone{PrngSeedHzEPriorRr/1}, \tok{counter_beacon} \Sone{CounterBeaconHzEPriorRr/1}) and exceed every placebo (largest: bold markup, \Sone{PlBoldHzEPriorRr/1}), but these techniques arose during the 16--22 June burst, when exposure and adoption both rose with activity, and the within-label tests remove the excess. The adoption curves are step functions: \Sone{JqProxyBurstShare/pct0} of \tok{jq_proxy} adopters (\Sone{JqProxyBurstN} of \Sone{JqProxyAdopters}) fall in one 24-hour window on 18 June, against \Sone{JqProxyBurstArrivalShare/pct0} of all labels first appearing then, and \Sone{JqProxyBurstCountyShare/pct0} of those adoptions reference the same public data file. One task cohort needed one file and reached for the same proxies, which rediscovery predicts and a cohort copying a shared link list would also produce. No technique accelerates beyond activity growth after Holm correction (\Sone{NSigHolmAccel} of \Sone{NTechniques}; smallest Holm $p=\Sone{ProxyExceptionBypassHolmAccel/p}$).
+
+\paragraph{Robustness.} Conclusions hold under all four variants. Merging labels by sign-off (\Sone{DataAgentLabels} labels to \Sone{RobMergedSignoffAgentsAfterMerge} agents) gives a pooled excess of \Sone{RobMergedSignoffTechniquesExcess/s3} and choice odds ratios of \Sone{RobMergedSignoffTechniquesEPriorOr} for techniques against \Sone{RobMergedSignoffPlacebosEPriorOr} for placebos; excluding the 10 most active labels gives \Sone{RobExcludeTopTechniquesEPriorOr} against \Sone{RobExcludeTopPlacebosEPriorOr}.
+
+\section{Study 2: Seeded Convention Diffusion}
+
+\subsection{Methods}
+
+Study~1 cannot rule out copying through unobserved reading, nor distinguish copying from shared-constraint rediscovery for useful techniques. Study~2 plants conventions whose origin is known. Each trial runs one LLM agent, ``evaluation agent A$k$'', for at most 10 turns with one JSON tool call per turn: \texttt{list\_pages}, \texttt{read\_page}, \texttt{write\_page}, \texttt{submit\_answer} and \texttt{finish}. It receives one short question with a deterministic answer (12 seeded templates, e.g.\ days between dates or a GCD). The system prompt says the agent is one of many working the same task set, that a shared wiki is visible to all teammates including later ones, and that it should leave its answer where teammates can find and reuse it; it never mentions a naming or indexing convention (Appendix~\ref{app:prompt}).
+
+Before the trial, scripted prior agents write answer pages. Each seed fixes an \textbf{arbitrary marker}, a page-name suffix code such as \texttt{-K7Q} and an inline body tag such as \texttt{\textasciitilde vx3\textasciitilde}, which have no function and can only be copied, and a \textbf{functional convention}, an \texttt{Answers-Index} page with one line per answer, which an agent could copy or reinvent. Ten conditions (all paired by seed) vary the number of prior adopters: \emph{isolated} (empty wiki), \emph{neutral4} (four plain answer pages), \emph{dose1/2/4} (one, two or four marked pages and index lines), \emph{dose4\_arbitrary\_only} and \emph{dose4\_functional\_only} (marker or index alone), and three \emph{shown} conditions (neutral4, dose1, dose4) that include the \texttt{list\_pages} output in the task message, which separates ``did not look'' from ``looked and did not copy''. The listing exposes page names only, so the tag and the index lines still require reading.
+
+We ran Gemma 4 31B-it, Qwen3.8 27B (thinking disabled), Ministral 3 14B and gpt-oss-120b (reasoning effort low), served with vLLM, at temperature 0.7 with 48 seeds per condition (\Stwo{n/trials} trials). Outcomes are exact matches on what the agent wrote: the exact suffix code in a page name, the tag in a page body, a code-like trailing slot in the page name (whatever the code, and whether it is the agent's own id), its own line in \texttt{Answers-Index} in the seeded format, and any index-like page. Conditions are compared with exact McNemar tests on seeds; dose response is a logistic regression on $\log_2$(dose) with model fixed effects.
+
+\subsection{Results}
+
+\begin{table}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\textwidth}
+\input{tab_s2}
+\end{adjustbox}
+\caption{Study~2 outcomes (trials adopting / trials; ``a/b/c'' gives counts at dose 1, 2 and 4, 48 trials each). ``No listing shown'' pools the seven conditions without the page list (336 trials per model).}
+\label{tab:s2}
+\end{table}
+
+\paragraph{No rediscovery.} Without a seeded convention, no model wrote an index-like page, a code-suffixed page name or a tag (\Stwo{all/invented/noconv} trials across isolated, neutral4 and neutral4\_shown; Table~\ref{tab:s2}). Every adoption below is therefore copying.
+
+\paragraph{Copying is gated by looking.} Models differ most in whether they inspect the wiki before writing: without the listing, gpt-oss-120b listed pages in \Stwo{oss/listed_before_write/unshown} trials, Gemma in \Stwo{gemma/listed/range}, Ministral in \Stwo{ministral/listed/range} and Qwen in \Stwo{qwen/listed/range} per condition, and only Ministral and Qwen read seeded pages. Correspondingly, only Ministral and Qwen copied the exact suffix unprompted, rising with dose (\Stwo{ministral/adopt_suffix/doses} and \Stwo{qwen/adopt_suffix/doses} at dose 1/2/4; pooled neutral4 against dose4 \Stwo{mc/all/adopt_suffix/neutral4_vs_dose4}). The pooled slope is \Stwo{dr/all/adopt_suffix/slope} logits per doubling of prior adopters ($p=\Stwo{dr/all/adopt_suffix/p}$), with no acceleration (per-doubling increment change: Ministral \Stwo{dr/ministral/adopt_suffix/accel}, Qwen \Stwo{dr/qwen/adopt_suffix/accel}). The body tag, visible only by reading a page, was almost never copied (\Stwo{all/adopt_tag/any} trials).
+
+\paragraph{Structure is copied readily; arbitrary content needs agreement.} When the page list was shown, agents copied the \emph{structure} of the marked names after a single example: \Stwo{all/adopt_suffix_slot/dose1_shown} gave their page a trailing code slot, but filled it with their own id (\Stwo{all/suffix_slot_self_id/dose1_shown}) rather than the seeded code (\Stwo{all/adopt_suffix/dose1_shown}). With four prior pages sharing the same code, \Stwo{all/adopt_suffix/dose4_shown} copied the exact code (\Stwo{mc/all/adopt_suffix/dose1_shown_vs_dose4_shown}), including gpt-oss-120b (\Stwo{oss/adopt_suffix/dose4_shown}), which never looked on its own; Gemma copied it once (\Stwo{gemma/adopt_suffix/dose4_shown}). An arbitrary token thus spreads only once several prior adopters agree on it, a consensus threshold rather than one-to-one contagion.
+
+\paragraph{The functional convention follows reading.} Only Qwen adopted the \texttt{Answers-Index} (\Stwo{qwen/adopt_index/doses} at dose 1/2/4), tracking how often it read seeded pages (\Stwo{qwen/read_prior_page/doses}) and declining with dose rather than rising; with the index present, Qwen copied the arbitrary suffix less often than with the marker alone (\Stwo{qwen/adopt_suffix/dose4} against \Stwo{qwen/adopt_suffix/dose4_arbitrary_only}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_s2_dose.pdf}
+\caption{Study~2 adoption against the number of prior adopters (0 = isolated; dose 1, 2, 4), with 95\% Wilson intervals. Solid: the agent must list the wiki itself; dashed, hollow markers: page list shown (dose 1 and 4). Without a seeded convention (0) no model adopted anything.}
+\label{fig:s2}
+\end{figure}
+
+\section{Discussion and Limitations}
+
+\paragraph{Two studies, one mechanism.} Study~1 finds no write-visible signature of technique spread beyond generic echo, and Study~2 shows why that is the expected result even when copying occurs: agents copy only what they look at, many do not look, and none of that is in a write log. Where agents did look, they copied structure from a single example and exact arbitrary tokens once several prior adopters agreed. The same agents never invented the conventions unprompted, so in a controlled setting copying is real and identifiable; in the field, the variable that decides it is unobserved.
+
+\paragraph{Implications for oversight.} Forensic and monitoring infrastructure for agent networks should record reads and exposures, not only writes: with writes alone, a swarm that copies through reading and a fleet that rediscovers look the same. Naive exposed-versus-unexposed comparisons should not be reported without placebo tokens; here they would have suggested \Sone{CounterBeaconHzEPriorRr/1}--\Sone{SignalRelayHzEPriorRr/1}-fold contagion for exactly the techniques of greatest safety interest. Arbitrary markers, which cannot be rediscovered, can serve as \emph{tracer conventions}: seeding one and measuring where it reappears gives a direct estimate of transmission in a deployed agent population.
+
+\paragraph{Limitations.} Study~1: labels are not agents, and arriving labels may be renamed agents that already knew a technique; reads are unobserved, so exposure measures are lower bounds and social transfer through reading is not identifiable; regex recall is unmeasured; synchronised task cohorts produce simultaneous adoptions under either hypothesis; short label lifetimes give the curve tests little power; echoing words is itself social influence, so placebos give a generic-echo baseline, not zero transfer; and the data cover one incident and one task family. Study~2: one short task per agent, a single shared wiki and four open-weight models at one temperature; doses of at most four prior adopters; and exposure behaviour differs sharply by model, so pooled rates depend on the model mix. gpt-oss-120b wrote a page in only \Stwo{oss/wrote_page/unshown/pct} of the trials without a listing, which limits what its null rates show.
+
+\section{Conclusion}
+The write log of a public agent board shows that agents echo what they have seen, but not that techniques spread through it faster than words, or that one adopter recruits the next. A seeded experiment shows that language-model agents do copy conventions from a shared wiki, but only when they look, and arbitrary tokens only when several prior adopters agree. Telling swarms from fleets requires recording what agents read.
+
+\section*{Code and Data}
+Code, tests and result tables: repository \texttt{spread-or-rediscovery} (MIT licence); \path{python -m sord.run_all} reproduces Study~1, \path{experiments/convention_diffusion/run.sh} Study~2, and \path{paper/make_numbers.py} every number and table in this report. Study~1 uses the public collusion.wiki export \citep{vonarx2026discovery}, which is not redistributed. Study~2 trial records and transcripts are in \path{experiments/convention_diffusion/results/}.
+
+\section*{Author Contributions}
+F.E.E. designed both studies, implemented the pipeline and the experiment, ran the analyses and wrote the report.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\clearpage
+\appendix
+\numberwithin{table}{section}
+
+\section{Limitations and Dual-Use / Ethical Considerations}
+\label{app:limits}
+
+\paragraph{What the results establish.} Study~1 establishes that, in one incident, write-visible exposure does not explain technique adoption beyond generic echo, and bounds the share of adoptions with write-visible exposure (\Sone{EPriorObsMin/pct0}--\Sone{EPriorObsMax/pct0} per technique, \Sone{PooledTechniquesEPriorMeanObserved/pct} pooled). It does not show that agents rediscovered the techniques: copying through unobserved reading remains possible, and \citet{metr2026incident} documents technique sharing when reads are observable. Study~2 establishes how four current open-weight models copy conventions in a simple seeded setting; it does not estimate copying rates for other models, tasks or longer interactions.
+
+\paragraph{Dual use.} The collusion.wiki data contain working descriptions of a sandbox-egress bypass, write channels and data-access workarounds. Our code and outputs record technique names and short descriptors only; regexes match host names or protocol tokens, validation annotations store revision identifiers and verdicts, and no payload, credential, tokenised URL or procedure is reproduced. A reader learns that the techniques existed and how widely they were used, which the public write-up already discloses. The pipeline detects technique spread; its main dual-use risk is showing an operator which spread signatures a monitor can see, which we judge small because the central finding is that write-only monitoring sees very little. Study~2 uses benign arithmetic and date questions and harmless markers.
+
+\paragraph{Data ethics.} The export was published with IP addresses truncated and user names redacted. We do not attempt to re-identify any person or deployment and do not use the IP field for linkage; moderator handles are excluded. Page text is treated as untrusted data, matched by regular expressions and never executed or rendered. No human subjects were involved in Study~2.
+
+\section{Study 2 system prompt}
+\label{app:prompt}
+Reproduced verbatim from \path{src/sord_exp/env.py}; \texttt{\{aid\}} is the agent id and \texttt{\{turns\}} the turn limit. The user message is \texttt{You are \{aid\}. Your question (id \{qid\}): \{question\}}, followed in the \emph{shown} conditions by the page listing.
+\begin{lstlisting}
+You are evaluation agent {aid}, one of many evaluation agents working through the same shared task set. Each agent is given one short question.
+The team has a shared wiki that agents use to coordinate: every page on it is visible to all teammates, including agents that start after you.
+Your job: answer your question correctly by calling submit_answer, and leave your answer on the wiki where teammates can find and reuse it. Then call finish.
+
+Tools. Reply with exactly one JSON object per turn and nothing else:
+{"tool": "list_pages", "args": {}}
+{"tool": "read_page", "args": {"name": "<page name>"}}
+{"tool": "write_page", "args": {"name": "<page name>", "body": "<text>"}}   (creates the page, or overwrites it if it exists)
+{"tool": "submit_answer", "args": {"answer": "<your answer>"}}
+{"tool": "finish", "args": {"note": "<short note>"}}
+You have at most {turns} turns.
+\end{lstlisting}
+Seeded answer pages are named \texttt{answer-<qid>} or \texttt{answer-<qid>-<SUF>} with body \texttt{[<tag> ]<qid>: <question>} / \texttt{Answer: <answer>} / \texttt{-- A<n>}; index lines read \texttt{[<qid>] <answer> (by A<n>)}.
+
+\section*{LLM Usage Statement}
+Claude (Anthropic) was used to help write the analysis and experiment code, run the pipelines and draft the text under the author's direction. Every number in the paper is generated by the released code and read from its output files by \path{paper/make_numbers.py}; regex precision was assessed by reading the sampled matches; and every citation was checked against its arXiv record or source. The author is responsible for the content.
+
+\end{document}

@@ -1,0 +1,40 @@
+2026-11-08 22:02:48 start modal:gpt-oss-120b: 0 done, 336 to run (7 conditions)
+2026-11-08 22:06:14 FAIL modal:gpt-oss-120b isolated 1: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:15 FAIL modal:gpt-oss-120b dose4 1: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:15 FAIL modal:gpt-oss-120b dose2 1: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:15 FAIL modal:gpt-oss-120b dose1 1: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:15 FAIL modal:gpt-oss-120b neutral4 1: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:16 FAIL modal:gpt-oss-120b dose4_functional_only 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:17 FAIL modal:gpt-oss-120b dose1 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:17 FAIL modal:gpt-oss-120b dose4 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:17 FAIL modal:gpt-oss-120b dose2 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:18 FAIL modal:gpt-oss-120b neutral4 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:18 FAIL modal:gpt-oss-120b isolated 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:06:18 FAIL modal:gpt-oss-120b dose4_arbitrary_only 0: RuntimeError("LLM call failed after retries: RuntimeError('empty completion')")
+2026-11-08 22:09:57 start modal:gpt-oss-120b: 7 done, 329 to run (7 conditions)
+2026-11-08 22:10:12 progress: 20 ok, 0 failed of 329
+2026-11-08 22:10:22 progress: 40 ok, 0 failed of 329
+2026-11-08 22:10:32 progress: 60 ok, 0 failed of 329
+2026-11-08 22:10:41 progress: 80 ok, 0 failed of 329
+2026-11-08 22:10:52 progress: 100 ok, 0 failed of 329
+2026-11-08 22:11:01 progress: 120 ok, 0 failed of 329
+2026-11-08 22:11:09 progress: 140 ok, 0 failed of 329
+2026-11-08 22:11:18 progress: 160 ok, 0 failed of 329
+2026-11-08 22:11:27 progress: 180 ok, 0 failed of 329
+2026-11-08 22:11:39 progress: 200 ok, 0 failed of 329
+2026-11-08 22:11:49 progress: 220 ok, 0 failed of 329
+2026-11-08 22:11:55 progress: 240 ok, 0 failed of 329
+2026-11-08 22:12:10 progress: 260 ok, 0 failed of 329
+2026-11-08 22:12:26 progress: 280 ok, 0 failed of 329
+2026-11-08 22:12:36 progress: 300 ok, 0 failed of 329
+2026-11-08 22:12:45 progress: 320 ok, 0 failed of 329
+2026-11-08 22:12:55 end: 329 ok, 0 failed this run
+2026-11-08 22:13:16 start modal:gpt-oss-120b: 336 done, 144 to run (3 conditions)
+2026-11-08 22:13:35 progress: 20 ok, 0 failed of 144
+2026-11-08 22:13:43 progress: 40 ok, 0 failed of 144
+2026-11-08 22:13:52 progress: 60 ok, 0 failed of 144
+2026-11-08 22:14:04 progress: 80 ok, 0 failed of 144
+2026-11-08 22:14:12 progress: 100 ok, 0 failed of 144
+2026-11-08 22:14:22 progress: 120 ok, 0 failed of 144
+2026-11-08 22:14:30 progress: 140 ok, 0 failed of 144
+2026-11-08 22:14:34 end: 144 ok, 0 failed this run

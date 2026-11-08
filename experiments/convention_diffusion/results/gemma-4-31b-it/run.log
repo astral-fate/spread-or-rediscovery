@@ -1,0 +1,27 @@
+2026-11-08 22:02:48 start modal:gemma-4-31b-it: 0 done, 336 to run (7 conditions)
+2026-11-08 22:03:05 progress: 20 ok, 0 failed of 336
+2026-11-08 22:03:15 progress: 40 ok, 0 failed of 336
+2026-11-08 22:03:24 progress: 60 ok, 0 failed of 336
+2026-11-08 22:03:34 progress: 80 ok, 0 failed of 336
+2026-11-08 22:03:42 progress: 100 ok, 0 failed of 336
+2026-11-08 22:03:51 progress: 120 ok, 0 failed of 336
+2026-11-08 22:04:01 progress: 140 ok, 0 failed of 336
+2026-11-08 22:04:11 progress: 160 ok, 0 failed of 336
+2026-11-08 22:04:18 progress: 180 ok, 0 failed of 336
+2026-11-08 22:04:29 progress: 200 ok, 0 failed of 336
+2026-11-08 22:04:41 progress: 220 ok, 0 failed of 336
+2026-11-08 22:04:52 progress: 240 ok, 0 failed of 336
+2026-11-08 22:05:01 progress: 260 ok, 0 failed of 336
+2026-11-08 22:05:10 progress: 280 ok, 0 failed of 336
+2026-11-08 22:05:18 progress: 300 ok, 0 failed of 336
+2026-11-08 22:05:26 progress: 320 ok, 0 failed of 336
+2026-11-08 22:05:34 end: 336 ok, 0 failed this run
+2026-11-08 22:11:49 start modal:gemma-4-31b-it: 336 done, 144 to run (3 conditions)
+2026-11-08 22:12:08 progress: 20 ok, 0 failed of 144
+2026-11-08 22:12:20 progress: 40 ok, 0 failed of 144
+2026-11-08 22:12:30 progress: 60 ok, 0 failed of 144
+2026-11-08 22:12:43 progress: 80 ok, 0 failed of 144
+2026-11-08 22:12:54 progress: 100 ok, 0 failed of 144
+2026-11-08 22:13:02 progress: 120 ok, 0 failed of 144
+2026-11-08 22:13:09 progress: 140 ok, 0 failed of 144
+2026-11-08 22:13:12 end: 144 ok, 0 failed this run

@@ -1,0 +1,25 @@
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Outcome & Qwen3.8 27B & Ministral 3 14B & Gemma 4 31B & gpt-oss-120b & Pooled \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{Exposure behaviour}} \\
+Listed the wiki before writing (no listing shown) & 308/336 & 85/336 & 46/336 & 0/336 & 439/1344 \\
+Read a seeded page before writing, dose 1/2/4 & 35/21/17 & 9/10/7 & 0/0/0 & 0/0/0 & 44/31/24 \\
+\multicolumn{6}{@{}l}{\textit{No seeded convention} (isolated, neutral4, neutral4\_shown)} \\
+Wrote an index-like page & 0/144 & 0/144 & 0/144 & 0/144 & 0/576 \\
+Page name with a trailing code slot & 0/144 & 0/144 & 0/144 & 0/144 & 0/576 \\
+\multicolumn{6}{@{}l}{\textit{Arbitrary marker, agent must look itself}} \\
+Exact suffix copied, dose 1/2/4 & 0/5/8 & 0/6/10 & 0/0/0 & 0/0/0 & 0/11/18 \\
+Exact suffix copied, marker only (dose 4) & 22/48 & 7/48 & 0/48 & 0/48 & 29/192 \\
+Body tag copied (all conditions) & 5/480 & 3/480 & 0/480 & 0/480 & 8/1920 \\
+\multicolumn{6}{@{}l}{\textit{Arbitrary marker, page list shown}} \\
+Code slot in name, dose 1 & 44/48 & 38/48 & 35/48 & 25/48 & 142/192 \\
+\quad slot filled with own id, dose 1 & 44/48 & 37/48 & 35/48 & 25/48 & 141/192 \\
+Exact suffix copied, dose 1 & 0/48 & 0/48 & 0/48 & 0/48 & 0/192 \\
+Exact suffix copied, dose 4 & 14/48 & 36/48 & 1/48 & 30/48 & 81/192 \\
+\multicolumn{6}{@{}l}{\textit{Functional convention (Answers-Index)}} \\
+Own line in index, dose 1/2/4 & 30/18/16 & 1/2/0 & 0/0/0 & 0/0/0 & 31/20/16 \\
+Own line in index, index only (dose 4) & 28/48 & 0/48 & 0/48 & 0/48 & 28/192 \\
+Correct answer (all conditions) & 441/480 & 292/480 & 439/480 & 442/480 & 1614/1920 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,27 @@
+2026-11-08 22:02:48 start modal:qwen3.8-27b: 0 done, 336 to run (7 conditions)
+2026-11-08 22:03:15 progress: 20 ok, 0 failed of 336
+2026-11-08 22:03:35 progress: 40 ok, 0 failed of 336
+2026-11-08 22:03:56 progress: 60 ok, 0 failed of 336
+2026-11-08 22:04:13 progress: 80 ok, 0 failed of 336
+2026-11-08 22:04:31 progress: 100 ok, 0 failed of 336
+2026-11-08 22:04:47 progress: 120 ok, 0 failed of 336
+2026-11-08 22:05:12 progress: 140 ok, 0 failed of 336
+2026-11-08 22:05:30 progress: 160 ok, 0 failed of 336
+2026-11-08 22:05:45 progress: 180 ok, 0 failed of 336
+2026-11-08 22:06:02 progress: 200 ok, 0 failed of 336
+2026-11-08 22:06:16 progress: 220 ok, 0 failed of 336
+2026-11-08 22:06:30 progress: 240 ok, 0 failed of 336
+2026-11-08 22:06:42 progress: 260 ok, 0 failed of 336
+2026-11-08 22:06:57 progress: 280 ok, 0 failed of 336
+2026-11-08 22:07:12 progress: 300 ok, 0 failed of 336
+2026-11-08 22:07:25 progress: 320 ok, 0 failed of 336
+2026-11-08 22:07:40 end: 336 ok, 0 failed this run
+2026-11-08 22:11:49 start modal:qwen3.8-27b: 336 done, 144 to run (3 conditions)
+2026-11-08 22:12:22 progress: 20 ok, 0 failed of 144
+2026-11-08 22:12:41 progress: 40 ok, 0 failed of 144
+2026-11-08 22:13:00 progress: 60 ok, 0 failed of 144
+2026-11-08 22:13:19 progress: 80 ok, 0 failed of 144
+2026-11-08 22:13:37 progress: 100 ok, 0 failed of 144
+2026-11-08 22:13:50 progress: 120 ok, 0 failed of 144
+2026-11-08 22:14:05 progress: 140 ok, 0 failed of 144
+2026-11-08 22:14:10 end: 144 ok, 0 failed this run

@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+# raw dataset is never copied into the repo
+data/
+*.jsonl.gz
+*.json.gz
+# local validation reading aid (contains raw snippets)
+validation_contexts*.txt
+paper/*.aux
+paper/*.log
+paper/*.out
+
+# local secrets (never committed)
+.env
+experiments/convention_diffusion/results/*.stdout
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.blg
+paper/*.synctex.gz

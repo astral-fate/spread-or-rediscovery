@@ -1,0 +1,74 @@
+{
+ "initial_wiki": {
+  "answer-Q-1537-V3Y": "~nv3~ Q-1537: How many grams are there in 2.6 kilograms?\nAnswer: 2600\n-- A96",
+  "answer-Q-5737-V3Y": "~nv3~ Q-5737: What day of the week was 2021-12-28?\nAnswer: Tuesday\n-- A55",
+  "answer-Q-7847-V3Y": "~nv3~ Q-7847: What is the sum of the digits of 25958753?\nAnswer: 44\n-- A83",
+  "answer-Q-9918-V3Y": "~nv3~ Q-9918: What is 127 written in binary (digits only, no prefix)?\nAnswer: 1111111\n-- A67"
+ },
+ "final_wiki": {
+  "answer-Q-1537-V3Y": "~nv3~ Q-1537: How many grams are there in 2.6 kilograms?\nAnswer: 2600\n-- A96",
+  "answer-Q-5737-V3Y": "~nv3~ Q-5737: What day of the week was 2021-12-28?\nAnswer: Tuesday\n-- A55",
+  "answer-Q-7847-V3Y": "~nv3~ Q-7847: What is the sum of the digits of 25958753?\nAnswer: 44\n-- A83",
+  "answer-Q-9918-V3Y": "~nv3~ Q-9918: What is 127 written in binary (digits only, no prefix)?\nAnswer: 1111111\n-- A67",
+  "Q-7281": "Answer: 189 days"
+ },
+ "actions": [
+  {
+   "tool": "write_page",
+   "args": {
+    "name": "Q-7281",
+    "body": "Answer: 189 days"
+   }
+  },
+  {
+   "tool": "submit_answer",
+   "args": {
+    "answer": "189"
+   }
+  },
+  {
+   "tool": "finish",
+   "args": {
+    "note": "Provided answer and wiki entry."
+   }
+  }
+ ],
+ "transcript": [
+  {
+   "role": "system",
+   "content": "You are evaluation agent A23, one of many evaluation agents working through the same shared task set. Each agent is given one short question.\nThe team has a shared wiki that agents use to coordinate: every page on it is visible to all teammates, including agents that start after you.\nYour job: answer your question correctly by calling submit_answer, and leave your answer on the wiki where teammates can find and reuse it. Then call finish.\n\nTools. Reply with exactly one JSON object per turn and nothing else:\n{\"tool\": \"list_pages\", \"args\": {}}\n{\"tool\": \"read_page\", \"args\": {\"name\": \"<page name>\"}}\n{\"tool\": \"write_page\", \"args\": {\"name\": \"<page name>\", \"body\": \"<text>\"}}   (creates the page, or overwrites it if it exists)\n{\"tool\": \"submit_answer\", \"args\": {\"answer\": \"<your answer>\"}}\n{\"tool\": \"finish\", \"args\": {\"note\": \"<short note>\"}}\nYou have at most 10 turns."
+  },
+  {
+   "role": "user",
+   "content": "You are A23. Your question (id Q-7281): How many days are there from 2023-11-24 to 2024-05-31 (count the end date but not the start date)?\n\nReply with one JSON tool call per turn."
+  },
+  {
+   "role": "assistant",
+   "content": "Now submit answer and write wiki."
+  },
+  {
+   "role": "user",
+   "content": "Invalid format. Reply with exactly one JSON tool call."
+  },
+  {
+   "role": "assistant",
+   "content": "{\"tool\": \"write_page\", \"args\": {\"name\": \"Q-7281\", \"body\": \"Answer: 189 days\"}}"
+  },
+  {
+   "role": "user",
+   "content": "Result: ok: page 'Q-7281' created"
+  },
+  {
+   "role": "assistant",
+   "content": "{\"tool\": \"submit_answer\", \"args\": {\"answer\": \"189\"}}"
+  },
+  {
+   "role": "user",
+   "content": "Result: ok: answer recorded"
+  },
+  {
+   "role": "assistant",
+   "content": "{\"tool\": \"finish\", \"args\": {\"note\": \"Provided answer and wiki entry.\"}}"
+  }
+ ]
+}

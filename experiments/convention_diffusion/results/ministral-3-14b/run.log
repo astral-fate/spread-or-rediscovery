@@ -1,0 +1,27 @@
+2026-11-08 22:02:48 start modal:ministral-3-14b: 0 done, 336 to run (7 conditions)
+2026-11-08 22:03:02 progress: 20 ok, 0 failed of 336
+2026-11-08 22:03:12 progress: 40 ok, 0 failed of 336
+2026-11-08 22:03:20 progress: 60 ok, 0 failed of 336
+2026-11-08 22:03:29 progress: 80 ok, 0 failed of 336
+2026-11-08 22:03:35 progress: 100 ok, 0 failed of 336
+2026-11-08 22:03:42 progress: 120 ok, 0 failed of 336
+2026-11-08 22:03:52 progress: 140 ok, 0 failed of 336
+2026-11-08 22:04:00 progress: 160 ok, 0 failed of 336
+2026-11-08 22:04:10 progress: 180 ok, 0 failed of 336
+2026-11-08 22:04:18 progress: 200 ok, 0 failed of 336
+2026-11-08 22:04:24 progress: 220 ok, 0 failed of 336
+2026-11-08 22:04:33 progress: 240 ok, 0 failed of 336
+2026-11-08 22:04:41 progress: 260 ok, 0 failed of 336
+2026-11-08 22:04:49 progress: 280 ok, 0 failed of 336
+2026-11-08 22:04:57 progress: 300 ok, 0 failed of 336
+2026-11-08 22:05:03 progress: 320 ok, 0 failed of 336
+2026-11-08 22:05:08 end: 336 ok, 0 failed this run
+2026-11-08 22:11:50 start modal:ministral-3-14b: 336 done, 144 to run (3 conditions)
+2026-11-08 22:12:04 progress: 20 ok, 0 failed of 144
+2026-11-08 22:12:14 progress: 40 ok, 0 failed of 144
+2026-11-08 22:12:21 progress: 60 ok, 0 failed of 144
+2026-11-08 22:12:30 progress: 80 ok, 0 failed of 144
+2026-11-08 22:12:37 progress: 100 ok, 0 failed of 144
+2026-11-08 22:12:46 progress: 120 ok, 0 failed of 144
+2026-11-08 22:12:52 progress: 140 ok, 0 failed of 144
+2026-11-08 22:12:54 end: 144 ok, 0 failed this run

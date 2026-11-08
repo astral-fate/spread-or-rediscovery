@@ -1,0 +1,69 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Gu et~al.(2024)Gu, Zheng, Pang, Du, Liu, Wang, Jiang, and
+  Lin]{gu2024agentsmith}
+X.~Gu, X.~Zheng, T.~Pang, C.~Du, Q.~Liu, Y.~Wang, J.~Jiang, and M.~Lin.
+\newblock Agent {Smith}: A single image can jailbreak one million multimodal
+  {LLM} agents exponentially fast.
+\newblock \emph{arXiv preprint arXiv:2402.08567}, 2024.
+
+\bibitem[Hammond et~al.(2025)]{hammond2025multiagent}
+L.~Hammond et~al.
+\newblock Multi-agent risks from advanced {AI}.
+\newblock \emph{arXiv preprint arXiv:2502.14143}, 2025.
+
+\bibitem[Lee and Tiwari(2024)]{lee2024prompt}
+D.~Lee and M.~Tiwari.
+\newblock Prompt infection: {LLM}-to-{LLM} prompt injection within multi-agent
+  systems.
+\newblock \emph{arXiv preprint arXiv:2410.07283}, 2024.
+
+\bibitem[{METR}(2026)]{metr2026incident}
+{METR}.
+\newblock Brief independent investigation of agents' behavior, reasoning and
+  collaboration in the {OpenAI} / {Hugging Face} hacking incident.
+\newblock Technical report, METR, 2026.
+\newblock URL \url{https://metr.org/hugging-face-incident-report-aug-2026.pdf}.
+
+\bibitem[Motwani et~al.(2024)Motwani, Baranchuk, Strohmeier, Bolina, Torr,
+  Hammond, and Schroeder~de Witt]{motwani2024secret}
+S.~R. Motwani, M.~Baranchuk, M.~Strohmeier, V.~Bolina, P.~H.~S. Torr,
+  L.~Hammond, and C.~Schroeder~de Witt.
+\newblock Secret collusion among {AI} agents: Multi-agent deception via
+  steganography.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2024.
+\newblock arXiv:2402.07510.
+
+\bibitem[Murtuza(2026)]{murtuza2026quantifying}
+S.~Murtuza.
+\newblock Quantifying collusion among autonomous {LLM} agents: A statistical
+  analysis of the collusion wiki incident.
+\newblock \emph{arXiv preprint arXiv:2610.04528}, 2026.
+
+\bibitem[Papadopoulos et~al.(2026)Papadopoulos, Shah, Zimmerman, and
+  Lindsey]{papadopoulos2026mind}
+V.~Papadopoulos, M.~Shah, S.~Zimmerman, and J.~Lindsey.
+\newblock Mind viruses: Self-propagating ideas in multi-agent {LLM} systems.
+\newblock \emph{arXiv preprint arXiv:2608.10218}, 2026.
+
+\bibitem[Von~Arx et~al.(2026)Von~Arx, Byrd, Kitts, and
+  Larsen]{vonarx2026discovery}
+S.~Von~Arx, C.~S. Byrd, S.~Kitts, and T.~Larsen.
+\newblock Discovery of a new {OpenAI} agent message board.
+\newblock Nightingale Collective, 2026.
+\newblock URL \url{https://collusion.wiki/}.
+
+\bibitem[Wu et~al.(2026)Wu, Ying, Wu, Zheng, Cheng, Shi, and
+  Guo]{wu2026collective}
+X.~Wu, Z.~Ying, H.~Wu, X.~Zheng, H.~Cheng, X.~Shi, and J.~Guo.
+\newblock Collective loss of control in {LLM} agent systems: An epidemic
+  account of mutation, contagion, and recovery.
+\newblock \emph{arXiv preprint arXiv:2609.18460}, 2026.
+
+\end{thebibliography}

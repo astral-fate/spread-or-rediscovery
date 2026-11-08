@@ -1,0 +1,34 @@
+{
+  "study": "Study 2: seeded convention diffusion",
+  "models": [
+    "modal:gemma-4-31b-it",
+    "modal:qwen3.8-27b",
+    "modal:ministral-3-14b",
+    "modal:gpt-oss-120b"
+  ],
+  "conditions": [
+    "isolated",
+    "neutral4",
+    "dose1",
+    "dose2",
+    "dose4",
+    "dose4_arbitrary_only",
+    "dose4_functional_only",
+    "neutral4_shown",
+    "dose1_shown",
+    "dose4_shown"
+  ],
+  "seeds": 48,
+  "seed_start": 0,
+  "pilot_seeds": [
+    1000,
+    1001
+  ],
+  "temperature": 0.7,
+  "max_tokens": 1500,
+  "max_turns": 10,
+  "workers_per_model": 12,
+  "env_file": "../../../revoked-not-forgotten/.env",
+  "notes": "Qwen thinking disabled via chat_template_kwargs; gpt-oss reasoning_effort=low. One process per model, each writing only results/<model>/. The three *_shown conditions (forced exposure: page listing in the task message) were added after the pilot showed that most agents never call list_pages; they run on the same seeds 0-47.",
+  "gpt_oss_empty_reply_handling": "gpt-oss on vLLM sometimes ends after its reasoning channel with content=None; the client retries once with a shifted seed, then returns an empty reply, which the env counts as an invalid turn and re-prompts (usage.empty counts these)."
+}
