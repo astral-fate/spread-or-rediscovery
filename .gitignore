@@ -20,3 +20,6 @@ paper/*.fdb_latexmk
 paper/*.blg
 paper/*.synctex.gz
 .omc/
+
+# simulated reviews: kept locally, not published
+paper/review/
