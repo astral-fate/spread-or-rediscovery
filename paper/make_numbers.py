@@ -300,9 +300,43 @@ def study2(M: Macros):
     incomplete = sorted({c for _, c in rows} - set(conds))
     if incomplete:
         print("Study 2: incomplete conditions left out:", ", ".join(incomplete))
+    # conformity-cue ablation (dose4_shown_nocue): run on a subset of models only, so it is kept out of the main
+    # grid and compared, per model and paired by seed, with that model's dose4_shown
+    ABL = "dose4_shown_nocue"
+    abl = {s: {r["seed"]: r for r in rows.get((s, ABL), [])} for s in slugs}
+    abl = {s: v for s, v in abl.items() if len(v) >= n_seed}
+    if ABL in incomplete:
+        incomplete.remove(ABL)
     for key in [k for k in rows if k[1] not in conds]:
         del rows[key]
     have = set(conds)
+    if abl:
+        M["s2/abl/models"] = (lambda L: ", ".join(L[:-1]) + " and " + L[-1] if len(L) > 1 else "".join(L))([names[s] for s in abl])
+        M["s2/abl/n/models/word"] = NUMWORD.get(len(abl), str(len(abl)))
+        tb = tc = 0
+        for s, A in abl.items():
+            B = {r["seed"]: r for r in rows.get((s, "dose4_shown"), [])}
+            common = sorted(A.keys() & B.keys())
+            for o in ("adopt_suffix", "adopt_suffix_slot", "suffix_slot_self_id", "wrote_page", "adopt_index", "listed_before_write"):
+                M[f"s2/abl/{s}/{o}/nocue"] = f"{sum(bool(A[x].get(o)) for x in common)}/{len(common)}"
+                M[f"s2/abl/{s}/{o}/cue"] = f"{sum(bool(B[x].get(o)) for x in common)}/{len(common)}"
+            # discordant pairs for the exact code: b = copied with the cue only, c = copied without the cue only
+            bb = sum(bool(B[x].get("adopt_suffix")) and not A[x].get("adopt_suffix") for x in common)
+            cc = sum(bool(A[x].get("adopt_suffix")) and not B[x].get("adopt_suffix") for x in common)
+            tb, tc = tb + bb, tc + cc
+            M[f"s2/abl/{s}/mc"] = f"{bb} vs {cc}, {pe(mcnemar_exact(bb, cc))}"
+            # among trials that wrote an answer page: share that copied the code
+            wa = [x for x in common if A[x].get("wrote_page")]
+            wb = [x for x in common if B[x].get("wrote_page")]
+            M[f"s2/abl/{s}/code_amongwriters/nocue"] = f"{sum(bool(A[x].get('adopt_suffix')) for x in wa)}/{len(wa)}"
+            M[f"s2/abl/{s}/code_amongwriters/cue"] = f"{sum(bool(B[x].get('adopt_suffix')) for x in wb)}/{len(wb)}"
+        M["s2/abl/all/mc"] = f"{tb} vs {tc}, {pe(mcnemar_exact(tb, tc))}"
+        for o in ("adopt_suffix", "suffix_slot_self_id", "wrote_page"):
+            k_a = sum(bool(r.get(o)) for s, A in abl.items() for r in A.values())
+            k_b = sum(bool(r.get(o)) for s in abl for r in rows.get((s, "dose4_shown"), []))
+            n_ = sum(len(A) for A in abl.values())
+            M[f"s2/abl/all/{o}/nocue"] = f"{k_a}/{n_}"
+            M[f"s2/abl/all/{o}/cue"] = f"{k_b}/{n_}"
     seeds = {r["seed"] for rs in rows.values() for r in rs}
     M["s2/n/trials"] = f"{sum(len(v) for v in rows.values()):,}"
     M["s2/n/models"] = len(slugs)

@@ -30,3 +30,7 @@
 2026-11-09 03:50:13 progress: 260 ok, 0 failed of 288
 2026-11-09 03:59:48 progress: 280 ok, 0 failed of 288
 2026-11-09 04:03:00 end: 288 ok, 0 failed this run
+2026-11-09 11:02:35 start adaption:qwen3.5-397b: 576 done, 48 to run (1 conditions)
+2026-11-09 11:08:55 progress: 20 ok, 0 failed of 48
+2026-11-09 11:15:05 progress: 40 ok, 0 failed of 48
+2026-11-09 11:16:27 end: 48 ok, 0 failed this run

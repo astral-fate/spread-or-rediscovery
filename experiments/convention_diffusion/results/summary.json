@@ -3713,11 +3713,11 @@
    }
   },
   "glm-5.2": {
-   "n_trials": 576,
+   "n_trials": 624,
    "errors_logged": 0,
-   "calls": 1887,
-   "prompt_tokens": 700321,
-   "completion_tokens": 338234,
+   "calls": 2033,
+   "prompt_tokens": 750062,
+   "completion_tokens": 363956,
    "rates": {
     "adopt_suffix": {
      "isolated": [
@@ -9287,11 +9287,11 @@
    }
   },
   "qwen3.5-397b": {
-   "n_trials": 576,
+   "n_trials": 624,
    "errors_logged": 0,
-   "calls": 1987,
-   "prompt_tokens": 823197,
-   "completion_tokens": 462553,
+   "calls": 2131,
+   "prompt_tokens": 882020,
+   "completion_tokens": 497136,
    "rates": {
     "adopt_suffix": {
      "isolated": [

@@ -30,3 +30,7 @@
 2026-11-09 03:39:03 progress: 260 ok, 0 failed of 288
 2026-11-09 03:46:55 progress: 280 ok, 0 failed of 288
 2026-11-09 03:49:51 end: 288 ok, 0 failed this run
+2026-11-09 11:02:35 start adaption:glm-5.2: 576 done, 48 to run (1 conditions)
+2026-11-09 11:07:38 progress: 20 ok, 0 failed of 48
+2026-11-09 11:12:31 progress: 40 ok, 0 failed of 48
+2026-11-09 11:15:01 end: 48 ok, 0 failed this run

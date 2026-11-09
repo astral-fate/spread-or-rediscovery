@@ -51,6 +51,7 @@ All conditions are paired by seed: the same question, marker codes and prior age
 | `dose4_shown` | 4 | yes | yes | forced exposure: as `dose4`, plus the listing |
 | `dose2_shown` | 2 | yes | yes | forced exposure: as `dose2`, plus the listing (fills the gap between dose1 and dose4) |
 | `dose4_shown_mixed` | 4 | yes, but a different code and tag on each page | yes | forced exposure: separates a consensus threshold (exact copying needs prior adopters to agree) from code disambiguation (copying any code once the slot is understood) |
+| `dose4_shown_nocue` | 4 | yes | yes | forced exposure with the team framing removed from the system prompt (no teammates, no coordination, no "find and reuse"; the agent is only asked to save its answer as a wiki page). Run on Qwen3.5 397B and GLM-5.2 only, paired by seed with `dose4_shown` |
 
 We added the `*_shown` conditions after the pilot showed that several models rarely or never
 call `list_pages` before writing. Without them, a low adoption rate would mix two things: the
