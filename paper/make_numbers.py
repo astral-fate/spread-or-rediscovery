@@ -508,6 +508,30 @@ def study2(M: Macros):
     t += ["\\bottomrule", "\\end{tabular}"]
     (OUT / "tab_s2.tex").write_text("\n".join(t) + "\n", encoding="utf-8")
 
+    # compact body table: pooled counts and the range across models (full per-model table in the appendix)
+    def rng(o, cs, fmt):
+        if any(c not in have for c in cs):
+            return "--"
+        if fmt == "doses":
+            parts = []
+            for c in cs:
+                v = [count([s], [c], o)[0] for s in slugs]
+                parts.append(f"{min(v)}" if min(v) == max(v) else f"{min(v)}--{max(v)}")
+            return " / ".join(parts)
+        v = [count([s], cs, o) for s in slugs]
+        v = [100 * k / n for k, n in v if n]
+        lo, hi = round(min(v)), round(max(v))
+        return f"{lo}\\%" if lo == hi else f"{lo}--{hi}\\%"
+    t = ["\\begin{tabular}{@{}lcc@{}}", "\\toprule",
+         f"Outcome & Pooled ({len(slugs)} models) & Range across models \\\\", "\\midrule"]
+    for lab, o, cs, fmt in spec:
+        if o is None:
+            t.append(f"\\multicolumn{{3}}{{@{{}}l}}{{{lab}}} \\\\")
+            continue
+        t.append(lab + " & " + cell("all", o, cs, fmt) + " & " + rng(o, cs, fmt) + " \\\\")
+    t += ["\\bottomrule", "\\end{tabular}"]
+    (OUT / "tab_s2_body.tex").write_text("\n".join(t) + "\n", encoding="utf-8")
+
     # error and qualitative analysis (Section 3.3)
     allr = [r for s in slugs for c in conds for r in rows.get((s, c), [])]
     for s in slugs:

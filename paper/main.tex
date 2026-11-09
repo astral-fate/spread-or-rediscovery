@@ -88,11 +88,9 @@ Before the trial, scripted prior agents write answer pages for other questions. 
 We ran Gemma 4 31B-it, Qwen3.8 27B (thinking disabled), Ministral 3 14B and gpt-oss-120b (reasoning effort low) with vLLM, and DeepSeek-V4 Flash, GLM-5.2 and Qwen3.5 397B through the Adaption Responses API (which takes no sampling seed, so for these the seed fixes the scenario and the pairing but not the sampling), all at temperature 0.7, 48 seeds per condition (\Stwo{n/trials} trials). Outcomes are exact matches on what the agent wrote: the exact seeded code in a page name, the tag in a body, a code-like trailing slot in a page name (any code; also whether it is the agent's own id), the agent's own line in the index, and any index-like page. Primary tests are per-model exact McNemar tests on seeds; pooled counts are descriptive. A further condition, run on two models, removes the team framing from the prompt (Section~\ref{sec:exp}.2). The dose slope for the exact code is a logistic regression on $\log_2$(dose) with model fixed effects, fitted on the models with any adoption (\Stwo{dr/models/short}) with standard errors clustered by seed.
 
 \begin{table}[t]
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{adjustbox}{max width=\textwidth}
-\input{tab_s2}
-\end{adjustbox}
-\caption{Tracer experiment outcomes, adopting trials / trials. ``a/b/c'' gives counts at dose 1, 2 and 4 (48 trials each). ``No list shown'' pools the conditions without the page list. Invalid-format turn: the reply contained no parseable tool call and the agent was re-prompted.}
+\centering\footnotesize\setlength{\tabcolsep}{6pt}
+\input{tab_s2_body}
+\caption{Tracer experiment outcomes, pooled over models (adopting trials / trials) with the range of per-model rates. ``a/b/c'' gives counts at dose 1, 2 and 4 (pooled: of 336 trials each; range: of 48). ``No list shown'' pools the conditions without the page list. Invalid-format turn: the reply contained no parseable tool call and the agent was re-prompted. Per-model counts: Table~\ref{tab:s2full}, Appendix~\ref{app:s2full}.}
 \label{tab:s2}
 \end{table}
 
@@ -216,6 +214,17 @@ Your job: answer your question correctly by calling submit_answer, and save your
 \end{lstlisting}
 
 \paragraph{Example.} \IfN{s2/example/model}{With seed \Stwo{example/seed} and the page list shown, \Stwo{example/model} (agent \Stwo{example/agent}) saw one prior page ending in \texttt{\Stwo{example/suffix}} and wrote \texttt{\Stwo{example/d1page}}, its own id in the code slot; with four prior pages ending in that code it wrote \texttt{\Stwo{example/d4page}}.}{}
+
+\section{Tracer Experiment: Per-Model Outcomes}
+\label{app:s2full}
+\begin{table}[h]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\textwidth}
+\input{tab_s2}
+\end{adjustbox}
+\caption{Tracer experiment outcomes per model, adopting trials / trials. ``a/b/c'' gives counts at dose 1, 2 and 4 (48 trials each). Rows as in Table~\ref{tab:s2}.}
+\label{tab:s2full}
+\end{table}
 
 \clearpage
 \section{Field Check: Catalogue and Re-timing Test}
