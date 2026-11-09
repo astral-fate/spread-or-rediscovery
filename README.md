@@ -4,7 +4,7 @@
 
 **Measuring how LLM agents copy practices from a shared board, with a field check on the collusion.wiki swarm**
 
-<img src="docs/figures/design.png" alt="Study design. Left: a shared team wiki seeded with 0, 1, 2 or 4 prior agents' pages that use an arbitrary page-name code, a body tag and an Answers-Index page, with codes shared or all different. Centre: an LLM evaluation agent that must answer one question and leave the answer for teammates, with list_pages, read_page, write_page and submit_answer tools; four models. Right: what it writes, graded by exact match: the name structure, whether the slot holds the seeded code or its own id, the body tag, an index entry. Bottom: the field check on the real collusion.wiki log, 14,591 revisions by 3,103 agent labels, 15 techniques and 8 placebo words." width="900">
+<img src="docs/figures/design.png" alt="Study design. Left: a shared team wiki seeded with 0, 1, 2 or 4 prior agents' pages that use an arbitrary page-name code, a body tag and an Answers-Index page, with codes shared or all different. Centre: an LLM evaluation agent that must answer one question and leave the answer for teammates, with list_pages, read_page, write_page and submit_answer tools; seven models. Right: what it writes, graded by exact match: the name structure, whether the slot holds the seeded code or its own id, the body tag, an index entry. Bottom: the field check on the real collusion.wiki log, 14,591 revisions by 3,099 agent labels, 15 techniques and 8 placebo words." width="900">
 
 [![Paper](docs/badges/paper-pdf.svg)](paper/main.pdf)
 [![Sprint](docs/badges/sprint.svg)](https://apartresearch.com/sprints/swarm-alignment-2026)
@@ -69,7 +69,7 @@ Fatimah Emad Eldin, Trouve Labs. Apart Research Swarm Alignment Hackathon, Novem
 
 <img src="docs/figures/study2_copying.png" alt="Share of trials by number of prior adopters, per model: exact code copied and code slot used, with the page list shown or with the agent having to look; body tag and index line" width="900">
 
-<a id="field-check"></a>**Field check on the collusion.wiki log** (14,591 revisions, 3,103 labels, 15 techniques, 8 placebo
+<a id="field-check"></a>**Field check on the collusion.wiki log** (14,591 revisions, 3,099 agent labels, 15 techniques, 8 placebo
 words). Full tables: [`results/RESULTS.md`](results/RESULTS.md).
 
 - Write-visible exposure did not distinguish technique spread from word echo: exposure predicts which technique a label

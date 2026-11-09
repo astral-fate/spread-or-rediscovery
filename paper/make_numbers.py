@@ -58,10 +58,12 @@ def fmt_p(p: float) -> str:
 def pe(p: float) -> str:
     """'p = 0.24' or 'p < 10^-6', in math mode, safe in text."""
     v = fmt_p(p)
-    return f"\\ensuremath{{p<10^{{-6}}}}" if v.startswith("\\ensuremath{<") else f"\\ensuremath{{p={v}}}"
+    # italic p in the text font, so the PDF text layer keeps it (math-font glyphs are dropped on extraction)
+    return f"\\textit{{p}}\\,\\ensuremath{{<10^{{-6}}}}" if v.startswith("\\ensuremath{<") else f"\\textit{{p}}\\,=\\,{v}"
 
 
-SHORT2 = {"gemma": "Gemma", "qwen": "Qwen", "ministral": "Ministral", "oss": "gpt-oss"}
+SHORT2 = {"gemma": "Gemma", "qwen": "Qwen3.8", "ministral": "Ministral", "oss": "gpt-oss",
+          "qwen35397b": "Qwen3.5", "glm52": "GLM", "deepseekv4flash": "DeepSeek"}
 
 
 def pct(k, n, d=0):
@@ -410,10 +412,10 @@ def study2(M: Macros):
     M["s2/dr/slope"] = num(res.params[0], 2, True)
     M["s2/dr/se"] = num(res.bse[0], 2)
     M["s2/dr/pe"] = pe(res.pvalues[0])
-    M["s2/dr/models"] = " and ".join(names[s] for s in var_models)
-    M["s2/dr/models/short"] = " and ".join(SHORT2.get(s, s) for s in var_models)
+    M["s2/dr/models"] = (lambda L: ", ".join(L[:-1]) + " and " + L[-1] if len(L) > 1 else "".join(L))([names[s] for s in var_models])
+    M["s2/dr/models/short"] = (lambda L: ", ".join(L[:-1]) + " and " + L[-1] if len(L) > 1 else "".join(L))([SHORT2.get(s, s) for s in var_models])
     summ = json.loads((S2 / "results" / "summary.json").read_text(encoding="utf-8"))
-    key_of = {"gemma": "gemma-4-31b-it", "qwen": "qwen3.8-27b", "ministral": "ministral-3-14b", "oss": "gpt-oss-120b"}
+    key_of = {v[1]: k for k, v in NICE.items()}
     for s in slugs:
         v = summ["models"].get(key_of.get(s, s), {}).get("dose_response", {}).get("adopt_suffix", {})
         if v.get("acceleration"):
@@ -471,6 +473,57 @@ def study2(M: Macros):
         t.append(lab + " & " + " & ".join(cell(s, o, cs, fmt) for s in slugs + ["all"]) + " \\\\")
     t += ["\\bottomrule", "\\end{tabular}"]
     (OUT / "tab_s2.tex").write_text("\n".join(t) + "\n", encoding="utf-8")
+
+    # error and qualitative analysis (Section 3.3)
+    allr = [r for s in slugs for c in conds for r in rows.get((s, c), [])]
+    for s in slugs:
+        rs = [r for c in conds for r in rows.get((s, c), [])]
+        put(f"s2/{s}/err/correct", sum(bool(r.get("answer_correct")) for r in rs), len(rs))
+        put(f"s2/{s}/err/invalid", sum(bool(r.get("invalid")) for r in rs), len(rs))
+        put(f"s2/{s}/err/onwiki", sum(bool(r.get("answer_on_wiki")) for r in rs), len(rs))
+        M[f"s2/{s}/err/turns"] = f"{sum(r['turns'] for r in rs) / len(rs):.1f}"
+
+    def slot_of(r):
+        for p_ in r.get("written_pages") or []:
+            m_ = re.fullmatch(r"answer-" + re.escape(r["qid"]) + r"-([A-Za-z0-9]+)", p_)
+            if m_:
+                return m_.group(1)
+        return None
+
+    def blend(r):
+        sl_ = slot_of(r)
+        return bool(sl_ and not r.get("adopt_suffix") and not r.get("suffix_slot_self_id") and not r.get("any_code")
+                    and sl_[0] == r["suffix"][0] and sl_[1:2].isdigit())
+    bl = [r for r in allr if blend(r)]
+    M["s2/qual/blend/n"] = len(bl)
+    M["s2/qual/blend/ministral"] = sum(r in bl for c in conds for r in rows.get(("ministral", c), []))
+    ex = [r for r in bl if r.get("written_pages")]
+    BS = chr(92)
+    if ex:
+        M["s2/qual/blend/ex"] = ("seeded " + BS + "texttt{" + ex[0]["suffix"] + "}, agent " + ex[0]["agent"] + " wrote "
+                                 + BS + "texttt{" + tex(ex[0]["written_pages"][0]) + "}")
+    noq = [r for r in allr if r.get("written_pages") and not any(r["qid"] in p_ for p_ in r["written_pages"])
+           and r["written_pages"] != ["Answers-Index"]]
+    M["s2/qual/noqid/n"] = len(noq)
+    M["s2/qual/noqid/ministral"] = sum(1 for s in slugs if s == "ministral" for c in conds for r in rows.get((s, c), []) if r in noq)
+    for c in ("dose1_shown", "dose2_shown", "dose4_shown", "dose4_shown_mixed"):
+        rs = [r for s in slugs for r in rows.get((s, c), [])]
+        put(f"s2/qual/plainqid/{c}", sum(1 for r in rs if r.get("wrote_page") and not r.get("adopt_suffix_slot")
+                                           and any(p_ == "answer-" + r["qid"] for p_ in r.get("written_pages") or [])), len(rs))
+        put(f"s2/qual/nowrite/{c}", sum(1 for r in rs if not r.get("wrote_page")), len(rs))
+    rd = [r for s in slugs for c in ("dose1", "dose2", "dose4") for r in rows.get((s, c), []) if r.get("read_prior_page")]
+    put("s2/qual/readers/code", sum(bool(r.get("adopt_suffix")) for r in rd), len(rd))
+    put("s2/qual/readers/ownid", sum(bool(r.get("suffix_slot_self_id")) for r in rd), len(rd))
+    tg = [r for r in allr if r.get("adopt_tag")]
+    M["s2/qual/tag/n"] = len(tg)
+    M["s2/qual/tag/arbonly"] = sum(r["condition"] == "dose4_arbitrary_only" for r in tg)
+    M["s2/qual/tag/withcode"] = sum(bool(r.get("adopt_suffix")) for r in tg)
+    M["s2/qual/tag/read"] = sum(bool(r.get("read_prior_page")) for r in tg)
+    M["s2/qual/clobber"] = sum(bool(r.get("index_clobbered")) for r in allr)
+    kw = re.compile(r"(?i)(convention|naming|consisten\w*|pattern)")
+    M["s2/qual/notes/naming"] = sum(1 for r in allr for a_ in r.get("actions") or []
+                                    if a_.get("tool") == "finish" and kw.search(str((a_.get("args") or {}).get("note", ""))))
+    M["s2/qual/notes/n"] = sum(1 for r in allr if any(a_.get("tool") == "finish" for a_ in r.get("actions") or []))
 
     # worked example for the appendix: the page names one seed produced at dose 1 and dose 4 (list shown)
     for s in slugs:

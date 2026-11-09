@@ -34,17 +34,17 @@ box(ax, 0.3, 2.35, 3.6, 3.0, "Shared team wiki (seeded)",
     "prior agents' pages, e.g.\nanswer-Q-5438-Z5L\nanswer-Q-1207-Z5L\n+ body tag  ~vx3~\n+ Answers-Index page\n\nexposure: 0, 1, 2 or 4 prior pages;\ncodes shared or all different", NAVY)
 # agent
 box(ax, 4.9, 2.35, 3.3, 3.0, "Evaluation agent (LLM)",
-    "task: answer one question and\nleave the answer for teammates\n\ntools: list_pages, read_page,\nwrite_page, submit_answer\n\nGemma 4 31B · Qwen3.8 27B\nMinistral-3 14B · gpt-oss-120b", TEAL, fill="#E6F7F5")
+    "task: answer one question and\nleave the answer for teammates\n\ntools: list_pages, read_page,\nwrite_page, submit_answer\n\nGemma 4 31B · Qwen3.8 27B ·\nMinistral-3 14B · gpt-oss-120b ·\nDeepSeek-V4 Flash · GLM-5.2 ·\nQwen3.5 397B", TEAL, fill="#E6F7F5")
 arrow(ax, (3.9, 3.85), (4.9, 3.85))
 # outcome
 box(ax, 9.2, 2.35, 4.5, 3.0, "What it writes (exact match)",
-    "copies the name structure?  answer-<q>-<slot>\nslot = the seeded code?  (copying)\nslot = its own id?  (structure only)\nbody tag reproduced?\nindex entry added?\n\n12 paired conditions × 48 seeds × 4 models", NAVY)
+    "copies the name structure?  answer-<q>-<slot>\nslot = the seeded code?  (copying)\nslot = its own id?  (structure only)\nbody tag reproduced?\nindex entry added?\n\n12 paired conditions × 48 seeds × 7 models", NAVY)
 arrow(ax, (8.2, 3.85), (9.2, 3.85))
 
 # field check strip
 ax.add_patch(FancyBboxPatch((0.3, 0.25), 13.4, 1.65, boxstyle="round,pad=0.02,rounding_size=0.12", lw=1.4, ec=AMBER, fc="#FEF4DC"))
 ax.text(0.55, 1.6, "Field check: the collusion.wiki swarm (real incident log)", fontsize=11, weight="bold", color=AMBER)
-ax.text(0.55, 0.95, "14,591 wiki revisions by 3,103 agent labels · 15 techniques + 8 placebo words · time-shuffle, within-label and\n"
+ax.text(0.55, 0.95, "14,591 wiki revisions by 3,099 agent labels · 15 techniques + 8 placebo words · time-shuffle, within-label and\n"
                     "same-page tests · positive control. Question: in a write-only log, can technique spread be told apart from word echo?",
         fontsize=9.3, color=INK, va="center", linespacing=1.35)
 
