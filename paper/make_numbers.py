@@ -26,8 +26,10 @@ S1 = ROOT / "results"
 S2 = ROOT / "experiments" / "convention_diffusion"
 
 NICE = {"gemma-4-31b-it": ("Gemma 4 31B", "gemma"), "qwen3.8-27b": ("Qwen3.8 27B", "qwen"),
-        "ministral-3-14b": ("Ministral 3 14B", "ministral"), "gpt-oss-120b": ("gpt-oss-120b", "oss")}
-ORDER = ["qwen", "ministral", "gemma", "oss"]
+        "ministral-3-14b": ("Ministral 3 14B", "ministral"), "gpt-oss-120b": ("gpt-oss-120b", "oss"),
+        "deepseek-v4-flash": ("DeepSeek-V4 Flash", "deepseekv4flash"), "glm-5.2": ("GLM-5.2", "glm52"),
+        "qwen3.5-397b": ("Qwen3.5 397B", "qwen35397b")}
+ORDER = ["qwen", "ministral", "gemma", "oss", "qwen35397b", "glm52", "deepseekv4flash"]
 UNSHOWN = ["isolated", "neutral4", "dose1", "dose2", "dose4", "dose4_arbitrary_only", "dose4_functional_only"]
 NO_CONVENTION = ["isolated", "neutral4", "neutral4_shown"]
 NUMWORD = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
@@ -225,7 +227,11 @@ def s2_figure(path: Path, slugs, names, count, have=()):
               ("adopt_suffix_slot", "code slot in name (any code)", "#9467bd", "D"),
               ("adopt_tag", "body tag (arbitrary)", "#ff7f0e", "s"),
               ("adopt_index", "own line in index (functional)", "#2ca02c", "^")]
-    fig, axes = plt.subplots(1, len(slugs), figsize=(7.2, 2.5), sharey=True)
+    ncol = min(4, len(slugs)); nrow = -(-len(slugs) // ncol)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(7.2, 2.3 * nrow), sharey=True, squeeze=False)
+    axes = [ax for row in axes for ax in row]
+    for ax in axes[len(slugs):]:
+        ax.set_visible(False)
     for ax, s in zip(axes, slugs):
         for o, lab, col, mk in series:
             pts = [(xs[c], *wilson(*count(s, c, o))) for c in xs]
@@ -242,7 +248,8 @@ def s2_figure(path: Path, slugs, names, count, have=()):
         ax.set_xlabel("prior adopters")
         ax.set_ylim(-0.03, 1.03)
         ax.grid(alpha=0.3)
-    axes[0].set_ylabel("share of trials")
+    for i in range(0, len(slugs), ncol):
+        axes[i].set_ylabel("share of trials")
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, loc="lower center", ncol=3, fontsize=7, frameon=False, bbox_to_anchor=(0.5, -0.12))
     fig.tight_layout()

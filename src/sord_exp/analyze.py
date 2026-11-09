@@ -320,8 +320,12 @@ def plot(data: dict, figdir: Path) -> None:
               ("index_like", "index page (functional)", "#2ca02c", "^"), ("adopt_suffix_slot", "trailing code slot (any code)", "#9467bd", "D")]
     xpos = {"isolated": 0, "dose1": 1, "dose2": 2, "dose4": 3}
     n = len(data)
-    fig, axes = plt.subplots(1, n, figsize=(3.6 * n, 3.4), sharey=True, squeeze=False)
-    for ax, (m, rows) in zip(axes[0], data.items()):
+    ncol = min(4, n); nrow = -(-n // ncol)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(3.6 * ncol, 3.2 * nrow + 0.4), sharey=True, squeeze=False)
+    flat = [ax for row in axes for ax in row]
+    for ax in flat[n:]:
+        ax.set_visible(False)
+    for ax, (m, rows) in zip(flat, data.items()):
         for key, label, col, mk in series:
             xs, ps, lo, hi = [], [], [], []
             for c, x in xpos.items():
@@ -351,8 +355,9 @@ def plot(data: dict, figdir: Path) -> None:
         ax.set_xlabel("prior adopters (dose)", fontsize=9)
         ax.set_ylim(-0.03, 1.03)
         ax.grid(alpha=0.3)
-    axes[0][0].set_ylabel("share of trials")
-    axes[0][-1].legend(fontsize=7, loc="upper left")
+    for row in axes:
+        row[0].set_ylabel("share of trials")
+    flat[n - 1].legend(fontsize=7, loc="upper left")
     fig.suptitle("Seeded convention diffusion: adoption vs number of prior adopters (solid = agent must list the wiki itself; dashed = listing shown; x = dose4_shown_mixed, any prior code; hollow at n4 = neutral4)", fontsize=10)
     fig.tight_layout()
     for ext in ("png", "pdf"):
