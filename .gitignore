@@ -23,3 +23,4 @@ paper/*.synctex.gz
 
 # simulated reviews: kept locally, not published
 paper/review/
+deck/_render/
