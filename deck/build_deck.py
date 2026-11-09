@@ -53,7 +53,7 @@ NAME = {"gemma": "Gemma 4 31B", "qwen": "Qwen3.8 27B", "ministral": "Ministral 3
 nm = lambda s: NAME.get(s, s)
 DEN = N("s2/all/adopt_suffix/dose1_shown").split("/")[1]   # trials per shown-dose cell, pooled over models
 BRAND = "Tracer Conventions  ·  Apart Research Swarm Alignment Hackathon 2026"
-DESIGN = REPO / "docs" / "figures" / "design.png"
+DESIGN = REPO / "docs" / "figures" / "architecture.png"
 DOSE = REPO / "docs" / "figures" / "study2_copying.png"
 
 prs = new_deck()
@@ -159,9 +159,9 @@ foot(s)
 divider(prs, "02", "Section 2  ·  methodology", "A tracer experiment,\nand a field check")
 
 s = slide(prs, PAPER)
-kicker(s, "The tracer experiment  ·  design")
+kicker(s, "System architecture  ·  what we built")
 title(s, "Seed an arbitrary marker; count who reproduces it")
-w_, h_ = picture(s, DESIGN, 1.1, 2.4, 11.3, max_h=7.5)
+w_, h_ = picture(s, DESIGN, 0.9, 2.3, 11.8, max_h=7.9)
 bx = 13.0
 rect(s, bx, 2.25, 6.1, 7.85, fill=NAVY, radius=0.05)
 text(s, bx + 0.35, 2.5, 5.4, 0.4, "THREE KINDS OF MARKER", size=12.5, color=TEALBR, bold=True, font=HEAD)

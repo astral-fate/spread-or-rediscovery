@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="940" viewBox="0 0 1400 940" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><style>
+.h1{font-size:34px;font-weight:700;fill:#0F172A}.h2{font-size:23px;font-weight:700;fill:#0F172A}
+.h3{font-size:17px;font-weight:700;fill:#0F172A}.t{font-size:15px;fill:#1E293B}.t2{font-size:14px;fill:#1E293B}
+.t2b{font-size:14px;font-weight:700;fill:#0F172A}.s{font-size:13px;fill:#475569}.th{font-size:13px;font-weight:700;fill:#FFFFFF}
+.tag{font-size:12px;font-weight:700;fill:#FFFFFF}.hw{font-size:19px;font-weight:700;fill:#FFFFFF}
+.m{font-family:Consolas, monospace;font-size:13px;fill:#1E293B}.big{font-size:40px;font-weight:700}
+</style></defs>
+<rect width="1400" height="940" fill="#FFFFFF"/>
+<defs>
+<linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1B2A3A"/><stop offset="1" stop-color="#0F766E"/></linearGradient>
+<linearGradient id="hda" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#92400E"/><stop offset="1" stop-color="#B45309"/></linearGradient>
+<filter id="sh" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0F172A" flood-opacity="0.10"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#334155" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="aht" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#0F766E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="aha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#B45309" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>.lt{font-family:Inter,'Segoe UI',Helvetica,Arial,sans-serif}
+.ti{font-size:20px;font-weight:600;fill:#FFFFFF}.tk{font-size:19px;font-weight:600;fill:#1E293B}
+.su{font-size:15.5px;fill:#334155}.mu{font-size:15px;fill:#64748B}.lay{font-size:16px;font-weight:700;fill:#94A3B8;letter-spacing:.4px}
+.mo{font-family:Consolas,'Cascadia Mono',monospace;font-size:15px;fill:#1E293B}.mot{font-family:Consolas,'Cascadia Mono',monospace;font-size:15px;font-weight:700;fill:#0F766E}
+.ch{font-size:14.5px;font-weight:500;fill:#334155}.gh{font-size:14px;font-weight:700;fill:#0F766E;letter-spacing:.3px}
+.ah{font-size:14px;font-weight:700;fill:#B45309;letter-spacing:.3px}.wb{font-size:15px;font-weight:600;fill:#FFFFFF}.cap{font-size:15px;font-style:italic;fill:#64748B}</style></defs>
+<rect x="22" y="20" width="5" height="590" rx="2.5" fill="#0F766E" stroke="none" stroke-width="1.5" />
+<text transform="translate(46,315.0) rotate(-90)" class="lt lay" text-anchor="middle">TRACER EXPERIMENT  ·  4,032 TRIALS</text>
+<rect x="22" y="640" width="5" height="280" rx="2.5" fill="#B45309" stroke="none" stroke-width="1.5" />
+<text transform="translate(46,780.0) rotate(-90)" class="lt lay" text-anchor="middle">FIELD CHECK  ·  REAL INCIDENT LOG</text>
+<rect x="62" y="22" width="250" height="300" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M62 36 a14 14 0 0 1 14 -14 h222 a14 14 0 0 1 14 14 v24 h-250 z" fill="url(#hdr)"/>
+<text x="78" y="48" class="lt ti">Scenario (seed s)</text>
+<text x="78" y="86" class="lt mu">question</text>
+<text x="78" y="107" class="lt mo">1 of 12 templates</text>
+<text x="78" y="130" class="lt mu">agent id</text>
+<text x="78" y="151" class="lt mo">A33</text>
+<text x="78" y="174" class="lt mu">page code</text>
+<text x="78" y="195" class="lt mot">Z5L</text>
+<text x="78" y="218" class="lt mu">body tag</text>
+<text x="78" y="239" class="lt mot">~vx3~</text>
+<text x="78" y="282" class="lt cap">same seed, same scenario</text>
+<text x="78" y="302" class="lt cap">in every condition</text>
+<rect x="346" y="22" width="300" height="300" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M346 36 a14 14 0 0 1 14 -14 h272 a14 14 0 0 1 14 14 v24 h-300 z" fill="url(#hdr)"/>
+<text x="362" y="48" class="lt ti">Seeded shared wiki</text>
+<text x="362" y="86" class="lt mu">prior agents' answer pages:</text>
+<rect x="362" y="100" width="268" height="28" rx="7" fill="#CCFBF1" stroke="none" stroke-width="1.5" />
+<text x="374" y="120" class="lt mo">answer-Q-1207-</text>
+<text x="489.5" y="120" class="lt mot">Z5L</text>
+<rect x="362" y="136" width="268" height="28" rx="7" fill="#F0FDFA" stroke="none" stroke-width="1.5" />
+<text x="374" y="156" class="lt mo">answer-Q-3361-</text>
+<text x="489.5" y="156" class="lt mot">Z5L</text>
+<rect x="362" y="172" width="268" height="28" rx="7" fill="#F0FDFA" stroke="none" stroke-width="1.5" />
+<text x="374" y="192" class="lt mo">answer-Q-8840-</text>
+<text x="489.5" y="192" class="lt mot">Z5L</text>
+<rect x="362" y="212" width="268" height="28" rx="7" fill="#F1F5F9" stroke="none" stroke-width="1.5" />
+<text x="374" y="232" class="lt mo">Answers-Index</text>
+<text x="620" y="232" class="lt mu" text-anchor="end">functional</text>
+<text x="362" y="272" class="lt mo">body: ~vx3~ Q-1207: … Answer: …</text>
+<text x="362" y="302" class="lt cap">0, 1, 2 or 4 marked pages</text>
+<rect x="680" y="22" width="300" height="300" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M680 36 a14 14 0 0 1 14 -14 h272 a14 14 0 0 1 14 14 v24 h-300 z" fill="url(#hdr)"/>
+<text x="696" y="48" class="lt ti">Agent loop (LLM)</text>
+<text x="696" y="86" class="lt su">system prompt + one question</text>
+<text x="696" y="108" class="lt mu">(+ page list in shown conditions)</text>
+<rect x="696" y="126" width="101.0" height="26" rx="13" fill="#CCFBF1" stroke="#99F6E4" stroke-width="1" />
+<text x="746.5" y="144" class="lt ch" text-anchor="middle">list_pages</text>
+<rect x="803.0" y="126" width="93.10000000000001" height="26" rx="13" fill="#CCFBF1" stroke="#99F6E4" stroke-width="1" />
+<text x="849.55" y="144" class="lt ch" text-anchor="middle">read_page</text>
+<rect x="902.1" y="126" width="101.0" height="26" rx="13" fill="#CCFBF1" stroke="#99F6E4" stroke-width="1" />
+<text x="952.6" y="144" class="lt ch" text-anchor="middle">write_page</text>
+<rect x="696" y="160" width="124.7" height="26" rx="13" fill="#CCFBF1" stroke="#99F6E4" stroke-width="1" />
+<text x="758.35" y="178" class="lt ch" text-anchor="middle">submit_answer</text>
+<rect x="826.7" y="160" width="69.4" height="26" rx="13" fill="#CCFBF1" stroke="#99F6E4" stroke-width="1" />
+<text x="861.4000000000001" y="178" class="lt ch" text-anchor="middle">finish</text>
+<text x="696" y="218" class="lt su">one JSON tool call per turn</text>
+<text x="696" y="240" class="lt su">at most 10 turns</text>
+<text x="696" y="272" class="lt cap">invalid reply: re-prompted,</text>
+<text x="696" y="292" class="lt cap">counted as a protocol error</text>
+<rect x="1014" y="22" width="364" height="300" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M1014 36 a14 14 0 0 1 14 -14 h336 a14 14 0 0 1 14 14 v24 h-364 z" fill="url(#hdr)"/>
+<text x="1030" y="48" class="lt ti">Trial log + exact-match grader</text>
+<text x="1030" y="86" class="lt mo">trials.jsonl + transcripts</text>
+<text x="1030" y="107" class="lt mu">appended per trial; reruns resume</text>
+<g transform="translate(1030,126)" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="16" height="16" rx="4"/><path d="M4 8.5l3 3 5-6"/></g>
+<text x="1056" y="139" class="lt su">code slot in the page name?</text>
+<g transform="translate(1030,156)" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="16" height="16" rx="4"/><path d="M4 8.5l3 3 5-6"/></g>
+<text x="1056" y="169" class="lt su">seeded code, or own id in it?</text>
+<g transform="translate(1030,186)" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="16" height="16" rx="4"/><path d="M4 8.5l3 3 5-6"/></g>
+<text x="1056" y="199" class="lt su">body tag reproduced?</text>
+<g transform="translate(1030,216)" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="16" height="16" rx="4"/><path d="M4 8.5l3 3 5-6"/></g>
+<text x="1056" y="229" class="lt su">own line in the index?</text>
+<g transform="translate(1030,246)" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="16" height="16" rx="4"/><path d="M4 8.5l3 3 5-6"/></g>
+<text x="1056" y="259" class="lt su">listed / read before writing?</text>
+<path d="M315 172.0 H341" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ah)"/>
+<path d="M649 172.0 H675" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ah)"/>
+<path d="M983 172.0 H1009" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ah)"/>
+<rect x="62" y="352" width="584" height="258" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+<text x="78" y="382" class="lt tk">13 paired conditions on the same seeds</text>
+<text x="78" y="420" class="lt gh">BASELINE</text>
+<rect x="78" y="428" width="79.2" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="117.6" y="446" class="lt ch" text-anchor="middle">isolated</text>
+<rect x="163.2" y="428" width="79.2" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="202.79999999999998" y="446" class="lt ch" text-anchor="middle">neutral4</text>
+<rect x="248.39999999999998" y="428" width="126.60000000000001" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="311.7" y="446" class="lt ch" text-anchor="middle">neutral4 shown</text>
+<text x="390" y="420" class="lt gh">DOSE, AGENT MUST LOOK</text>
+<rect x="390" y="428" width="55.5" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="417.75" y="446" class="lt ch" text-anchor="middle">dose1</text>
+<rect x="451.5" y="428" width="55.5" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="479.25" y="446" class="lt ch" text-anchor="middle">dose2</text>
+<rect x="513.0" y="428" width="55.5" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="540.75" y="446" class="lt ch" text-anchor="middle">dose4</text>
+<text x="78" y="486" class="lt gh">COMPONENTS</text>
+<rect x="78" y="494" width="102.9" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="129.45" y="512" class="lt ch" text-anchor="middle">marker only</text>
+<rect x="186.9" y="494" width="95.0" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="234.4" y="512" class="lt ch" text-anchor="middle">index only</text>
+<text x="390" y="486" class="lt gh">PAGE LIST SHOWN</text>
+<rect x="390" y="494" width="55.5" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="417.75" y="512" class="lt ch" text-anchor="middle">dose1</text>
+<rect x="451.5" y="494" width="55.5" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="479.25" y="512" class="lt ch" text-anchor="middle">dose2</text>
+<rect x="513.0" y="494" width="55.5" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="540.75" y="512" class="lt ch" text-anchor="middle">dose4</text>
+<text x="78" y="552" class="lt gh">DISAGREEMENT</text>
+<rect x="78" y="560" width="150.3" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="153.15" y="578" class="lt ch" text-anchor="middle">4 different codes</text>
+<text x="390" y="552" class="lt gh">FRAMING ABLATION</text>
+<rect x="390" y="560" width="221.4" height="26" rx="13" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+<text x="500.7" y="578" class="lt ch" text-anchor="middle">no team framing (2 models)</text>
+<path d="M496.0 350 V328" fill="none" stroke="#0F766E" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aht)"/>
+<rect x="680" y="352" width="300" height="258" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M680 366 a14 14 0 0 1 14 -14 h272 a14 14 0 0 1 14 14 v24 h-300 z" fill="url(#hdr)"/>
+<text x="696" y="378" class="lt ti">Model backends</text>
+<text x="696" y="416" class="lt mu">vLLM on Modal (H100), seeded:</text>
+<text x="696" y="438" class="lt su">Gemma 4 31B · Qwen3.8 27B</text>
+<text x="696" y="459" class="lt su">Ministral 3 14B · gpt-oss-120b</text>
+<text x="696" y="498" class="lt mu">Adaption Responses API:</text>
+<text x="696" y="520" class="lt su">DeepSeek-V4 Flash · GLM-5.2</text>
+<text x="696" y="541" class="lt su">Qwen3.5 397B</text>
+<text x="696" y="584" class="lt cap">temperature 0.7 for all models</text>
+<path d="M800.0 326 V346" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ah)"/>
+<path d="M860.0 348 V328" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ah)"/>
+<rect x="1014" y="352" width="364" height="258" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M1014 366 a14 14 0 0 1 14 -14 h336 a14 14 0 0 1 14 14 v24 h-364 z" fill="url(#hdr)"/>
+<text x="1030" y="378" class="lt ti">Statistics</text>
+<text x="1030" y="416" class="lt su">·  exact McNemar on paired seeds, per model</text>
+<text x="1030" y="446" class="lt su">·  logistic dose slope, seed-clustered SE</text>
+<text x="1030" y="476" class="lt su">·  Wilson 95% intervals</text>
+<text x="1030" y="506" class="lt su">·  qualitative read of page names and notes</text>
+<rect x="1030" y="544" width="332" height="46" rx="10" fill="#1B2A3A" stroke="none" stroke-width="1.5" />
+<text x="1196.0" y="572" class="lt wb" text-anchor="middle">make_numbers.py → all numbers in the paper</text>
+<path d="M1196.0 326 V346" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round" marker-end="url(#ah)"/>
+<rect x="62" y="662" width="196" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M62 676 a14 14 0 0 1 14 -14 h168 a14 14 0 0 1 14 14 v24 h-196 z" fill="url(#hda)"/>
+<text x="78" y="688" class="lt ti">Public export</text>
+<text x="76" y="726" class="lt su">14,591 revisions</text>
+<text x="76" y="747" class="lt su">3,099 agent labels</text>
+<rect x="278" y="662" width="196" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M278 676 a14 14 0 0 1 14 -14 h168 a14 14 0 0 1 14 14 v24 h-196 z" fill="url(#hda)"/>
+<text x="294" y="688" class="lt ti">Diff revisions</text>
+<text x="292" y="726" class="lt su">new lines per revision,</text>
+<text x="292" y="747" class="lt su">attributed to a label</text>
+<path d="M260 737 H274" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aha)"/>
+<rect x="494" y="662" width="196" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M494 676 a14 14 0 0 1 14 -14 h168 a14 14 0 0 1 14 14 v24 h-196 z" fill="url(#hda)"/>
+<text x="510" y="688" class="lt ti">Token catalogue</text>
+<text x="508" y="726" class="lt su">15 techniques (regex)</text>
+<text x="508" y="747" class="lt su">8 placebo words</text>
+<path d="M476 737 H490" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aha)"/>
+<rect x="710" y="662" width="196" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M710 676 a14 14 0 0 1 14 -14 h168 a14 14 0 0 1 14 14 v24 h-196 z" fill="url(#hda)"/>
+<text x="726" y="688" class="lt ti">Adoption events</text>
+<text x="724" y="726" class="lt su">first new matching</text>
+<text x="724" y="747" class="lt su">line per label, token</text>
+<path d="M692 737 H706" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aha)"/>
+<rect x="926" y="662" width="196" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M926 676 a14 14 0 0 1 14 -14 h168 a14 14 0 0 1 14 14 v24 h-196 z" fill="url(#hda)"/>
+<text x="942" y="688" class="lt ti">Exposure</text>
+<text x="940" y="726" class="lt su">from writes: prior,</text>
+<text x="940" y="747" class="lt su">other page, same page</text>
+<path d="M908 737 H922" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aha)"/>
+<rect x="1142" y="662" width="196" height="150" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#sh)"/>
+<path d="M1142 676 a14 14 0 0 1 14 -14 h168 a14 14 0 0 1 14 14 v24 h-196 z" fill="url(#hda)"/>
+<text x="1158" y="688" class="lt ti">Tests</text>
+<text x="1156" y="726" class="lt su">re-timing permutation</text>
+<text x="1156" y="747" class="lt su">within-label choice</text>
+<text x="1156" y="768" class="lt su">placebo contrast</text>
+<path d="M1124 737 H1138" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aha)"/>
+<rect x="710" y="848" width="628" height="70" rx="12" fill="#FEF3C7" stroke="#B45309" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="726" y="877" class="lt su">Positive control: plant a synthetic token in the real timeline,</text>
+<text x="726" y="900" class="lt su">copy it at a known rate, and measure each test's power</text>
+<path d="M750 846 V816" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" marker-end="url(#aha)"/>
+<path d="M1240.0 814 V844" fill="none" stroke="#B45309" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="5 4" marker-end="url(#aha)"/>
+<text x="62" y="878" class="lt cap">Reads are not in the export, so exposure</text>
+<text x="62" y="900" class="lt cap">is measured from what a label wrote.</text>
+</svg>
