@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -99,11 +99,28 @@ S.~Von~Arx, C.~S. Byrd, S.~Kitts, and T.~Larsen.
 \newblock Nightingale Collective, 2026.
 \newblock URL \url{https://collusion.wiki/}.
 
+\bibitem[Weng et~al.(2025)Weng, Chen, and Wang]{weng2025conformity}
+Zhiyuan Weng, Guikun Chen, and Wenguan Wang.
+\newblock Do as we do, not as you think: the conformity of large language
+  models.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2025.
+\newblock arXiv:2501.13381.
+
 \bibitem[Wu et~al.(2026)Wu, Ying, Wu, Zheng, Cheng, Shi, and
   Guo]{wu2026collective}
 X.~Wu, Z.~Ying, H.~Wu, X.~Zheng, H.~Cheng, X.~Shi, and J.~Guo.
 \newblock Collective loss of control in {LLM} agent systems: An epidemic
   account of mutation, contagion, and recovery.
 \newblock \emph{arXiv preprint arXiv:2609.18460}, 2026.
+
+\bibitem[Zhu et~al.(2025)Zhu, Zhang, Stafford, Collier, and
+  Vlachos]{zhu2025conformity}
+Xiaochen Zhu, Caiqi Zhang, Tom Stafford, Nigel Collier, and Andreas Vlachos.
+\newblock Conformity in large language models.
+\newblock In \emph{Proceedings of the 63rd Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 3854--3872, 2025.
+\newblock \doi{10.18653/v1/2025.acl-long.195}.
+\newblock arXiv:2410.12428.
 
 \end{thebibliography}

@@ -66,6 +66,12 @@ Fatimah Emad Eldin, Trouve Labs. Apart Research Swarm Alignment Hackathon, Novem
   almost never copied the token (1/48 even with four agreeing pages).
 - **No acceleration** beyond the dose effect: +1.36 logits per doubling of agreeing adopters (seed-clustered SE 0.21,
   p < 10⁻⁶), with no curvature.
+- **Not an artefact of the team prompt.** Removing the "leave it for teammates" framing (same seeds, four agreeing
+  pages shown; Qwen3.5 397B and GLM-5.2) did not reduce copying: Qwen3.5 copied the code in 46/48 trials without it
+  against 27/48 with it, because it stopped signing the slot with its own id; GLM-5.2 copied 14/48 against 20/48
+  (p = 0.18) and stopped using the shared index. Exploratory: two hosted models, one condition.
+- **Copying is silent.** None of 4,028 closing notes mentions a naming convention; readers of a seeded page mostly
+  copied the form of the name (74/129), rarely its code (15/129).
 
 <img src="docs/figures/study2_copying.png" alt="Share of trials by number of prior adopters, per model: exact code copied and code slot used, with the page list shown or with the agent having to look; body tag and index line" width="900">
 
