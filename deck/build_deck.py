@@ -37,7 +37,7 @@ def N(key: str) -> str:
     """A paper number as plain text; fails loudly if the key is missing (no hand-typed fallbacks)."""
     assert key in NUM, f"missing number {key}"
     v = NUM[key]
-    v = v.replace("\\%", "%").replace("$", "").replace("\\ensuremath", "").replace("{\\times}", "×")
+    v = v.replace("\\texttt", "").replace("\\,", " ").replace("\\%", "%").replace("$", "").replace("\\ensuremath", "").replace("{\\times}", "×")
     v = re.sub(r"10\^\{(-?\d+)\}", lambda m: "10" + "".join("⁻⁰¹²³⁴⁵⁶⁷⁸⁹"[ "-0123456789".index(c)] for c in m.group(1)), v)
     v = v.replace("\\textit{p}", "p").replace("{", "").replace("}", "").replace("\\", "")
     v = v.replace("--", "–")
@@ -246,7 +246,8 @@ rect(s, 10.4, 2.35, 8.7, 7.7, fill=NAVY, radius=0.05)
 text(s, 10.8, 2.65, 7.9, 0.4, "WHAT THIS MEANS", size=12.5, color=TEALBR, bold=True, font=HEAD)
 text(s, 10.8, 3.25, 7.9, 6.5, "Models differed most in whether they looked. Only the models that read seeded pages copied the exact "
      f"code unprompted, rising with the number of prior pages ({S2('dr/slope')} logits per doubling, no acceleration).\n\n"
-     "Reading was not enough either: an agent could read a seeded page and still name its own page its own way.",
+     f"Reading was not enough either: of {S2('qual/readers/code/n')} agents that opened a seeded page, "
+     f"{S2('qual/readers/ownid/k')} copied the form of its name and only {S2('qual/readers/code/k')} its code.",
      size=15.5, color=MIST, font=BODY, spacing=1.25)
 foot(s)
 
@@ -308,6 +309,55 @@ for i_, x in enumerate(SLUGS):
     text(s, 7.5, y_ + 0.2, 5.0, 0.5, "listed: " + N(f"s2/{x}/listed/range"), size=14, color=SLATE, font=BODY)
     k_ = f"s2/{x}/adopt_suffix/dose4_shown"
     text(s, 12.8, y_ + 0.2, 6.0, 0.5, ("copied code: " + N(k_)) if k_ in NUM else "", size=14, color=TEAL, bold=True, font=BODY)
+foot(s)
+
+# team-framing ablation
+s = slide(prs, PAPER)
+kicker(s, "Robustness  ·  is it just the prompt?")
+title(s, "Removing “leave it for teammates” did not reduce copying", size=34)
+text(s, 0.9, 2.3, 18.2, 0.5, "SAME SEEDS, FOUR AGREEING PAGES SHOWN  ·  WITH THE TEAM FRAMING  vs  WITHOUT IT (“SAVE YOUR ANSWER AS A WIKI PAGE”)",
+     size=12, color=TEAL, bold=True, font=HEAD)
+for i_, (x, rows_) in enumerate([
+        ("qwen35397b", [("copied the code", "adopt_suffix"), ("own id in the slot", "suffix_slot_self_id")]),
+        ("glm52", [("copied the code", "adopt_suffix"), ("added a line to the index", "adopt_index")])]):
+    x0 = 0.9 + i_ * 5.4
+    card(s, x0, 3.0, 5.1, 7.0, bar=TEAL)
+    text(s, x0 + 0.35, 3.3, 4.5, 0.6, nm(x), size=18, color=INK, bold=True, font=HEADB)
+    for j_, (lab, o) in enumerate(rows_):
+        y_ = 4.2 + j_ * 2.6
+        text(s, x0 + 0.35, y_, 4.5, 0.5, lab, size=13, color=SLATE, font=BODY)
+        text(s, x0 + 0.35, y_ + 0.5, 4.5, 0.8, f"{S2(f'abl/{x}/{o}/cue')}  →  {S2(f'abl/{x}/{o}/nocue')}",
+             size=24, color=TEAL, bold=True, font=HEADB)
+        if o == "adopt_suffix":
+            text(s, x0 + 0.35, y_ + 1.35, 4.5, 0.5, "paired: " + S2(f"abl/{x}/mc"), size=11.5, color=SLATE, font=BODY)
+rect(s, 11.9, 3.0, 7.2, 7.0, fill=NAVY, radius=0.05)
+text(s, 12.25, 3.3, 6.5, 0.4, "WHAT THIS MEANS", size=12.5, color=TEALBR, bold=True, font=HEAD)
+text(s, 12.25, 3.9, 6.5, 5.9, "The team framing does not manufacture copying. Without it, Qwen3.5 copied the shared code almost every "
+     "time, because it stopped signing the slot with its own id. GLM copied a little less (not significant) and stopped using "
+     "the index, which only helps others.\n\nExploratory: two hosted models, one condition.",
+     size=15, color=MIST, font=BODY, spacing=1.25)
+foot(s)
+
+# qualitative and error analysis
+s = slide(prs, PAPER)
+kicker(s, "Qualitative and error analysis")
+title(s, "What agents actually wrote, and where they went wrong")
+for i_, (h_, big, d_, col) in enumerate([
+        ("Copying is silent", f"0 of {S2('qual/notes/n')}",
+         "closing notes mention a naming convention; copying shows only in what agents write, which is why tracers work.", TEAL),
+        ("Hybrids", S2("qual/blend/n"),
+         f"trials kept the code's first letter and appended the agent's own number ({re.sub(r'[{}]', '', NUM['s2/qual/blend/ex'].replace(chr(92) + 'texttt', ''))}); "
+         "exact matching counts them as neither, so copy rates are conservative.", TEAL),
+        ("Protocol failures", S2("oss/err/invalid/pct"),
+         f"of gpt-oss-120b trials had an invalid-format turn; its adoption rates are lower bounds. Ministral answered "
+         f"{S2('ministral/err/correct/pct')} correctly; the others {S2('gemma/err/correct/pct')} or more.", AMBER_D),
+        ("Copying can do harm", S2("qual/clobber"),
+         "trials in which Ministral rewrote the shared index and removed earlier agents' lines; no agent overwrote another's answer page.", RED)]):
+    x_ = 0.9 + (i_ % 2) * 9.2; y_ = 2.4 + (i_ // 2) * 3.85
+    card(s, x_, y_, 9.0, 3.6, bar=col)
+    text(s, x_ + 0.4, y_ + 0.35, 8.2, 0.5, h_, size=17, color=INK, bold=True, font=HEADB)
+    text(s, x_ + 0.4, y_ + 0.95, 8.2, 0.8, big, size=28, color=col, bold=True, font=HEADB)
+    text(s, x_ + 0.4, y_ + 1.85, 8.2, 1.6, d_, size=13, color=SLATE, font=BODY, spacing=1.15)
 foot(s)
 
 # ---- section 6 ----------------------------------------------------------------------------------------------------
