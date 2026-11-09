@@ -122,3 +122,18 @@ separate random stream (`scenarios.make_scenario`, `extra`), so every other scen
 therefore the pairing with the earlier conditions, is unchanged. Trials recorded before the
 `adopt_any_prior_*` metrics existed are regraded from their saved transcripts at analysis time.
 `trials.jsonl` is never rewritten, and the regrade reproduces every stored metric exactly.
+
+## Hosted models (Adaption Responses API)
+
+`adaption:deepseek-v4-flash`, `adaption:qwen3.5-397b` and `adaption:glm-5.2` run through the Adaption
+Responses API (`AdaptionChat` in `src/sord_exp/llm.py`, copied from the sibling project's tested client).
+The system prompt is sent as `instructions` and the conversation as `input`, with `temperature=0.7`,
+`max_output_tokens=1500` and `store=False`. The key is `ADAPTION_API_KEY`, read from the env file.
+
+- **No seed parameter.** The Responses API does not accept a sampling seed. For these models the
+  trial seed fixes the scenario and the pairing across conditions, but sampling is not reproducible.
+  The Modal models pass `seed` to vLLM.
+- **Rate limit.** The account has a per-user request limit shared across all models. We measured
+  roughly 7-8 successful calls per minute on the first account (a second account sustained about 20) and got HTTP 429 "retry after 60 seconds" when exceeding
+  it. The client spaces calls by `SORD_MIN_INTERVAL` seconds within a process and waits 60 s on a
+  429 without using up its retry budget. `usage.rate_limited` counts the waits.

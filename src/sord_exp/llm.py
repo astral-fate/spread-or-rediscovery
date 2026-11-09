@@ -6,6 +6,8 @@ Key values are never logged or written anywhere.
 from __future__ import annotations
 
 import json
+import random
+import threading
 import os
 import re
 import time
@@ -126,5 +128,69 @@ class ScriptedChat:
         return json.dumps(plan[min(len(done), len(plan) - 1)])
 
 
+class AdaptionChat:
+    """Adaption hosted models through the Responses API (model ids prefixed "adaption:").
+
+    Copied from the sibling project's tested client. The Responses API takes the system prompt as `instructions` and
+    the rest of the conversation as `input`. It has no seed parameter, so sampling is not seeded; the trial seed still
+    fixes the scenario and the pairing. Conversations are not stored on the provider (store=False).
+    """
+    # The account has a per-user request limit shared by all models (HTTP 429 "retry after 60 seconds").
+    # Calls from all instances in this process are spaced by SORD_MIN_INTERVAL seconds; a 429 waits 60 s
+    # and does not use up the ordinary retry budget.
+    _pace_lock = threading.Lock()
+    _next_ok = 0.0
+
+    def __init__(self, model: str, temperature: float = 0.7, max_tokens: int = 1500):
+        from adaption import Adaption
+        if not os.environ.get("ADAPTION_API_KEY"):
+            raise RuntimeError("Set ADAPTION_API_KEY in the environment or the env file")
+        self.client = Adaption(max_retries=0, timeout=180)
+        self.min_interval = float(os.environ.get("SORD_MIN_INTERVAL", "0"))
+        self.model = model.split(":", 1)[1]
+        self.temperature, self.max_tokens = temperature, max_tokens
+        self.usage = {"prompt_tokens": 0, "completion_tokens": 0, "calls": 0}
+
+    def __call__(self, messages: list[dict], seed: int | None = None) -> str:
+        sys_ = "\n".join(m["content"] for m in messages if m["role"] == "system")
+        rest = [{"role": m["role"], "content": m["content"]} for m in messages if m["role"] != "system"]
+        last, empties, attempt, limited = None, 0, 0, 0
+        while attempt < 10 and limited < 60:
+            with AdaptionChat._pace_lock:  # process-wide pacing
+                wait = AdaptionChat._next_ok - time.time()
+                AdaptionChat._next_ok = max(time.time(), AdaptionChat._next_ok) + self.min_interval
+            if wait > 0:
+                time.sleep(wait)
+            try:
+                r = self.client.responses.create(model=self.model, instructions=sys_ or None, input=rest,
+                                                 temperature=self.temperature, max_output_tokens=self.max_tokens, store=False)
+                if r.usage:
+                    self.usage["prompt_tokens"] += r.usage.input_tokens or 0
+                    self.usage["completion_tokens"] += r.usage.output_tokens or 0
+                self.usage["calls"] += 1
+                text = strip_reasoning(r.output_text or "")
+                if not text.strip():  # same policy as OpenAIChat: retry once, then an invalid turn
+                    empties += 1
+                    self.usage["empty"] = self.usage.get("empty", 0) + 1
+                    if empties >= 2:
+                        return ""
+                    continue
+                return text
+            except Exception as e:
+                last = e
+                if "429" in str(e) or "rate limit" in str(e).lower():
+                    limited += 1
+                    self.usage["rate_limited"] = self.usage.get("rate_limited", 0) + 1
+                    time.sleep(60 + random.random() * 10)
+                    continue
+                attempt += 1
+                time.sleep(min(60, 2 ** attempt + 1))
+        raise RuntimeError(f"LLM call failed after retries: {last!r}")
+
+
 def make_backend(kind: str, model: str):
-    return ScriptedChat(model) if kind == "scripted" else OpenAIChat(model)
+    if kind == "scripted":
+        return ScriptedChat(model)
+    if model.startswith("adaption:"):
+        return AdaptionChat(model)
+    return OpenAIChat(model)

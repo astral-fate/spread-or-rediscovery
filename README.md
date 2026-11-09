@@ -43,29 +43,29 @@ Fatimah Emad Eldin, Trouve Labs. Apart Research Swarm Alignment Hackathon, Novem
 
 ## Key results
 
-**Tracer experiment** (2,304 paired trials; 4 models × 12 conditions × 48 seeds). Full tables:
+**Tracer experiment** (4,032 paired trials; 7 models × 12 conditions × 48 seeds). Full tables:
 [`experiments/convention_diffusion/RESULTS.md`](experiments/convention_diffusion/RESULTS.md).
 
-- **No reinvention.** With no seeded example, no agent produced an index page or a code-style page name (0/576).
+- **No reinvention.** With no seeded example, no agent produced an index page or a code-style page name (0/1,008).
 - **Copying requires exposure, and exposure is not sufficient.** Agents that must look for themselves rarely do: listing
   the wiki before writing ranged from 0% (gpt-oss-120b) to 92% (Qwen3.8 27B). Qwen read a seeded page in 35 of 48
-  single-page trials and copied the code in none. The body tag, visible only inside a page, was copied in 8 of 2,304 trials.
+  single-page trials and copied the code in none. The body tag, visible only inside a page, was copied in 9 of 4,032 trials.
 - **The structure spreads at once; the exact token needs agreement.** With the page list shown, agents copy the
   `answer-<question>-<code>` structure from the first example, but what they put in the code slot depends on whether
-  earlier pages agree:
+  earlier pages agree (pooled over the seven models):
 
-  | Page list shown | Copied the seeded code (/192) | Put their own id in the slot (/192) |
+  | Page list shown | Copied a seeded code (/336) | Put their own id in the slot (/336) |
   |---|---|---|
-  | 1 prior page | 0 | 141 |
-  | 2 pages, same code | 52 | 118 |
-  | 4 pages, same code | 81 | 94 |
-  | 4 pages, **4 different codes** | **1** | **162** |
+  | 1 prior page | 2 | 256 |
+  | 2 pages, same code | 97 | 207 |
+  | 4 pages, same code | 146 | 161 |
+  | 4 pages, **4 different codes** | **2** | **288** |
 
-  A lone or conflicting code is read as an author id. Copying the token rose with agreement (pooled 0 → 52 → 81,
-  paired McNemar p < 0.001), and disagreement removed it (81 vs 1, p < 0.001). Gemma 4 31B almost never copied the
-  token (1/48 even with four agreeing pages).
-- **No acceleration** beyond the dose effect: +1.24 logits per doubling of agreeing adopters (Qwen and Ministral,
-  seed-clustered SE 0.23, p < 10⁻⁶), with no curvature.
+  A lone or conflicting code is read as an author id. Copying the token rose with agreement (2 → 97 → 146, paired
+  McNemar p < 10⁻⁶), and disagreement removed it (146 vs 2, p < 10⁻⁶). Every model shows the pattern; Gemma 4 31B
+  almost never copied the token (1/48 even with four agreeing pages).
+- **No acceleration** beyond the dose effect: +1.36 logits per doubling of agreeing adopters (seed-clustered SE 0.21,
+  p < 10⁻⁶), with no curvature.
 
 <img src="docs/figures/study2_copying.png" alt="Share of trials by number of prior adopters, per model: exact code copied and code slot used, with the page list shown or with the agent having to look; body tag and index line" width="900">
 
@@ -88,11 +88,12 @@ words). Full tables: [`results/RESULTS.md`](results/RESULTS.md).
 
 | Folder | Question | Design | Trials |
 |---|---|---|---|
-| [`experiments/convention_diffusion`](experiments/convention_diffusion/) | Do agents reinvent or copy; what does copying need? | 12 paired conditions: isolated, neutral, dose 1/2/4, arbitrary-only, functional-only, page list shown (dose 1/2/4, neutral), four disagreeing codes | 2,304 |
+| [`experiments/convention_diffusion`](experiments/convention_diffusion/) | Do agents reinvent or copy; what does copying need? | 12 paired conditions: isolated, neutral, dose 1/2/4, arbitrary-only, functional-only, page list shown (dose 1/2/4, neutral), four disagreeing codes | 4,032 |
 | [`results/`](results/) (field check) | Can the write log separate spread from echo? | 15 techniques, 8 placebos; time-shuffle, within-label choice, same-page, hazard, acceleration tests; positive control; robustness | 14,591 revisions |
 
 Models (Study 2): Gemma 4 31B-it, Qwen3.8 27B (thinking disabled), Ministral-3 14B-Instruct, gpt-oss-120b (reasoning
-effort low), each served with vLLM on one H100 (Modal); temperature 0.7.
+effort low), each served with vLLM on one H100 (Modal); DeepSeek-V4 Flash, GLM-5.2 and Qwen3.5 397B through the Adaption
+Responses API (no sampling seed); temperature 0.7.
 
 ## Reproduce
 

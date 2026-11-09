@@ -40,6 +40,8 @@ def N(key: str) -> str:
     v = v.replace("\\%", "%").replace("$", "").replace("\\ensuremath", "").replace("{\\times}", "×")
     v = re.sub(r"10\^\{(-?\d+)\}", lambda m: "10" + "".join("⁻⁰¹²³⁴⁵⁶⁷⁸⁹"[ "-0123456789".index(c)] for c in m.group(1)), v)
     v = v.replace("\\textit{p}", "p").replace("{", "").replace("}", "").replace("\\", "")
+    v = v.replace("--", "–")
+    v = re.sub(r"(?<![\d,.])(\d{4,})(?![\d,.])", lambda m: f"{int(m.group(1)):,}", v)   # 1008 -> 1,008
     return v.strip()
 
 
@@ -49,6 +51,7 @@ NAME = {"gemma": "Gemma 4 31B", "qwen": "Qwen3.8 27B", "ministral": "Ministral 3
         "dsflash": "DeepSeek-V4 Flash", "deepseekv4flash": "DeepSeek-V4 Flash", "glm": "GLM-5.2", "glm52": "GLM-5.2",
         "qwenbig": "Qwen3.5 397B", "qwen35397b": "Qwen3.5 397B"}
 nm = lambda s: NAME.get(s, s)
+DEN = N("s2/all/adopt_suffix/dose1_shown").split("/")[1]   # trials per shown-dose cell, pooled over models
 BRAND = "Tracer Conventions  ·  Apart Research Swarm Alignment Hackathon 2026"
 DESIGN = REPO / "docs" / "figures" / "design.png"
 DOSE = REPO / "docs" / "figures" / "study2_copying.png"
@@ -106,7 +109,7 @@ text(s, 14.0, 1.3, 5.0, 0.4, "AT A GLANCE", size=12, color=TEALBR, bold=True, fo
 for i_, (big, lab, col) in enumerate([
         (S2("all/invented_func/noconv"), "trials invented an index or a code-style name without a seeded example", POS_ON_DARK),
         (f"{S2('all/adopt_suffix/dose1_shown').split('/')[0]} → {S2('all/adopt_suffix/dose2_shown').split('/')[0]} → "
-         f"{S2('all/adopt_suffix/dose4_shown').split('/')[0]}", "of 192 copied the exact code after 1, 2 or 4 agreeing prior pages", TEALBR),
+         f"{S2('all/adopt_suffix/dose4_shown').split('/')[0]}", f"of {DEN} copied the exact code after 1, 2 or 4 agreeing prior pages", TEALBR),
         (S2("all/any_code/dose4_shown_mixed"), "copied a code when four prior pages each used a different one", NEG_ON_DARK),
         (S1("RorEPrior"), f"field check: exposure effect for techniques relative to placebo words (95% CI {S1('RorEPriorLo')}–{S1('RorEPriorHi')})", MIST)]):
     y_ = 1.9 + i_ * 2.05
@@ -253,7 +256,7 @@ title(s, "The structure spreads at once; the exact code needs agreement")
 picture(s, DOSE, 1.1, 2.4, 10.4, max_h=7.6)
 bx = 12.2
 rect(s, bx, 2.25, 6.9, 7.85, fill=NAVY, radius=0.05)
-text(s, bx + 0.35, 2.5, 6.2, 0.4, "PAGE LIST SHOWN  ·  OF 192 TRIALS", size=12, color=TEALBR, bold=True, font=HEAD)
+text(s, bx + 0.35, 2.5, 6.2, 0.4, f"PAGE LIST SHOWN  ·  OF {DEN} TRIALS", size=12, color=TEALBR, bold=True, font=HEAD)
 for i_, (lab, v_, col) in enumerate([
         ("1 prior page: used the code slot", S2("all/adopt_suffix_slot/dose1_shown"), MIST),
         ("…but filled it with its own id", S2("all/suffix_slot_self_id/dose1_shown"), MIST),
@@ -314,7 +317,7 @@ s = slide(prs, PAPER)
 kicker(s, "Key findings")
 title(s, "Five things the evidence shows", size=38)
 F = [(S2("all/invented_func/noconv"), GREEN, "No reinvention", "No agent produced the index or a code-style name without a seeded example."),
-     (S2("all/adopt_suffix_slot/dose1_shown").split("/")[0] + "/192", TEAL, "Structure spreads from one example",
+     (S2("all/adopt_suffix_slot/dose1_shown"), TEAL, "Structure spreads from one example",
       "Shown one prior page, agents copied the naming structure, but filled the slot with their own id."),
      (f"0 → {S2('all/adopt_suffix/dose4_shown').split('/')[0]}", TEAL, "The exact token needs agreement",
       "The seeded code was copied once 2 or 4 prior pages agreed on it, and almost never when they disagreed."),
@@ -357,7 +360,7 @@ kicker(s, "Limitations")
 title(s, "A minimal setting, by design")
 for i_, (h_, d_) in enumerate([
         ("One agent per trial", "The experiment measures individual copying decisions with scripted prior pages, not swarm dynamics."),
-        ("Two models never read a page body", "Their results speak to listing, not to reading."),
+        ("Some models rarely look", "Several models seldom listed or read the wiki unprompted; for them the results speak to listing more than to reading."),
         ("Labels are not agents", "In the field log, arriving labels may be the same agent renamed; reads are not observed in the export."),
         ("Placebos are not frequency-matched", "Placebo words differ from techniques in base rate; the ratio, not the level, is interpreted.")]):
     x_ = 0.9 + (i_ % 2) * 9.2; y_ = 2.4 + (i_ // 2) * 3.85

@@ -1,5 +1,1863 @@
 {
  "models": {
+  "deepseek-v4-flash": {
+   "n_trials": 576,
+   "errors_logged": 0,
+   "calls": 1827,
+   "prompt_tokens": 768936,
+   "completion_tokens": 307390,
+   "rates": {
+    "adopt_suffix": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      2,
+      48
+     ],
+     "dose2_shown": [
+      12,
+      48
+     ],
+     "dose4_shown": [
+      18,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_any_prior_code": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      2,
+      48
+     ],
+     "dose2_shown": [
+      12,
+      48
+     ],
+     "dose4_shown": [
+      18,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "slot_filled_with_prior_code": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      2,
+      48
+     ],
+     "dose2_shown": [
+      12,
+      48
+     ],
+     "dose4_shown": [
+      18,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "suffix_slot_self_id": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      22,
+      48
+     ],
+     "dose2_shown": [
+      26,
+      48
+     ],
+     "dose4_shown": [
+      20,
+      48
+     ],
+     "dose4_shown_mixed": [
+      31,
+      48
+     ]
+    },
+    "adopt_tag": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_any_prior_tag": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_suffix_slot": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      24,
+      48
+     ],
+     "dose2_shown": [
+      38,
+      48
+     ],
+     "dose4_shown": [
+      39,
+      48
+     ],
+     "dose4_shown_mixed": [
+      31,
+      48
+     ]
+    },
+    "index_like": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      7,
+      48
+     ],
+     "dose2_shown": [
+      3,
+      48
+     ],
+     "dose4_shown": [
+      6,
+      48
+     ],
+     "dose4_shown_mixed": [
+      7,
+      48
+     ]
+    },
+    "adopt_index": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      7,
+      48
+     ],
+     "dose2_shown": [
+      3,
+      48
+     ],
+     "dose4_shown": [
+      6,
+      48
+     ],
+     "dose4_shown_mixed": [
+      7,
+      48
+     ]
+    },
+    "wrote_page": {
+     "isolated": [
+      47,
+      48
+     ],
+     "neutral4": [
+      46,
+      48
+     ],
+     "dose1": [
+      45,
+      48
+     ],
+     "dose2": [
+      47,
+      48
+     ],
+     "dose4": [
+      47,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      47,
+      48
+     ],
+     "dose4_functional_only": [
+      47,
+      48
+     ],
+     "neutral4_shown": [
+      47,
+      48
+     ],
+     "dose1_shown": [
+      48,
+      48
+     ],
+     "dose2_shown": [
+      47,
+      48
+     ],
+     "dose4_shown": [
+      48,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "listed_before_write": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      1,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "read_before_write": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      1,
+      48
+     ],
+     "dose1_shown": [
+      17,
+      48
+     ],
+     "dose2_shown": [
+      12,
+      48
+     ],
+     "dose4_shown": [
+      16,
+      48
+     ],
+     "dose4_shown_mixed": [
+      12,
+      48
+     ]
+    },
+    "read_prior_page": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      1,
+      48
+     ],
+     "dose1_shown": [
+      19,
+      48
+     ],
+     "dose2_shown": [
+      14,
+      48
+     ],
+     "dose4_shown": [
+      19,
+      48
+     ],
+     "dose4_shown_mixed": [
+      14,
+      48
+     ]
+    },
+    "answer_correct": {
+     "isolated": [
+      48,
+      48
+     ],
+     "neutral4": [
+      48,
+      48
+     ],
+     "dose1": [
+      48,
+      48
+     ],
+     "dose2": [
+      48,
+      48
+     ],
+     "dose4": [
+      48,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      48,
+      48
+     ],
+     "dose4_functional_only": [
+      48,
+      48
+     ],
+     "neutral4_shown": [
+      48,
+      48
+     ],
+     "dose1_shown": [
+      48,
+      48
+     ],
+     "dose2_shown": [
+      47,
+      48
+     ],
+     "dose4_shown": [
+      47,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "index_clobbered": {
+     "isolated": [
+      0,
+      0
+     ],
+     "neutral4": [
+      0,
+      0
+     ],
+     "dose1": [
+      0,
+      0
+     ],
+     "dose2": [
+      0,
+      0
+     ],
+     "dose4": [
+      0,
+      0
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      0
+     ],
+     "dose4_functional_only": [
+      0,
+      0
+     ],
+     "neutral4_shown": [
+      0,
+      0
+     ],
+     "dose1_shown": [
+      0,
+      7
+     ],
+     "dose2_shown": [
+      0,
+      3
+     ],
+     "dose4_shown": [
+      0,
+      6
+     ],
+     "dose4_shown_mixed": [
+      0,
+      7
+     ]
+    }
+   },
+   "mcnemar": {
+    "adopt_suffix": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 18,
+      "b": 17,
+      "c": 1,
+      "p": 0.00014495849609375
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 12,
+      "b": 12,
+      "c": 2,
+      "p": 0.012939453125
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 12,
+      "k_b": 18,
+      "b": 10,
+      "c": 4,
+      "p": 0.1795654296875
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 0,
+      "b": 0,
+      "c": 2,
+      "p": 0.5
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_any_prior_code": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 18,
+      "b": 17,
+      "c": 1,
+      "p": 0.00014495849609375
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 12,
+      "b": 12,
+      "c": 2,
+      "p": 0.012939453125
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 12,
+      "k_b": 18,
+      "b": 10,
+      "c": 4,
+      "p": 0.1795654296875
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 0,
+      "b": 0,
+      "c": 2,
+      "p": 0.5
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_tag": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_any_prior_tag": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_suffix_slot": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 24,
+      "b": 24,
+      "c": 0,
+      "p": 1.1920928955078125e-07
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 39,
+      "b": 39,
+      "c": 0,
+      "p": 3.637978807091713e-12
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 24,
+      "k_b": 39,
+      "b": 18,
+      "c": 3,
+      "p": 0.0014896392822265625
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 24,
+      "b": 24,
+      "c": 0,
+      "p": 1.1920928955078125e-07
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 39,
+      "b": 39,
+      "c": 0,
+      "p": 3.637978807091713e-12
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 24,
+      "k_b": 38,
+      "b": 20,
+      "c": 6,
+      "p": 0.009355306625366211
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 38,
+      "k_b": 39,
+      "b": 6,
+      "c": 5,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 31,
+      "k_b": 39,
+      "b": 13,
+      "c": 5,
+      "p": 0.09625244140625
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 24,
+      "k_b": 31,
+      "b": 15,
+      "c": 8,
+      "p": 0.21003961563110352
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 31,
+      "b": 31,
+      "c": 0,
+      "p": 9.313225746154785e-10
+     }
+    },
+    "suffix_slot_self_id": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 22,
+      "b": 22,
+      "c": 0,
+      "p": 4.76837158203125e-07
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 22,
+      "k_b": 20,
+      "b": 9,
+      "c": 11,
+      "p": 0.8238029479980469
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 22,
+      "b": 22,
+      "c": 0,
+      "p": 4.76837158203125e-07
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 22,
+      "k_b": 26,
+      "b": 14,
+      "c": 10,
+      "p": 0.5412561893463135
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 26,
+      "k_b": 20,
+      "b": 6,
+      "c": 12,
+      "p": 0.237884521484375
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 31,
+      "k_b": 20,
+      "b": 7,
+      "c": 18,
+      "p": 0.043285250663757324
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 22,
+      "k_b": 31,
+      "b": 17,
+      "c": 8,
+      "p": 0.10775214433670044
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 31,
+      "b": 31,
+      "c": 0,
+      "p": 9.313225746154785e-10
+     }
+    },
+    "index_like": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 7,
+      "b": 7,
+      "c": 0,
+      "p": 0.015625
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 6,
+      "b": 6,
+      "c": 0,
+      "p": 0.03125
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 6,
+      "b": 6,
+      "c": 7,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 7,
+      "b": 7,
+      "c": 0,
+      "p": 0.015625
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 6,
+      "b": 6,
+      "c": 0,
+      "p": 0.03125
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 3,
+      "b": 2,
+      "c": 6,
+      "p": 0.2890625
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 3,
+      "k_b": 6,
+      "b": 6,
+      "c": 3,
+      "p": 0.5078125
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 6,
+      "b": 5,
+      "c": 6,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 7,
+      "b": 7,
+      "c": 7,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 7,
+      "b": 7,
+      "c": 0,
+      "p": 0.015625
+     }
+    }
+   },
+   "dose_response": {
+    "adopt_suffix": {
+     "r1": 0.0,
+     "r2": 0.020833333333333332,
+     "r4": 0.0,
+     "logit": [
+      -2.0903986479706865e-16,
+      1.2290197355980543,
+      0.9999999999999999
+     ],
+     "trend_z": 1.3644860081796816e-16,
+     "trend_p": 1.0,
+     "acceleration": [
+      -0.041666666666666664,
+      -0.125,
+      0.0
+     ]
+    },
+    "adopt_tag": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "adopt_suffix_slot": {
+     "r1": 0.0,
+     "r2": 0.041666666666666664,
+     "r4": 0.0,
+     "logit": [
+      -9.32815257882953e-16,
+      0.8721028496007164,
+      0.9999999999999991
+     ],
+     "trend_z": 1.936457326935851e-16,
+     "trend_p": 0.9999999999999998,
+     "acceleration": [
+      -0.08333333333333333,
+      -0.20833333333333334,
+      0.0
+     ]
+    },
+    "index_like": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "adopt_index": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
   "gemma-4-31b-it": {
    "n_trials": 576,
    "errors_logged": 0,
@@ -1850,6 +3708,1864 @@
       0.0,
       0.0,
       0.0
+     ]
+    }
+   }
+  },
+  "glm-5.2": {
+   "n_trials": 576,
+   "errors_logged": 0,
+   "calls": 1887,
+   "prompt_tokens": 700321,
+   "completion_tokens": 338234,
+   "rates": {
+    "adopt_suffix": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      3,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      3,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      15,
+      48
+     ],
+     "dose4_shown": [
+      20,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_any_prior_code": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      3,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      3,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      15,
+      48
+     ],
+     "dose4_shown": [
+      20,
+      48
+     ],
+     "dose4_shown_mixed": [
+      1,
+      48
+     ]
+    },
+    "slot_filled_with_prior_code": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      1,
+      48
+     ],
+     "dose4": [
+      3,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      3,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      15,
+      48
+     ],
+     "dose4_shown": [
+      20,
+      48
+     ],
+     "dose4_shown_mixed": [
+      1,
+      48
+     ]
+    },
+    "suffix_slot_self_id": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      2,
+      48
+     ],
+     "dose2": [
+      4,
+      48
+     ],
+     "dose4": [
+      1,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      46,
+      48
+     ],
+     "dose2_shown": [
+      33,
+      48
+     ],
+     "dose4_shown": [
+      26,
+      48
+     ],
+     "dose4_shown_mixed": [
+      47,
+      48
+     ]
+    },
+    "adopt_tag": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_any_prior_tag": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_suffix_slot": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      2,
+      48
+     ],
+     "dose2": [
+      5,
+      48
+     ],
+     "dose4": [
+      4,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      3,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      46,
+      48
+     ],
+     "dose2_shown": [
+      48,
+      48
+     ],
+     "dose4_shown": [
+      46,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "index_like": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      1,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      12,
+      48
+     ],
+     "dose2_shown": [
+      9,
+      48
+     ],
+     "dose4_shown": [
+      10,
+      48
+     ],
+     "dose4_shown_mixed": [
+      7,
+      48
+     ]
+    },
+    "adopt_index": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      1,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      11,
+      48
+     ],
+     "dose2_shown": [
+      9,
+      48
+     ],
+     "dose4_shown": [
+      10,
+      48
+     ],
+     "dose4_shown_mixed": [
+      7,
+      48
+     ]
+    },
+    "wrote_page": {
+     "isolated": [
+      48,
+      48
+     ],
+     "neutral4": [
+      48,
+      48
+     ],
+     "dose1": [
+      48,
+      48
+     ],
+     "dose2": [
+      48,
+      48
+     ],
+     "dose4": [
+      48,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      48,
+      48
+     ],
+     "dose4_functional_only": [
+      48,
+      48
+     ],
+     "neutral4_shown": [
+      48,
+      48
+     ],
+     "dose1_shown": [
+      48,
+      48
+     ],
+     "dose2_shown": [
+      48,
+      48
+     ],
+     "dose4_shown": [
+      47,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "listed_before_write": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      1,
+      48
+     ],
+     "dose1": [
+      3,
+      48
+     ],
+     "dose2": [
+      5,
+      48
+     ],
+     "dose4": [
+      4,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      3,
+      48
+     ],
+     "dose4_functional_only": [
+      1,
+      48
+     ],
+     "neutral4_shown": [
+      1,
+      48
+     ],
+     "dose1_shown": [
+      3,
+      48
+     ],
+     "dose2_shown": [
+      7,
+      48
+     ],
+     "dose4_shown": [
+      5,
+      48
+     ],
+     "dose4_shown_mixed": [
+      4,
+      48
+     ]
+    },
+    "read_before_write": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      1,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      1,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      1,
+      48
+     ],
+     "dose1_shown": [
+      17,
+      48
+     ],
+     "dose2_shown": [
+      21,
+      48
+     ],
+     "dose4_shown": [
+      8,
+      48
+     ],
+     "dose4_shown_mixed": [
+      11,
+      48
+     ]
+    },
+    "read_prior_page": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      1,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      1,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      1,
+      48
+     ],
+     "dose1_shown": [
+      19,
+      48
+     ],
+     "dose2_shown": [
+      22,
+      48
+     ],
+     "dose4_shown": [
+      13,
+      48
+     ],
+     "dose4_shown_mixed": [
+      13,
+      48
+     ]
+    },
+    "answer_correct": {
+     "isolated": [
+      48,
+      48
+     ],
+     "neutral4": [
+      47,
+      48
+     ],
+     "dose1": [
+      48,
+      48
+     ],
+     "dose2": [
+      48,
+      48
+     ],
+     "dose4": [
+      48,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      48,
+      48
+     ],
+     "dose4_functional_only": [
+      48,
+      48
+     ],
+     "neutral4_shown": [
+      48,
+      48
+     ],
+     "dose1_shown": [
+      48,
+      48
+     ],
+     "dose2_shown": [
+      48,
+      48
+     ],
+     "dose4_shown": [
+      48,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "index_clobbered": {
+     "isolated": [
+      0,
+      0
+     ],
+     "neutral4": [
+      0,
+      0
+     ],
+     "dose1": [
+      0,
+      1
+     ],
+     "dose2": [
+      0,
+      0
+     ],
+     "dose4": [
+      0,
+      0
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      0
+     ],
+     "dose4_functional_only": [
+      0,
+      0
+     ],
+     "neutral4_shown": [
+      0,
+      0
+     ],
+     "dose1_shown": [
+      0,
+      12
+     ],
+     "dose2_shown": [
+      0,
+      9
+     ],
+     "dose4_shown": [
+      0,
+      10
+     ],
+     "dose4_shown_mixed": [
+      0,
+      7
+     ]
+    }
+   },
+   "mcnemar": {
+    "adopt_suffix": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 3,
+      "k_b": 3,
+      "b": 1,
+      "c": 1,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 3,
+      "k_b": 20,
+      "b": 19,
+      "c": 2,
+      "p": 0.00022125244140625
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 15,
+      "b": 15,
+      "c": 0,
+      "p": 6.103515625e-05
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 15,
+      "k_b": 20,
+      "b": 11,
+      "c": 6,
+      "p": 0.332305908203125
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_any_prior_code": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 3,
+      "k_b": 3,
+      "b": 1,
+      "c": 1,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 3,
+      "k_b": 20,
+      "b": 19,
+      "c": 2,
+      "p": 0.00022125244140625
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 15,
+      "b": 15,
+      "c": 0,
+      "p": 6.103515625e-05
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 15,
+      "k_b": 20,
+      "b": 11,
+      "c": 6,
+      "p": 0.332305908203125
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 1,
+      "k_b": 20,
+      "b": 19,
+      "c": 0,
+      "p": 3.814697265625e-06
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_tag": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_any_prior_tag": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_suffix_slot": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 5,
+      "b": 5,
+      "c": 0,
+      "p": 0.0625
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 4,
+      "b": 4,
+      "c": 0,
+      "p": 0.125
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 4,
+      "b": 4,
+      "c": 0,
+      "p": 0.125
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 3,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 3,
+      "k_b": 4,
+      "b": 2,
+      "c": 1,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 4,
+      "b": 4,
+      "c": 0,
+      "p": 0.125
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 46,
+      "b": 46,
+      "c": 0,
+      "p": 2.842170943040401e-14
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 46,
+      "b": 46,
+      "c": 0,
+      "p": 2.842170943040401e-14
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 46,
+      "k_b": 46,
+      "b": 1,
+      "c": 1,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 46,
+      "b": 44,
+      "c": 0,
+      "p": 1.1368683772161603e-13
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 4,
+      "k_b": 46,
+      "b": 42,
+      "c": 0,
+      "p": 4.547473508864641e-13
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 46,
+      "k_b": 48,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 48,
+      "k_b": 46,
+      "b": 0,
+      "c": 2,
+      "p": 0.5
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 48,
+      "k_b": 46,
+      "b": 0,
+      "c": 2,
+      "p": 0.5
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 46,
+      "k_b": 48,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 48,
+      "b": 48,
+      "c": 0,
+      "p": 7.105427357601002e-15
+     }
+    },
+    "suffix_slot_self_id": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 4,
+      "b": 4,
+      "c": 0,
+      "p": 0.125
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 46,
+      "b": 46,
+      "c": 0,
+      "p": 2.842170943040401e-14
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 26,
+      "b": 26,
+      "c": 0,
+      "p": 2.9802322387695312e-08
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 46,
+      "k_b": 26,
+      "b": 0,
+      "c": 20,
+      "p": 1.9073486328125e-06
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 2,
+      "k_b": 46,
+      "b": 44,
+      "c": 0,
+      "p": 1.1368683772161603e-13
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 1,
+      "k_b": 26,
+      "b": 25,
+      "c": 0,
+      "p": 5.960464477539063e-08
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 46,
+      "k_b": 33,
+      "b": 1,
+      "c": 14,
+      "p": 0.0009765625
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 33,
+      "k_b": 26,
+      "b": 5,
+      "c": 12,
+      "p": 0.143463134765625
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 26,
+      "b": 0,
+      "c": 21,
+      "p": 9.5367431640625e-07
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 46,
+      "k_b": 47,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 47,
+      "b": 47,
+      "c": 0,
+      "p": 1.4210854715202004e-14
+     }
+    },
+    "index_like": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 12,
+      "b": 12,
+      "c": 0,
+      "p": 0.00048828125
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 10,
+      "b": 10,
+      "c": 0,
+      "p": 0.001953125
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 12,
+      "k_b": 10,
+      "b": 7,
+      "c": 9,
+      "p": 0.803619384765625
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 1,
+      "k_b": 12,
+      "b": 12,
+      "c": 1,
+      "p": 0.00341796875
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 10,
+      "b": 10,
+      "c": 0,
+      "p": 0.001953125
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 12,
+      "k_b": 9,
+      "b": 5,
+      "c": 8,
+      "p": 0.5810546875
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 9,
+      "k_b": 10,
+      "b": 7,
+      "c": 6,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 10,
+      "b": 6,
+      "c": 3,
+      "p": 0.5078125
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 12,
+      "k_b": 7,
+      "b": 4,
+      "c": 9,
+      "p": 0.266845703125
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 7,
+      "b": 7,
+      "c": 0,
+      "p": 0.015625
+     }
+    }
+   },
+   "dose_response": {
+    "adopt_suffix": {
+     "r1": 0.0,
+     "r2": 0.020833333333333332,
+     "r4": 0.0625,
+     "logit": [
+      1.5559374394039664,
+      0.9860054961862467,
+      0.1145607714198834
+     ],
+     "trend_z": 1.8631770102243563,
+     "trend_p": 0.06243736625547225,
+     "acceleration": [
+      0.02083333333333334,
+      -0.08333333333333334,
+      0.125
+     ]
+    },
+    "adopt_tag": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "adopt_suffix_slot": {
+     "r1": 0.041666666666666664,
+     "r2": 0.10416666666666667,
+     "r4": 0.08333333333333333,
+     "logit": [
+      0.2990488672423228,
+      0.39162640184349373,
+      0.44510116388029586
+     ],
+     "trend_z": 0.768483784740727,
+     "trend_p": 0.4421998205515365,
+     "acceleration": [
+      -0.08333333333333334,
+      -0.2708333333333333,
+      0.08333333333333336
+     ]
+    },
+    "index_like": {
+     "r1": 0.020833333333333332,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": -1.2290197355980539,
+     "trend_p": 0.21906440661100834,
+     "acceleration": [
+      0.020833333333333332,
+      0.0,
+      0.0625
+     ]
+    },
+    "adopt_index": {
+     "r1": 0.020833333333333332,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": -1.2290197355980539,
+     "trend_p": 0.21906440661100834,
+     "acceleration": [
+      0.020833333333333332,
+      0.0,
+      0.0625
      ]
     }
    }
@@ -5570,6 +9286,1864 @@
     }
    }
   },
+  "qwen3.5-397b": {
+   "n_trials": 576,
+   "errors_logged": 0,
+   "calls": 1987,
+   "prompt_tokens": 823197,
+   "completion_tokens": 462553,
+   "rates": {
+    "adopt_suffix": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      9,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      7,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      18,
+      48
+     ],
+     "dose4_shown": [
+      27,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_any_prior_code": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      9,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      7,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      18,
+      48
+     ],
+     "dose4_shown": [
+      27,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "slot_filled_with_prior_code": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      2,
+      48
+     ],
+     "dose4": [
+      9,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      7,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      18,
+      48
+     ],
+     "dose4_shown": [
+      27,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "suffix_slot_self_id": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      25,
+      48
+     ],
+     "dose2": [
+      20,
+      48
+     ],
+     "dose4": [
+      21,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      18,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      47,
+      48
+     ],
+     "dose2_shown": [
+      30,
+      48
+     ],
+     "dose4_shown": [
+      21,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "adopt_tag": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      1,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_any_prior_tag": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      1,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_suffix_slot": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      25,
+      48
+     ],
+     "dose2": [
+      22,
+      48
+     ],
+     "dose4": [
+      30,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      25,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      47,
+      48
+     ],
+     "dose2_shown": [
+      48,
+      48
+     ],
+     "dose4_shown": [
+      48,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "index_like": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "adopt_index": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      0,
+      48
+     ],
+     "dose1": [
+      0,
+      48
+     ],
+     "dose2": [
+      0,
+      48
+     ],
+     "dose4": [
+      0,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      48
+     ],
+     "dose4_functional_only": [
+      0,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "wrote_page": {
+     "isolated": [
+      48,
+      48
+     ],
+     "neutral4": [
+      47,
+      48
+     ],
+     "dose1": [
+      48,
+      48
+     ],
+     "dose2": [
+      48,
+      48
+     ],
+     "dose4": [
+      48,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      47,
+      48
+     ],
+     "dose4_functional_only": [
+      48,
+      48
+     ],
+     "neutral4_shown": [
+      48,
+      48
+     ],
+     "dose1_shown": [
+      48,
+      48
+     ],
+     "dose2_shown": [
+      48,
+      48
+     ],
+     "dose4_shown": [
+      48,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "listed_before_write": {
+     "isolated": [
+      21,
+      48
+     ],
+     "neutral4": [
+      29,
+      48
+     ],
+     "dose1": [
+      29,
+      48
+     ],
+     "dose2": [
+      22,
+      48
+     ],
+     "dose4": [
+      30,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      25,
+      48
+     ],
+     "dose4_functional_only": [
+      24,
+      48
+     ],
+     "neutral4_shown": [
+      0,
+      48
+     ],
+     "dose1_shown": [
+      0,
+      48
+     ],
+     "dose2_shown": [
+      0,
+      48
+     ],
+     "dose4_shown": [
+      0,
+      48
+     ],
+     "dose4_shown_mixed": [
+      0,
+      48
+     ]
+    },
+    "read_before_write": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      3,
+      48
+     ],
+     "dose1": [
+      19,
+      48
+     ],
+     "dose2": [
+      6,
+      48
+     ],
+     "dose4": [
+      4,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      1,
+      48
+     ],
+     "dose4_functional_only": [
+      5,
+      48
+     ],
+     "neutral4_shown": [
+      2,
+      48
+     ],
+     "dose1_shown": [
+      14,
+      48
+     ],
+     "dose2_shown": [
+      10,
+      48
+     ],
+     "dose4_shown": [
+      2,
+      48
+     ],
+     "dose4_shown_mixed": [
+      2,
+      48
+     ]
+    },
+    "read_prior_page": {
+     "isolated": [
+      0,
+      48
+     ],
+     "neutral4": [
+      2,
+      48
+     ],
+     "dose1": [
+      19,
+      48
+     ],
+     "dose2": [
+      4,
+      48
+     ],
+     "dose4": [
+      2,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      1,
+      48
+     ],
+     "dose4_functional_only": [
+      3,
+      48
+     ],
+     "neutral4_shown": [
+      2,
+      48
+     ],
+     "dose1_shown": [
+      14,
+      48
+     ],
+     "dose2_shown": [
+      10,
+      48
+     ],
+     "dose4_shown": [
+      2,
+      48
+     ],
+     "dose4_shown_mixed": [
+      2,
+      48
+     ]
+    },
+    "answer_correct": {
+     "isolated": [
+      48,
+      48
+     ],
+     "neutral4": [
+      48,
+      48
+     ],
+     "dose1": [
+      48,
+      48
+     ],
+     "dose2": [
+      48,
+      48
+     ],
+     "dose4": [
+      48,
+      48
+     ],
+     "dose4_arbitrary_only": [
+      48,
+      48
+     ],
+     "dose4_functional_only": [
+      48,
+      48
+     ],
+     "neutral4_shown": [
+      48,
+      48
+     ],
+     "dose1_shown": [
+      48,
+      48
+     ],
+     "dose2_shown": [
+      48,
+      48
+     ],
+     "dose4_shown": [
+      48,
+      48
+     ],
+     "dose4_shown_mixed": [
+      48,
+      48
+     ]
+    },
+    "index_clobbered": {
+     "isolated": [
+      0,
+      0
+     ],
+     "neutral4": [
+      0,
+      0
+     ],
+     "dose1": [
+      0,
+      0
+     ],
+     "dose2": [
+      0,
+      0
+     ],
+     "dose4": [
+      0,
+      0
+     ],
+     "dose4_arbitrary_only": [
+      0,
+      0
+     ],
+     "dose4_functional_only": [
+      0,
+      0
+     ],
+     "neutral4_shown": [
+      0,
+      0
+     ],
+     "dose1_shown": [
+      0,
+      0
+     ],
+     "dose2_shown": [
+      0,
+      0
+     ],
+     "dose4_shown": [
+      0,
+      0
+     ],
+     "dose4_shown_mixed": [
+      0,
+      0
+     ]
+    }
+   },
+   "mcnemar": {
+    "adopt_suffix": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 9,
+      "b": 9,
+      "c": 0,
+      "p": 0.00390625
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 9,
+      "b": 9,
+      "c": 0,
+      "p": 0.00390625
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 7,
+      "b": 7,
+      "c": 0,
+      "p": 0.015625
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 9,
+      "b": 4,
+      "c": 2,
+      "p": 0.6875
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 9,
+      "b": 9,
+      "c": 0,
+      "p": 0.00390625
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 27,
+      "b": 27,
+      "c": 0,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 27,
+      "b": 27,
+      "c": 0,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 9,
+      "k_b": 27,
+      "b": 20,
+      "c": 2,
+      "p": 0.00012111663818359375
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 18,
+      "k_b": 27,
+      "b": 11,
+      "c": 2,
+      "p": 0.0224609375
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 27,
+      "b": 27,
+      "c": 0,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_any_prior_code": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 2,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 9,
+      "b": 9,
+      "c": 0,
+      "p": 0.00390625
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 9,
+      "b": 9,
+      "c": 0,
+      "p": 0.00390625
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 7,
+      "b": 7,
+      "c": 0,
+      "p": 0.015625
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 7,
+      "k_b": 9,
+      "b": 4,
+      "c": 2,
+      "p": 0.6875
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 9,
+      "b": 9,
+      "c": 0,
+      "p": 0.00390625
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 27,
+      "b": 27,
+      "c": 0,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 27,
+      "b": 27,
+      "c": 0,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 9,
+      "k_b": 27,
+      "b": 20,
+      "c": 2,
+      "p": 0.00012111663818359375
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 18,
+      "k_b": 27,
+      "b": 11,
+      "c": 2,
+      "p": 0.0224609375
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 27,
+      "b": 27,
+      "c": 0,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_tag": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 1,
+      "k_b": 0,
+      "b": 0,
+      "c": 1,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_any_prior_tag": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 1,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 1,
+      "k_b": 0,
+      "b": 0,
+      "c": 1,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    },
+    "adopt_suffix_slot": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 25,
+      "b": 25,
+      "c": 0,
+      "p": 5.960464477539063e-08
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 22,
+      "b": 22,
+      "c": 0,
+      "p": 4.76837158203125e-07
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 30,
+      "b": 30,
+      "c": 0,
+      "p": 1.862645149230957e-09
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 30,
+      "b": 30,
+      "c": 0,
+      "p": 1.862645149230957e-09
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 25,
+      "b": 25,
+      "c": 0,
+      "p": 5.960464477539063e-08
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 25,
+      "k_b": 30,
+      "b": 12,
+      "c": 7,
+      "p": 0.359283447265625
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 30,
+      "b": 30,
+      "c": 0,
+      "p": 1.862645149230957e-09
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 47,
+      "b": 47,
+      "c": 0,
+      "p": 1.4210854715202004e-14
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 48,
+      "b": 48,
+      "c": 0,
+      "p": 7.105427357601002e-15
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 48,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 25,
+      "k_b": 47,
+      "b": 23,
+      "c": 1,
+      "p": 2.9802322387695312e-06
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 30,
+      "k_b": 48,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 48,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 48,
+      "k_b": 48,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 48,
+      "k_b": 48,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 48,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 48,
+      "b": 48,
+      "c": 0,
+      "p": 7.105427357601002e-15
+     }
+    },
+    "suffix_slot_self_id": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 25,
+      "b": 25,
+      "c": 0,
+      "p": 5.960464477539063e-08
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 20,
+      "b": 20,
+      "c": 0,
+      "p": 1.9073486328125e-06
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 21,
+      "b": 21,
+      "c": 0,
+      "p": 9.5367431640625e-07
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 21,
+      "b": 21,
+      "c": 0,
+      "p": 9.5367431640625e-07
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 18,
+      "b": 18,
+      "c": 0,
+      "p": 7.62939453125e-06
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 18,
+      "k_b": 21,
+      "b": 11,
+      "c": 8,
+      "p": 0.6476058959960938
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 21,
+      "b": 21,
+      "c": 0,
+      "p": 9.5367431640625e-07
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 47,
+      "b": 47,
+      "c": 0,
+      "p": 1.4210854715202004e-14
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 21,
+      "b": 21,
+      "c": 0,
+      "p": 9.5367431640625e-07
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 21,
+      "b": 0,
+      "c": 26,
+      "p": 2.9802322387695312e-08
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 25,
+      "k_b": 47,
+      "b": 23,
+      "c": 1,
+      "p": 2.9802322387695312e-06
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 21,
+      "k_b": 21,
+      "b": 11,
+      "c": 11,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 30,
+      "b": 0,
+      "c": 17,
+      "p": 1.52587890625e-05
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 30,
+      "k_b": 21,
+      "b": 2,
+      "c": 11,
+      "p": 0.0224609375
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 48,
+      "k_b": 21,
+      "b": 0,
+      "c": 27,
+      "p": 1.4901161193847656e-08
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 47,
+      "k_b": 48,
+      "b": 1,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 48,
+      "b": 48,
+      "c": 0,
+      "p": 7.105427357601002e-15
+     }
+    },
+    "index_like": {
+     "isolated_vs_dose1": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose2": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "isolated_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_arbitrary_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_vs_dose4_functional_only": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_arbitrary_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_functional_only_vs_dose4": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_vs_dose1_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose2_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose2_shown_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose4_shown_mixed_vs_dose4_shown": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "dose1_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     },
+     "neutral4_shown_vs_dose4_shown_mixed": {
+      "n": 48,
+      "k_a": 0,
+      "k_b": 0,
+      "b": 0,
+      "c": 0,
+      "p": 1.0
+     }
+    }
+   },
+   "dose_response": {
+    "adopt_suffix": {
+     "r1": 0.0,
+     "r2": 0.041666666666666664,
+     "r4": 0.1875,
+     "logit": [
+      1.9630071447951745,
+      0.7105777472847453,
+      0.005735163114661255
+     ],
+     "trend_z": 3.458177031333273,
+     "trend_p": 0.0005438438960478909,
+     "acceleration": [
+      0.10416666666666669,
+      -0.04166666666666667,
+      0.25
+     ]
+    },
+    "adopt_tag": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "adopt_suffix_slot": {
+     "r1": 0.5208333333333334,
+     "r2": 0.4583333333333333,
+     "r4": 0.625,
+     "logit": [
+      0.21011621713900425,
+      0.20575381041835095,
+      0.3071587117631166
+     ],
+     "trend_z": 1.0230906507002708,
+     "trend_p": 0.30626498699600413,
+     "acceleration": [
+      0.22916666666666674,
+      -0.0833333333333332,
+      0.5416666666666666
+     ]
+    },
+    "index_like": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "adopt_index": {
+     "r1": 0.0,
+     "r2": 0.0,
+     "r4": 0.0,
+     "logit": null,
+     "trend_z": NaN,
+     "trend_p": 1.0,
+     "acceleration": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
   "qwen3.8-27b": {
    "n_trials": 576,
    "errors_logged": 0,
@@ -7441,7 +13015,7 @@
   "mcnemar": {
    "adopt_suffix": {
     "isolated_vs_dose1": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7449,39 +13023,39 @@
      "p": 1.0
     },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 11,
-     "b": 11,
+     "k_b": 15,
+     "b": 15,
      "c": 0,
-     "p": 0.0009765625
+     "p": 6.103515625e-05
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 18,
-     "b": 18,
+     "k_b": 30,
+     "b": 30,
      "c": 0,
-     "p": 7.62939453125e-06
+     "p": 1.862645149230957e-09
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 18,
-     "b": 18,
+     "k_b": 30,
+     "b": 30,
      "c": 0,
-     "p": 7.62939453125e-06
+     "p": 1.862645149230957e-09
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 29,
-     "b": 29,
+     "k_b": 39,
+     "b": 39,
      "c": 0,
-     "p": 3.725290298461914e-09
+     "p": 3.637978807091713e-12
     },
     "neutral4_vs_dose4_functional_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7489,95 +13063,95 @@
      "p": 1.0
     },
     "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
-     "k_a": 29,
-     "k_b": 18,
-     "b": 6,
-     "c": 17,
-     "p": 0.03468966484069824
+     "n": 336,
+     "k_a": 39,
+     "k_b": 30,
+     "b": 11,
+     "c": 20,
+     "p": 0.14961278438568115
     },
     "dose4_functional_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 18,
-     "b": 18,
+     "k_b": 30,
+     "b": 30,
      "c": 0,
-     "p": 7.62939453125e-06
+     "p": 1.862645149230957e-09
     },
     "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 0,
-     "b": 0,
+     "k_b": 2,
+     "b": 2,
      "c": 0,
-     "p": 1.0
+     "p": 0.5
     },
     "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 81,
-     "b": 81,
+     "k_b": 146,
+     "b": 146,
      "c": 0,
-     "p": 8.271806125530277e-25
+     "p": 2.2420775429197073e-44
     },
     "dose1_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 81,
-     "b": 81,
-     "c": 0,
-     "p": 8.271806125530277e-25
+     "n": 336,
+     "k_a": 2,
+     "k_b": 146,
+     "b": 145,
+     "c": 1,
+     "p": 3.29585398809197e-42
     },
     "dose1_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 0,
-     "b": 0,
+     "k_b": 2,
+     "b": 2,
      "c": 0,
-     "p": 1.0
+     "p": 0.5
     },
     "dose4_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 18,
-     "k_b": 81,
-     "b": 70,
-     "c": 7,
-     "p": 3.5245694262351566e-14
+     "n": 336,
+     "k_a": 30,
+     "k_b": 146,
+     "b": 127,
+     "c": 11,
+     "p": 3.60917488644731e-26
     },
     "dose1_shown_vs_dose2_shown": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 52,
-     "b": 52,
-     "c": 0,
-     "p": 4.440892098500626e-16
+     "n": 336,
+     "k_a": 2,
+     "k_b": 97,
+     "b": 97,
+     "c": 2,
+     "p": 1.5622601366996918e-26
     },
     "dose2_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 52,
-     "k_b": 81,
-     "b": 40,
-     "c": 11,
-     "p": 5.703811637403078e-05
+     "n": 336,
+     "k_a": 97,
+     "k_b": 146,
+     "b": 72,
+     "c": 23,
+     "p": 4.757482385242055e-07
     },
     "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 81,
-     "b": 81,
+     "k_b": 146,
+     "b": 146,
      "c": 0,
-     "p": 8.271806125530277e-25
+     "p": 2.2420775429197073e-44
     },
     "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
-     "k_a": 0,
+     "n": 336,
+     "k_a": 2,
      "k_b": 0,
      "b": 0,
-     "c": 0,
-     "p": 1.0
+     "c": 2,
+     "p": 0.5
     },
     "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7587,7 +13161,7 @@
    },
    "adopt_any_prior_code": {
     "isolated_vs_dose1": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7595,39 +13169,39 @@
      "p": 1.0
     },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 11,
-     "b": 11,
+     "k_b": 15,
+     "b": 15,
      "c": 0,
-     "p": 0.0009765625
+     "p": 6.103515625e-05
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 18,
-     "b": 18,
+     "k_b": 30,
+     "b": 30,
      "c": 0,
-     "p": 7.62939453125e-06
+     "p": 1.862645149230957e-09
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 18,
-     "b": 18,
+     "k_b": 30,
+     "b": 30,
      "c": 0,
-     "p": 7.62939453125e-06
+     "p": 1.862645149230957e-09
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 29,
-     "b": 29,
+     "k_b": 39,
+     "b": 39,
      "c": 0,
-     "p": 3.725290298461914e-09
+     "p": 3.637978807091713e-12
     },
     "neutral4_vs_dose4_functional_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7635,105 +13209,105 @@
      "p": 1.0
     },
     "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
-     "k_a": 29,
-     "k_b": 18,
-     "b": 6,
-     "c": 17,
-     "p": 0.03468966484069824
+     "n": 336,
+     "k_a": 39,
+     "k_b": 30,
+     "b": 11,
+     "c": 20,
+     "p": 0.14961278438568115
     },
     "dose4_functional_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 18,
-     "b": 18,
+     "k_b": 30,
+     "b": 30,
      "c": 0,
-     "p": 7.62939453125e-06
+     "p": 1.862645149230957e-09
     },
     "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 0,
-     "b": 0,
+     "k_b": 2,
+     "b": 2,
      "c": 0,
-     "p": 1.0
+     "p": 0.5
     },
     "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 81,
-     "b": 81,
+     "k_b": 146,
+     "b": 146,
      "c": 0,
-     "p": 8.271806125530277e-25
+     "p": 2.2420775429197073e-44
     },
     "dose1_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 81,
-     "b": 81,
-     "c": 0,
-     "p": 8.271806125530277e-25
+     "n": 336,
+     "k_a": 2,
+     "k_b": 146,
+     "b": 145,
+     "c": 1,
+     "p": 3.29585398809197e-42
     },
     "dose1_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 0,
-     "b": 0,
+     "k_b": 2,
+     "b": 2,
      "c": 0,
-     "p": 1.0
+     "p": 0.5
     },
     "dose4_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 18,
-     "k_b": 81,
-     "b": 70,
-     "c": 7,
-     "p": 3.5245694262351566e-14
+     "n": 336,
+     "k_a": 30,
+     "k_b": 146,
+     "b": 127,
+     "c": 11,
+     "p": 3.60917488644731e-26
     },
     "dose1_shown_vs_dose2_shown": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 52,
-     "b": 52,
-     "c": 0,
-     "p": 4.440892098500626e-16
+     "n": 336,
+     "k_a": 2,
+     "k_b": 97,
+     "b": 97,
+     "c": 2,
+     "p": 1.5622601366996918e-26
     },
     "dose2_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 52,
-     "k_b": 81,
-     "b": 40,
-     "c": 11,
-     "p": 5.703811637403078e-05
+     "n": 336,
+     "k_a": 97,
+     "k_b": 146,
+     "b": 72,
+     "c": 23,
+     "p": 4.757482385242055e-07
     },
     "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 1,
-     "k_b": 81,
-     "b": 80,
+     "n": 336,
+     "k_a": 2,
+     "k_b": 146,
+     "b": 144,
      "c": 0,
-     "p": 1.6543612251060553e-24
+     "p": 8.96831017167883e-44
     },
     "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 1,
-     "b": 1,
-     "c": 0,
+     "n": 336,
+     "k_a": 2,
+     "k_b": 2,
+     "b": 2,
+     "c": 2,
      "p": 1.0
     },
     "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 1,
-     "b": 1,
+     "k_b": 2,
+     "b": 2,
      "c": 0,
-     "p": 1.0
+     "p": 0.5
     }
    },
    "adopt_tag": {
     "isolated_vs_dose1": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7741,7 +13315,7 @@
      "p": 1.0
     },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7749,7 +13323,7 @@
      "p": 1.0
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7757,7 +13331,7 @@
      "p": 1.0
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7765,15 +13339,15 @@
      "p": 1.0
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 7,
-     "b": 7,
+     "k_b": 8,
+     "b": 8,
      "c": 0,
-     "p": 0.015625
+     "p": 0.0078125
     },
     "neutral4_vs_dose4_functional_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7781,15 +13355,15 @@
      "p": 1.0
     },
     "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
-     "k_a": 7,
+     "n": 336,
+     "k_a": 8,
      "k_b": 0,
      "b": 0,
-     "c": 7,
-     "p": 0.015625
+     "c": 8,
+     "p": 0.0078125
     },
     "dose4_functional_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7797,7 +13371,7 @@
      "p": 1.0
     },
     "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 1,
      "b": 1,
@@ -7805,7 +13379,7 @@
      "p": 1.0
     },
     "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7813,7 +13387,7 @@
      "p": 1.0
     },
     "dose1_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 1,
      "k_b": 0,
      "b": 0,
@@ -7821,7 +13395,7 @@
      "p": 1.0
     },
     "dose1_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 1,
      "b": 1,
@@ -7829,7 +13403,7 @@
      "p": 1.0
     },
     "dose4_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7837,7 +13411,7 @@
      "p": 1.0
     },
     "dose1_shown_vs_dose2_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 1,
      "k_b": 0,
      "b": 0,
@@ -7845,7 +13419,7 @@
      "p": 1.0
     },
     "dose2_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7853,7 +13427,7 @@
      "p": 1.0
     },
     "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7861,7 +13435,7 @@
      "p": 1.0
     },
     "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 1,
      "k_b": 0,
      "b": 0,
@@ -7869,7 +13443,7 @@
      "p": 1.0
     },
     "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7879,7 +13453,7 @@
    },
    "adopt_any_prior_tag": {
     "isolated_vs_dose1": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7887,7 +13461,7 @@
      "p": 1.0
     },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7895,7 +13469,7 @@
      "p": 1.0
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7903,7 +13477,7 @@
      "p": 1.0
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7911,15 +13485,15 @@
      "p": 1.0
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 7,
-     "b": 7,
+     "k_b": 8,
+     "b": 8,
      "c": 0,
-     "p": 0.015625
+     "p": 0.0078125
     },
     "neutral4_vs_dose4_functional_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7927,15 +13501,15 @@
      "p": 1.0
     },
     "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
-     "k_a": 7,
+     "n": 336,
+     "k_a": 8,
      "k_b": 0,
      "b": 0,
-     "c": 7,
-     "p": 0.015625
+     "c": 8,
+     "p": 0.0078125
     },
     "dose4_functional_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7943,7 +13517,7 @@
      "p": 1.0
     },
     "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 1,
      "b": 1,
@@ -7951,7 +13525,7 @@
      "p": 1.0
     },
     "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7959,7 +13533,7 @@
      "p": 1.0
     },
     "dose1_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 1,
      "k_b": 0,
      "b": 0,
@@ -7967,7 +13541,7 @@
      "p": 1.0
     },
     "dose1_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 1,
      "b": 1,
@@ -7975,7 +13549,7 @@
      "p": 1.0
     },
     "dose4_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7983,7 +13557,7 @@
      "p": 1.0
     },
     "dose1_shown_vs_dose2_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 1,
      "k_b": 0,
      "b": 0,
@@ -7991,7 +13565,7 @@
      "p": 1.0
     },
     "dose2_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -7999,7 +13573,7 @@
      "p": 1.0
     },
     "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -8007,7 +13581,7 @@
      "p": 1.0
     },
     "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 1,
      "k_b": 0,
      "b": 0,
@@ -8015,7 +13589,7 @@
      "p": 1.0
     },
     "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -8025,193 +13599,193 @@
    },
    "adopt_suffix_slot": {
     "isolated_vs_dose1": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 33,
-     "b": 33,
+     "k_b": 60,
+     "b": 60,
      "c": 0,
-     "p": 2.3283064365386963e-10
+     "p": 1.734723475976807e-18
     },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 57,
-     "b": 57,
+     "k_b": 86,
+     "b": 86,
      "c": 0,
-     "p": 1.3877787807814457e-17
+     "p": 2.5849394142282115e-26
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 59,
-     "b": 59,
+     "k_b": 93,
+     "b": 93,
      "c": 0,
-     "p": 3.469446951953614e-18
+     "p": 2.0194839173657902e-28
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 59,
-     "b": 59,
+     "k_b": 93,
+     "b": 93,
      "c": 0,
-     "p": 3.469446951953614e-18
+     "p": 2.0194839173657902e-28
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
+     "k_a": 0,
+     "k_b": 86,
+     "b": 86,
+     "c": 0,
+     "p": 2.5849394142282115e-26
+    },
+    "neutral4_vs_dose4_functional_only": {
+     "n": 336,
+     "k_a": 0,
+     "k_b": 0,
+     "b": 0,
+     "c": 0,
+     "p": 1.0
+    },
+    "dose4_arbitrary_only_vs_dose4": {
+     "n": 336,
+     "k_a": 86,
+     "k_b": 93,
+     "b": 18,
+     "c": 11,
+     "p": 0.26493089646101
+    },
+    "dose4_functional_only_vs_dose4": {
+     "n": 336,
+     "k_a": 0,
+     "k_b": 93,
+     "b": 93,
+     "c": 0,
+     "p": 2.0194839173657902e-28
+    },
+    "neutral4_shown_vs_dose1_shown": {
+     "n": 336,
+     "k_a": 0,
+     "k_b": 259,
+     "b": 259,
+     "c": 0,
+     "p": 2.1590421387736112e-78
+    },
+    "neutral4_shown_vs_dose4_shown": {
+     "n": 336,
+     "k_a": 0,
+     "k_b": 310,
+     "b": 310,
+     "c": 0,
+     "p": 9.588073174409622e-94
+    },
+    "dose1_shown_vs_dose4_shown": {
+     "n": 336,
+     "k_a": 259,
+     "k_b": 310,
+     "b": 64,
+     "c": 13,
+     "p": 3.0236347515742237e-09
+    },
+    "dose1_vs_dose1_shown": {
+     "n": 336,
+     "k_a": 60,
+     "k_b": 259,
+     "b": 203,
+     "c": 4,
+     "p": 7.368647984627335e-55
+    },
+    "dose4_vs_dose4_shown": {
+     "n": 336,
+     "k_a": 93,
+     "k_b": 310,
+     "b": 219,
+     "c": 2,
+     "p": 1.4559079246186211e-62
+    },
+    "dose1_shown_vs_dose2_shown": {
+     "n": 336,
+     "k_a": 259,
+     "k_b": 306,
+     "b": 64,
+     "c": 17,
+     "p": 1.4266367729635828e-07
+    },
+    "dose2_shown_vs_dose4_shown": {
+     "n": 336,
+     "k_a": 306,
+     "k_b": 310,
+     "b": 21,
+     "c": 17,
+     "p": 0.6271025701571489
+    },
+    "dose4_shown_mixed_vs_dose4_shown": {
+     "n": 336,
+     "k_a": 293,
+     "k_b": 310,
+     "b": 34,
+     "c": 17,
+     "p": 0.024092907698449295
+    },
+    "dose1_shown_vs_dose4_shown_mixed": {
+     "n": 336,
+     "k_a": 259,
+     "k_b": 293,
+     "b": 57,
+     "c": 23,
+     "p": 0.00018311656412975104
+    },
+    "neutral4_shown_vs_dose4_shown_mixed": {
+     "n": 336,
+     "k_a": 0,
+     "k_b": 293,
+     "b": 293,
+     "c": 0,
+     "p": 1.256727927116218e-88
+    }
+   },
+   "suffix_slot_self_id": {
+    "isolated_vs_dose1": {
+     "n": 336,
      "k_a": 0,
      "k_b": 58,
      "b": 58,
      "c": 0,
      "p": 6.938893903907228e-18
     },
-    "neutral4_vs_dose4_functional_only": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 0,
-     "b": 0,
-     "c": 0,
-     "p": 1.0
-    },
-    "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
-     "k_a": 58,
-     "k_b": 59,
-     "b": 4,
-     "c": 3,
-     "p": 1.0
-    },
-    "dose4_functional_only_vs_dose4": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 59,
-     "b": 59,
-     "c": 0,
-     "p": 3.469446951953614e-18
-    },
-    "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 142,
-     "b": 142,
-     "c": 0,
-     "p": 3.587324068671532e-43
-    },
-    "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 177,
-     "b": 177,
-     "c": 0,
-     "p": 1.044048714879764e-53
-    },
-    "dose1_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 142,
-     "k_b": 177,
-     "b": 44,
-     "c": 9,
-     "p": 1.220851017613711e-06
-    },
-    "dose1_vs_dose1_shown": {
-     "n": 192,
-     "k_a": 33,
-     "k_b": 142,
-     "b": 112,
-     "c": 3,
-     "p": 1.2209240289448443e-29
-    },
-    "dose4_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 59,
-     "k_b": 177,
-     "b": 120,
-     "c": 2,
-     "p": 2.8226910747425425e-33
-    },
-    "dose1_shown_vs_dose2_shown": {
-     "n": 192,
-     "k_a": 142,
-     "k_b": 172,
-     "b": 41,
-     "c": 11,
-     "p": 3.5887916129517805e-05
-    },
-    "dose2_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 172,
-     "k_b": 177,
-     "b": 15,
-     "c": 10,
-     "p": 0.42435622215270996
-    },
-    "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 166,
-     "k_b": 177,
-     "b": 21,
-     "c": 10,
-     "p": 0.07075554598122835
-    },
-    "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
-     "k_a": 142,
-     "k_b": 166,
-     "b": 39,
-     "c": 15,
-     "p": 0.0014962588853935088
-    },
-    "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 166,
-     "b": 166,
-     "c": 0,
-     "p": 2.1382117680737565e-50
-    }
-   },
-   "suffix_slot_self_id": {
-    "isolated_vs_dose1": {
-     "n": 192,
-     "k_a": 0,
-     "k_b": 31,
-     "b": 31,
-     "c": 0,
-     "p": 9.313225746154785e-10
-    },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 44,
-     "b": 44,
+     "k_b": 69,
+     "b": 69,
      "c": 0,
-     "p": 1.1368683772161603e-13
+     "p": 3.3881317890172014e-21
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 41,
-     "b": 41,
+     "k_b": 63,
+     "b": 63,
      "c": 0,
-     "p": 9.094947017729282e-13
+     "p": 2.168404344971009e-19
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 41,
-     "b": 41,
+     "k_b": 63,
+     "b": 63,
      "c": 0,
-     "p": 9.094947017729282e-13
+     "p": 2.168404344971009e-19
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 28,
-     "b": 28,
+     "k_b": 46,
+     "b": 46,
      "c": 0,
-     "p": 7.450580596923828e-09
+     "p": 2.842170943040401e-14
     },
     "neutral4_vs_dose4_functional_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -8219,113 +13793,113 @@
      "p": 1.0
     },
     "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
-     "k_a": 28,
-     "k_b": 41,
-     "b": 15,
-     "c": 2,
-     "p": 0.002349853515625
+     "n": 336,
+     "k_a": 46,
+     "k_b": 63,
+     "b": 27,
+     "c": 10,
+     "p": 0.007632078602910042
     },
     "dose4_functional_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 41,
-     "b": 41,
+     "k_b": 63,
+     "b": 63,
      "c": 0,
-     "p": 9.094947017729282e-13
+     "p": 2.168404344971009e-19
     },
     "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 141,
-     "b": 141,
+     "k_b": 256,
+     "b": 256,
      "c": 0,
-     "p": 7.174648137343064e-43
+     "p": 1.727233711018889e-77
     },
     "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 94,
-     "b": 94,
+     "k_b": 161,
+     "b": 161,
      "c": 0,
-     "p": 1.0097419586828951e-28
+     "p": 6.842277657836021e-49
     },
     "dose1_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 141,
-     "k_b": 94,
-     "b": 18,
-     "c": 65,
-     "p": 2.1054542433593654e-07
+     "n": 336,
+     "k_a": 256,
+     "k_b": 161,
+     "b": 27,
+     "c": 122,
+     "p": 1.2676260076014905e-15
     },
     "dose1_vs_dose1_shown": {
-     "n": 192,
-     "k_a": 31,
-     "k_b": 141,
-     "b": 113,
-     "c": 3,
-     "p": 6.265218627961812e-30
+     "n": 336,
+     "k_a": 58,
+     "k_b": 256,
+     "b": 202,
+     "c": 4,
+     "p": 1.445392669025426e-54
     },
     "dose4_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 41,
-     "k_b": 94,
-     "b": 62,
-     "c": 9,
-     "p": 7.335319390745429e-11
+     "n": 336,
+     "k_a": 63,
+     "k_b": 161,
+     "b": 118,
+     "c": 20,
+     "p": 4.17815278593849e-18
     },
     "dose1_shown_vs_dose2_shown": {
-     "n": 192,
-     "k_a": 141,
-     "k_b": 118,
-     "b": 24,
-     "c": 47,
-     "p": 0.008554538502693427
+     "n": 336,
+     "k_a": 256,
+     "k_b": 207,
+     "b": 39,
+     "c": 88,
+     "p": 1.6333804091764826e-05
     },
     "dose2_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 118,
-     "k_b": 94,
-     "b": 9,
-     "c": 33,
-     "p": 0.00027153923429068527
+     "n": 336,
+     "k_a": 207,
+     "k_b": 161,
+     "b": 22,
+     "c": 68,
+     "p": 1.2492581287631034e-06
     },
     "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 162,
-     "k_b": 94,
-     "b": 4,
-     "c": 72,
-     "p": 3.589836803538052e-17
+     "n": 336,
+     "k_a": 288,
+     "k_b": 161,
+     "b": 11,
+     "c": 138,
+     "p": 4.195061141680324e-29
     },
     "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
-     "k_a": 141,
-     "k_b": 162,
-     "b": 40,
-     "c": 19,
-     "p": 0.008641499683281734
+     "n": 336,
+     "k_a": 256,
+     "k_b": 288,
+     "b": 59,
+     "c": 27,
+     "p": 0.0007317100653124087
     },
     "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 162,
-     "b": 162,
+     "k_b": 288,
+     "b": 288,
      "c": 0,
-     "p": 3.4211388289180104e-49
+     "p": 4.021529366771898e-87
     }
    },
    "index_like": {
     "isolated_vs_dose1": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 31,
-     "b": 31,
+     "k_b": 32,
+     "b": 32,
      "c": 0,
-     "p": 9.313225746154785e-10
+     "p": 4.656612873077393e-10
     },
     "isolated_vs_dose2": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 21,
      "b": 21,
@@ -8333,7 +13907,7 @@
      "p": 9.5367431640625e-07
     },
     "isolated_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 16,
      "b": 16,
@@ -8341,7 +13915,7 @@
      "p": 3.0517578125e-05
     },
     "neutral4_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 16,
      "b": 16,
@@ -8349,7 +13923,7 @@
      "p": 3.0517578125e-05
     },
     "neutral4_vs_dose4_arbitrary_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 0,
      "b": 0,
@@ -8357,7 +13931,7 @@
      "p": 1.0
     },
     "neutral4_vs_dose4_functional_only": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 28,
      "b": 28,
@@ -8365,7 +13939,7 @@
      "p": 7.450580596923828e-09
     },
     "dose4_arbitrary_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
      "k_b": 16,
      "b": 16,
@@ -8373,7 +13947,7 @@
      "p": 3.0517578125e-05
     },
     "dose4_functional_only_vs_dose4": {
-     "n": 192,
+     "n": 336,
      "k_a": 28,
      "k_b": 16,
      "b": 4,
@@ -8381,99 +13955,99 @@
      "p": 0.01181793212890625
     },
     "neutral4_shown_vs_dose1_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 38,
-     "b": 38,
+     "k_b": 57,
+     "b": 57,
      "c": 0,
-     "p": 7.275957614183426e-12
+     "p": 1.3877787807814457e-17
     },
     "neutral4_shown_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 30,
-     "b": 30,
+     "k_b": 46,
+     "b": 46,
      "c": 0,
-     "p": 1.862645149230957e-09
+     "p": 2.842170943040401e-14
     },
     "dose1_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 38,
-     "k_b": 30,
-     "b": 7,
-     "c": 15,
-     "p": 0.13380050659179688
+     "n": 336,
+     "k_a": 57,
+     "k_b": 46,
+     "b": 20,
+     "c": 31,
+     "p": 0.16077960181198847
     },
     "dose1_vs_dose1_shown": {
-     "n": 192,
-     "k_a": 31,
-     "k_b": 38,
-     "b": 16,
-     "c": 9,
-     "p": 0.2295229434967041
+     "n": 336,
+     "k_a": 32,
+     "k_b": 57,
+     "b": 35,
+     "c": 10,
+     "p": 0.00024708778460080794
     },
     "dose4_vs_dose4_shown": {
-     "n": 192,
+     "n": 336,
      "k_a": 16,
-     "k_b": 30,
-     "b": 19,
+     "k_b": 46,
+     "b": 35,
      "c": 5,
-     "p": 0.006610751152038574
+     "p": 1.382612026645802e-06
     },
     "dose1_shown_vs_dose2_shown": {
-     "n": 192,
-     "k_a": 38,
-     "k_b": 29,
-     "b": 8,
-     "c": 17,
-     "p": 0.10775214433670044
+     "n": 336,
+     "k_a": 57,
+     "k_b": 41,
+     "b": 15,
+     "c": 31,
+     "p": 0.02589608179323477
     },
     "dose2_shown_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 29,
-     "k_b": 30,
-     "b": 10,
-     "c": 9,
-     "p": 1.0
+     "n": 336,
+     "k_a": 41,
+     "k_b": 46,
+     "b": 23,
+     "c": 18,
+     "p": 0.5327092552361137
     },
     "dose4_shown_mixed_vs_dose4_shown": {
-     "n": 192,
-     "k_a": 30,
-     "k_b": 30,
-     "b": 7,
-     "c": 7,
-     "p": 1.0
+     "n": 336,
+     "k_a": 44,
+     "k_b": 46,
+     "b": 18,
+     "c": 16,
+     "p": 0.8641662404406816
     },
     "dose1_shown_vs_dose4_shown_mixed": {
-     "n": 192,
-     "k_a": 38,
-     "k_b": 30,
-     "b": 7,
-     "c": 15,
-     "p": 0.13380050659179688
+     "n": 336,
+     "k_a": 57,
+     "k_b": 44,
+     "b": 18,
+     "c": 31,
+     "p": 0.08543313315739454
     },
     "neutral4_shown_vs_dose4_shown_mixed": {
-     "n": 192,
+     "n": 336,
      "k_a": 0,
-     "k_b": 30,
-     "b": 30,
+     "k_b": 44,
+     "b": 44,
      "c": 0,
-     "p": 1.862645149230957e-09
+     "p": 1.1368683772161603e-13
     }
    }
   },
   "dose_response": {
    "adopt_suffix": {
     "r1": 0.0,
-    "r2": 0.057291666666666664,
-    "r4": 0.09375,
+    "r2": 0.044642857142857144,
+    "r4": 0.08928571428571429,
     "logit": [
-     1.2408816430343317,
-     0.31611117946355766,
-     8.65643223298759e-05
+     1.3589024391768765,
+     0.26628751227362024,
+     3.3406378586291464e-07
     ],
-    "trend_z": 4.200845548481436,
-    "trend_p": 2.659199638577192e-05,
+    "trend_z": 5.603737070819659,
+    "trend_p": 2.0977885650808048e-08,
     "acceleration": null
    },
    "adopt_tag": {
@@ -8486,42 +14060,42 @@
     "acceleration": null
    },
    "adopt_suffix_slot": {
-    "r1": 0.171875,
-    "r2": 0.296875,
-    "r4": 0.3072916666666667,
+    "r1": 0.17857142857142858,
+    "r2": 0.25595238095238093,
+    "r4": 0.2767857142857143,
     "logit": [
-     0.6211524383373741,
-     0.16127821765980282,
-     0.0001174280980959713
+     0.44555317704318953,
+     0.11866657763004933,
+     0.00017357387305668118
     ],
-    "trend_z": 3.0298640872933444,
-    "trend_p": 0.002446638121345046,
+    "trend_z": 2.9931447157880076,
+    "trend_p": 0.0027611878693918346,
     "acceleration": null
    },
    "index_like": {
-    "r1": 0.16145833333333334,
-    "r2": 0.109375,
-    "r4": 0.08333333333333333,
+    "r1": 0.09523809523809523,
+    "r2": 0.0625,
+    "r4": 0.047619047619047616,
     "logit": [
-     -0.6017430254026163,
-     0.20679522228818964,
-     0.003616025488733438
+     -0.6279008777484445,
+     0.20523968010194446,
+     0.0022181472528135216
     ],
-    "trend_z": -2.3722574423653513,
-    "trend_p": 0.017679767224701326,
+    "trend_z": -2.444210113350592,
+    "trend_p": 0.014516969229650734,
     "acceleration": null
    },
    "adopt_index": {
-    "r1": 0.16145833333333334,
-    "r2": 0.10416666666666667,
-    "r4": 0.08333333333333333,
+    "r1": 0.09523809523809523,
+    "r2": 0.05952380952380952,
+    "r4": 0.047619047619047616,
     "logit": [
-     -0.6035318412818876,
-     0.20715793179691025,
-     0.003575278047962652
+     -0.6297387993334312,
+     0.20559964835243222,
+     0.0021917609330522306
     ],
-    "trend_z": -2.3875464950115046,
-    "trend_p": 0.016961257155376108,
+    "trend_z": -2.4608066689253096,
+    "trend_p": 0.013862504330967251,
     "acceleration": null
    }
   }

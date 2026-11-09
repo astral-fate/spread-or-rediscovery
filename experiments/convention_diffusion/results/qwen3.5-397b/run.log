@@ -1,0 +1,32 @@
+2026-11-08 23:38:13 start adaption:qwen3.5-397b: 0 done, 288 to run (6 conditions)
+2026-11-08 23:47:20 progress: 20 ok, 0 failed of 288
+2026-11-08 23:55:52 progress: 40 ok, 0 failed of 288
+2026-11-09 00:04:32 progress: 60 ok, 0 failed of 288
+2026-11-09 00:12:57 progress: 80 ok, 0 failed of 288
+2026-11-09 00:20:33 progress: 100 ok, 0 failed of 288
+2026-11-09 00:29:20 progress: 120 ok, 0 failed of 288
+2026-11-09 00:38:24 progress: 140 ok, 0 failed of 288
+2026-11-09 00:46:40 progress: 160 ok, 0 failed of 288
+2026-11-09 00:54:57 progress: 180 ok, 0 failed of 288
+2026-11-09 01:03:37 progress: 200 ok, 0 failed of 288
+2026-11-09 01:12:16 progress: 220 ok, 0 failed of 288
+2026-11-09 01:21:06 progress: 240 ok, 0 failed of 288
+2026-11-09 01:29:12 progress: 260 ok, 0 failed of 288
+2026-11-09 01:37:44 progress: 280 ok, 0 failed of 288
+2026-11-09 01:40:48 end: 288 ok, 0 failed this run
+2026-11-09 01:40:48 start adaption:qwen3.5-397b: 288 done, 288 to run (6 conditions)
+2026-11-09 01:51:24 progress: 20 ok, 0 failed of 288
+2026-11-09 02:01:32 progress: 40 ok, 0 failed of 288
+2026-11-09 02:11:39 progress: 60 ok, 0 failed of 288
+2026-11-09 02:21:24 progress: 80 ok, 0 failed of 288
+2026-11-09 02:29:51 progress: 100 ok, 0 failed of 288
+2026-11-09 02:40:21 progress: 120 ok, 0 failed of 288
+2026-11-09 02:51:56 progress: 140 ok, 0 failed of 288
+2026-11-09 03:01:23 progress: 160 ok, 0 failed of 288
+2026-11-09 03:11:08 progress: 180 ok, 0 failed of 288
+2026-11-09 03:20:52 progress: 200 ok, 0 failed of 288
+2026-11-09 03:30:28 progress: 220 ok, 0 failed of 288
+2026-11-09 03:40:28 progress: 240 ok, 0 failed of 288
+2026-11-09 03:50:13 progress: 260 ok, 0 failed of 288
+2026-11-09 03:59:48 progress: 280 ok, 0 failed of 288
+2026-11-09 04:03:00 end: 288 ok, 0 failed this run

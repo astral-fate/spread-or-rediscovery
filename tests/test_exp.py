@@ -155,3 +155,17 @@ def test_existing_scenarios_pinned():
     # guard: adding the mixed stream must not change the shared code/tag/question used by the completed runs
     s = make_scenario(0)
     assert s.extra["mixed_suffixes"] and s.suffix == "V7P" and s.tag == "~yt8~" and s.item.qid == "Q-4105"
+
+
+def test_adaption_routing(monkeypatch):
+    import sys, types
+    from sord_exp import llm as L
+    fake = types.ModuleType("adaption")
+    class Adaption:  # stand-in client: no network
+        def __init__(self, **kw):
+            pass
+    fake.Adaption = Adaption
+    monkeypatch.setitem(sys.modules, "adaption", fake)
+    monkeypatch.setenv("ADAPTION_API_KEY", "test")
+    b = L.make_backend("openai", "adaption:glm-5.2")
+    assert isinstance(b, L.AdaptionChat) and b.model == "glm-5.2"

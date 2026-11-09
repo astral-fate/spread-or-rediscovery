@@ -1,0 +1,32 @@
+2026-11-08 23:38:10 start adaption:deepseek-v4-flash: 0 done, 288 to run (6 conditions)
+2026-11-08 23:48:05 progress: 20 ok, 0 failed of 288
+2026-11-08 23:58:36 progress: 40 ok, 0 failed of 288
+2026-11-09 00:07:40 progress: 60 ok, 0 failed of 288
+2026-11-09 00:16:37 progress: 80 ok, 0 failed of 288
+2026-11-09 00:26:04 progress: 100 ok, 0 failed of 288
+2026-11-09 00:34:14 progress: 120 ok, 0 failed of 288
+2026-11-09 00:44:20 progress: 140 ok, 0 failed of 288
+2026-11-09 00:52:12 progress: 160 ok, 0 failed of 288
+2026-11-09 01:00:13 progress: 180 ok, 0 failed of 288
+2026-11-09 01:08:52 progress: 200 ok, 0 failed of 288
+2026-11-09 01:18:11 progress: 220 ok, 0 failed of 288
+2026-11-09 01:26:44 progress: 240 ok, 0 failed of 288
+2026-11-09 01:35:16 progress: 260 ok, 0 failed of 288
+2026-11-09 01:43:31 progress: 280 ok, 0 failed of 288
+2026-11-09 01:47:00 end: 288 ok, 0 failed this run
+2026-11-09 01:47:00 start adaption:deepseek-v4-flash: 288 done, 288 to run (6 conditions)
+2026-11-09 01:55:03 progress: 20 ok, 0 failed of 288
+2026-11-09 02:03:19 progress: 40 ok, 0 failed of 288
+2026-11-09 02:12:07 progress: 60 ok, 0 failed of 288
+2026-11-09 02:20:19 progress: 80 ok, 0 failed of 288
+2026-11-09 02:28:23 progress: 100 ok, 0 failed of 288
+2026-11-09 02:35:59 progress: 120 ok, 0 failed of 288
+2026-11-09 02:43:59 progress: 140 ok, 0 failed of 288
+2026-11-09 02:52:16 progress: 160 ok, 0 failed of 288
+2026-11-09 03:00:23 progress: 180 ok, 0 failed of 288
+2026-11-09 03:07:35 progress: 200 ok, 0 failed of 288
+2026-11-09 03:15:52 progress: 220 ok, 0 failed of 288
+2026-11-09 03:23:43 progress: 240 ok, 0 failed of 288
+2026-11-09 03:31:38 progress: 260 ok, 0 failed of 288
+2026-11-09 03:39:43 progress: 280 ok, 0 failed of 288
+2026-11-09 03:42:38 end: 288 ok, 0 failed this run
